@@ -10,136 +10,185 @@
 
   <header class="site-header">
     <div class="header-inner">
-      <a href="index.html" class="site-name">🏠 家電製品アドバイザー 学習サイト</a>
+      <div class="site-title">🏠 家電製品アドバイザー 学習サイト</div>
+      <nav class="breadcrumb">
+        <span class="current">トップ</span>
+      </nav>
     </div>
   </header>
 
-  <section class="hero hero-top">
-    <div class="hero-inner">
-      <span class="hero-icon">📚</span>
-      <h1>家電製品アドバイザー 学習サイト</h1>
-      <p>資格取得に向けた体系的な学習コンテンツ。電気の基礎から法規・販売技術まで網羅。</p>
-      <span class="badge">AV情報家電コース</span>
-      <span class="badge">生活家電コース</span>
+  <section class="top-hero">
+    <h1>家電製品アドバイザー<br>学習サイト</h1>
+    <p class="top-sub">資格取得に向けた体系的な学習コンテンツ。電気の基礎から法規・販売技術まで、試験に必要な知識を網羅。</p>
+    <div class="badge-row">
+      <span class="badge badge-blue">AV情報家電コース対応</span>
+      <span class="badge badge-blue">生活家電コース対応</span>
+      <span class="badge badge-accent">試験対策コンテンツ充実</span>
     </div>
   </section>
 
-  <main class="section-main">
+  <main class="main-container">
 
-    <!-- カテゴリカード -->
-    <h2 class="section-title">📖 学習カテゴリ</h2>
+    <div class="section-header">
+      <h2 class="section-title">学習カテゴリ</h2>
+      <p class="section-desc">6つのカテゴリから学習を始めましょう。各カテゴリには詳細な解説ページが含まれています。</p>
+    </div>
+
     <div class="card-grid">
+
       <a href="basics/" class="card">
         <span class="card-icon">🔌</span>
-        <span class="card-title">電気の基礎</span>
-        <p class="card-desc">電圧・電流・抵抗、オームの法則、交流と直流、安全規格、省エネ基礎など、家電を理解するための電気知識を学びます。</p>
-        <div class="card-meta">
-          <span class="badge badge-blue">3トピック</span>
-        </div>
+        <h3>電気の基礎</h3>
+        <p>電気の基本概念・オームの法則・省エネの基礎知識を学習します。</p>
+        <ul class="card-topics">
+          <li>電気の基本（電圧・電流・抵抗）</li>
+          <li>安全規格（PSEマーク・IP規格）</li>
+          <li>省エネ基礎（トップランナー制度）</li>
+        </ul>
         <span class="card-arrow">→</span>
       </a>
 
       <a href="av-info/" class="card">
         <span class="card-icon">📺</span>
-        <span class="card-title">AV・情報家電</span>
-        <p class="card-desc">テレビ・オーディオ・カメラ・パソコン・スマートフォンなどの映像・音響・情報機器の技術知識を学びます。</p>
-        <div class="card-meta">
-          <span class="badge badge-blue">4トピック</span>
-          <span class="badge badge-orange">AV情報家電コース</span>
-        </div>
+        <h3>AV・情報家電</h3>
+        <p>テレビ・オーディオ・カメラ・パソコン等の技術知識を学習します。</p>
+        <ul class="card-topics">
+          <li>テレビ（表示方式・解像度・放送）</li>
+          <li>オーディオ（スピーカー・アンプ）</li>
+          <li>カメラ・PC・モバイル機器</li>
+        </ul>
         <span class="card-arrow">→</span>
       </a>
 
       <a href="home-appliances/" class="card">
         <span class="card-icon">🏠</span>
-        <span class="card-title">生活家電</span>
-        <p class="card-desc">エアコン・冷蔵庫・洗濯機・調理家電・照明など、日常生活で使われる家電製品の仕組みと省エネ性能を学びます。</p>
-        <div class="card-meta">
-          <span class="badge badge-blue">5トピック</span>
-          <span class="badge badge-green">生活家電コース</span>
-        </div>
+        <h3>生活家電</h3>
+        <p>エアコン・冷蔵庫・洗濯機・調理家電・照明の仕組みと省エネを学習します。</p>
+        <ul class="card-topics">
+          <li>エアコン（冷凍サイクル・APF）</li>
+          <li>冷蔵庫・洗濯機・調理家電</li>
+          <li>照明（LED・省エネ計算）</li>
+        </ul>
         <span class="card-arrow">→</span>
       </a>
 
       <a href="laws/" class="card">
         <span class="card-icon">📋</span>
-        <span class="card-title">法規・制度</span>
-        <p class="card-desc">電気用品安全法（PSE）・省エネ法・家電リサイクル法・PL法など、家電販売に必要な法律・制度知識を学びます。</p>
-        <div class="card-meta">
-          <span class="badge badge-blue">4トピック</span>
-        </div>
+        <h3>法規・制度</h3>
+        <p>電気用品安全法・省エネ法・リサイクル法・PL法等の法律知識を学習します。</p>
+        <ul class="card-topics">
+          <li>電気用品安全法（PSE法）</li>
+          <li>省エネ法・家電リサイクル法</li>
+          <li>PL法・消費者関連法</li>
+        </ul>
         <span class="card-arrow">→</span>
       </a>
 
       <a href="sales/" class="card">
         <span class="card-icon">🤝</span>
-        <span class="card-title">販売・接客</span>
-        <p class="card-desc">接客の基本・顧客ニーズの把握・商品提案・クレーム対応・販売技術など、プロの販売員に必要なスキルを学びます。</p>
-        <div class="card-meta">
-          <span class="badge badge-blue">2トピック</span>
-        </div>
+        <h3>販売・接客</h3>
+        <p>接客の基本・顧客ニーズの把握・販売技術・クレーム対応を学習します。</p>
+        <ul class="card-topics">
+          <li>接客マナー・言葉遣い・敬語</li>
+          <li>商品提案・AIDMA の法則</li>
+          <li>アフターサービス・販売管理</li>
+        </ul>
         <span class="card-arrow">→</span>
       </a>
 
       <a href="environment/" class="card">
         <span class="card-icon">♻️</span>
-        <span class="card-title">環境・エコ</span>
-        <p class="card-desc">省エネ・地球温暖化・グリーン購入法・フロン規制・リサイクルシステムなど、環境と家電の関係を学びます。</p>
-        <div class="card-meta">
-          <span class="badge badge-blue">2トピック</span>
-        </div>
+        <h3>環境・エコ</h3>
+        <p>省エネ計算・グリーン購入・フロン規制・リサイクルシステムを学習します。</p>
+        <ul class="card-topics">
+          <li>地球温暖化と家電の関係</li>
+          <li>フロン排出抑制法・RoHS指令</li>
+          <li>家電・小型家電リサイクル法</li>
+        </ul>
         <span class="card-arrow">→</span>
       </a>
+
     </div>
 
     <!-- 試験概要 -->
-    <h2 class="section-title">📝 試験概要</h2>
-    <div class="info-grid">
-      <div class="info-card">
-        <h3>📺 AV情報家電コース</h3>
-        <ul>
-          <li><span class="label">対象製品</span><span class="value">テレビ・オーディオ・PC・カメラ等</span></li>
-          <li><span class="label">試験形式</span><span class="value">マークシート（選択式）</span></li>
-          <li><span class="label">試験時間</span><span class="value">80分</span></li>
-          <li><span class="label">問題数</span><span class="value">60問</span></li>
-          <li><span class="label">合格基準</span><span class="value">70%以上（42問以上正解）</span></li>
-          <li><span class="label">受験資格</span><span class="value">なし（誰でも受験可）</span></li>
-        </ul>
-      </div>
-      <div class="info-card">
-        <h3>🏠 生活家電コース</h3>
-        <ul>
-          <li><span class="label">対象製品</span><span class="value">エアコン・冷蔵庫・洗濯機・調理家電等</span></li>
-          <li><span class="label">試験形式</span><span class="value">マークシート（選択式）</span></li>
-          <li><span class="label">試験時間</span><span class="value">80分</span></li>
-          <li><span class="label">問題数</span><span class="value">60問</span></li>
-          <li><span class="label">合格基準</span><span class="value">70%以上（42問以上正解）</span></li>
-          <li><span class="label">受験資格</span><span class="value">なし（誰でも受験可）</span></li>
-        </ul>
+    <div class="info-box">
+      <h2>📜 試験概要</h2>
+      <p style="color:var(--text-muted);font-size:0.95rem;margin-bottom:18px;">家電製品アドバイザー資格は、一般財団法人家電製品協会が実施する検定試験です。<strong>AV情報家電コース</strong>と<strong>生活家電コース</strong>の2種類があります。</p>
+      <div class="info-box-grid">
+        <div class="info-box-item">
+          <h3>📺 AV情報家電コース</h3>
+          <ul>
+            <li>テレビ・オーディオ・カメラ・PC等</li>
+            <li>AV機器・情報家電の専門知識</li>
+            <li>商品知識試験＋CS試験</li>
+            <li>合格ライン：各科目60点以上（100点満点）</li>
+          </ul>
+        </div>
+        <div class="info-box-item">
+          <h3>🏠 生活家電コース</h3>
+          <ul>
+            <li>エアコン・冷蔵庫・洗濯機・調理家電等</li>
+            <li>生活家電の専門知識</li>
+            <li>商品知識試験＋CS試験</li>
+            <li>合格ライン：各科目60点以上（100点満点）</li>
+          </ul>
+        </div>
+        <div class="info-box-item">
+          <h3>📝 試験内容（共通）</h3>
+          <ul>
+            <li>電気・電子の基礎知識</li>
+            <li>各製品の仕組みと機能</li>
+            <li>関連法規・省エネ制度</li>
+            <li>接客・販売技術（CS試験）</li>
+          </ul>
+        </div>
+        <div class="info-box-item">
+          <h3>📅 試験実施</h3>
+          <ul>
+            <li>年2回（春・秋）実施</li>
+            <li>CBT方式（コンピューター試験）</li>
+            <li>受験資格：制限なし</li>
+            <li>有効期限：5年（更新制）</li>
+          </ul>
+        </div>
       </div>
     </div>
 
     <!-- 学習のポイント -->
-    <h2 class="section-title">💡 学習のポイント</h2>
-    <div class="content-section">
-      <h3>効率的な学習方法</h3>
-      <ul>
-        <li>まず「電気の基礎」で電圧・電流・抵抗の基本をしっかり押さえましょう。計算問題も出題されます。</li>
-        <li>各カテゴリの法規・規格（PSEマーク・IPコード・APFなど）の定義と対象品目を正確に覚えることが重要です。</li>
-        <li>各ページの <span class="key-term">試験に出るポイント</span> ボックスを重点的に学習してください。</li>
-        <li>数値・公式は表形式でまとめられているので、繰り返し確認しましょう。</li>
-        <li>法規・制度（PSE法・省エネ法・家電リサイクル法・PL法）は毎回出題される頻出分野です。</li>
-      </ul>
-      <div class="exam-tip">
-        <div class="exam-tip-label">⭐ 試験に出るポイント</div>
-        <p>両コースとも「法規・制度」と「環境・エコ」は共通出題範囲です。AV情報家電コースはAV機器の技術知識、生活家電コースは冷凍サイクル・省エネ性能が重点的に問われます。</p>
+    <div style="margin-top:40px;">
+      <div class="section-header">
+        <h2 class="section-title">学習のポイント</h2>
+        <p class="section-desc">効率よく合格するための学習アドバイス</p>
+      </div>
+      <div class="tips-grid">
+        <div class="tip-item">
+          <span class="tip-icon">🎯</span>
+          <div>
+            <h3>試験に出るポイントを押さえる</h3>
+            <p>各ページの「試験に出るポイント」ボックスに頻出事項をまとめています。数値・法律名・仕組みを確実に覚えましょう。</p>
+          </div>
+        </div>
+        <div class="tip-item">
+          <span class="tip-icon">📊</span>
+          <div>
+            <h3>数値・規格を正確に暗記</h3>
+            <p>PSEマークの品目数、APFの定義、IP規格の意味など、具体的な数値や規格名が出題されます。表で整理して覚えましょう。</p>
+          </div>
+        </div>
+        <div class="tip-item">
+          <span class="tip-icon">🔗</span>
+          <div>
+            <h3>法規と製品知識を関連付ける</h3>
+            <p>電気用品安全法・省エネ法・リサイクル法は実際の製品と結びつけて理解することで記憶に定着しやすくなります。</p>
+          </div>
+        </div>
       </div>
     </div>
 
   </main>
 
   <footer class="site-footer">
-    <p>家電製品アドバイザー 学習サイト &copy; 2026 | <a href="../index.html">トップページへ戻る</a></p>
+    <p>&copy; 2026 家電製品アドバイザー学習サイト | <a href="../index.html">サイトトップへ</a></p>
   </footer>
 
 </body>

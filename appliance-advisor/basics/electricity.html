@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>電気の基礎 | 家電製品アドバイザー学習サイト</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="site-title">🏠 家電製品アドバイザー 学習サイト</div>
+      <nav class="breadcrumb">
+        <a href="../index.html">トップ</a>
+        <span class="sep">›</span>
+        <a href="index.html">電気の基礎</a>
+        <span class="sep">›</span>
+        <span class="current">電気の基礎</span>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <span class="hero-icon">⚡</span>
+    <h1>電気の基礎</h1>
+    <p class="hero-sub">電圧・電流・抵抗の関係、オームの法則、電力計算、交流と直流など、家電製品を理解するための電気の基本を学びます。</p>
+    <div class="badge-row">
+      <span class="badge badge-blue">両コース共通</span>
+      <span class="badge badge-accent">重要度：最高</span>
+    </div>
+  </section>
+
+  <div class="content-layout">
+
+    <!-- 目次 -->
+    <aside class="toc">
+      <h2>目次</h2>
+      <ol>
+        <li><a href="#concept">電気の基本概念</a></li>
+        <li><a href="#power">電力と電力量</a></li>
+        <li><a href="#ac-dc">交流と直流</a></li>
+        <li><a href="#circuit">電気回路</a></li>
+        <li><a href="#energy">エネルギー変換</a></li>
+        <li><a href="#formulas">重要公式まとめ</a></li>
+      </ol>
+    </aside>
+
+    <!-- 本文 -->
+    <main class="content-body">
+
+      <section class="content-section" id="concept">
+        <h2>1. 電気の基本概念</h2>
+
+        <h3>電圧（V）・電流（A）・抵抗（Ω）の定義</h3>
+        <p><span class="key-term">電圧（Voltage）</span>は電気を押し出す力の大きさで、単位はボルト（<strong>V</strong>）です。水路に例えると「水位差（水圧）」に相当します。</p>
+        <p><span class="key-term">電流（Current）</span>は電気が流れる量で、単位はアンペア（<strong>A</strong>）です。「水の流量」に相当します。</p>
+        <p><span class="key-term">抵抗（Resistance）</span>は電気の流れにくさを示し、単位はオーム（<strong>Ω</strong>）です。「水路の細さ（流れの妨げ）」に相当します。</p>
+
+        <h3>オームの法則</h3>
+        <p>電圧・電流・抵抗の関係を示す基本法則が<span class="key-term">オームの法則</span>です。</p>
+        <div class="point-box">
+          <strong>オームの法則の3つの式</strong>
+          電圧 E（V）= 電流 I（A）× 抵抗 R（Ω）<br>
+          電流 I（A）= 電圧 E（V）÷ 抵抗 R（Ω）<br>
+          抵抗 R（Ω）= 電圧 E（V）÷ 電流 I（A）
+        </div>
+
+        <h3>計算例</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>問題</th><th>計算式</th><th>答え</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>100V、10Ωの抵抗に流れる電流は？</td>
+                <td>I = E ÷ R = 100 ÷ 10</td>
+                <td><strong>10A</strong></td>
+              </tr>
+              <tr>
+                <td>5Aの電流が流れる20Ωの抵抗の両端電圧は？</td>
+                <td>E = I × R = 5 × 20</td>
+                <td><strong>100V</strong></td>
+              </tr>
+              <tr>
+                <td>200Vで4Aの電流が流れるときの抵抗は？</td>
+                <td>R = E ÷ I = 200 ÷ 4</td>
+                <td><strong>50Ω</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="exam-tip">
+          <p>オームの法則の3式は必ず暗記。計算問題が必出。「E = IR」の一式を覚えれば、残り2式はE÷RとE÷Iで導ける。</p>
+        </div>
+      </section>
+
+      <section class="content-section" id="power">
+        <h2>2. 電力と電力量</h2>
+
+        <h3>電力（W：ワット）</h3>
+        <p><span class="key-term">電力</span>とは、単位時間あたりに消費されるエネルギーのことで、単位はワット（<strong>W</strong>）です。</p>
+        <div class="point-box">
+          <strong>電力の計算式</strong>
+          電力 P（W）= 電圧 V（V）× 電流 I（A）<br>
+          また、オームの法則を組み合わせると：<br>
+          P = V²÷R　または　P = I²×R
+        </div>
+
+        <h3>電力量（Wh：ワット時）</h3>
+        <p><span class="key-term">電力量</span>とは、電力を時間積分したもので、実際に消費したエネルギーの総量を示します。単位はワット時（<strong>Wh</strong>）または、1000倍のキロワット時（<strong>kWh</strong>）が使われます。</p>
+        <div class="point-box">
+          <strong>電力量の計算式</strong>
+          電力量 W（Wh）= 電力 P（W）× 時間 t（h）<br>
+          1 kWh = 1,000 Wh
+        </div>
+
+        <h3>計算例</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>機器</th><th>消費電力</th><th>使用時間</th><th>電力量</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>エアコン</td>
+                <td>800W</td>
+                <td>3時間</td>
+                <td>800×3 = 2,400Wh = <strong>2.4kWh</strong></td>
+              </tr>
+              <tr>
+                <td>テレビ</td>
+                <td>120W</td>
+                <td>5時間</td>
+                <td>120×5 = 600Wh = <strong>0.6kWh</strong></td>
+              </tr>
+              <tr>
+                <td>LED電球（60W相当）</td>
+                <td>8W</td>
+                <td>10時間</td>
+                <td>8×10 = 80Wh = <strong>0.08kWh</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>電気料金は <strong>電力量（kWh）× 電力単価（円/kWh）</strong> で計算します。目安単価は約27〜31円/kWh（2026年時点）。</p>
+
+        <div class="exam-tip">
+          <p>「1kWh = 1,000Wh」は必須。電力料金の計算は試験頻出。1kWhの電気代の目安（約27〜31円）も覚えておくと良い。</p>
+        </div>
+      </section>
+
+      <section class="content-section" id="ac-dc">
+        <h2>3. 交流と直流</h2>
+
+        <h3>直流（DC）と交流（AC）の違い</h3>
+        <p><span class="key-term">直流（DC：Direct Current）</span>は、電流が常に一定方向に流れる電気です。電池・USB電源など。</p>
+        <p><span class="key-term">交流（AC：Alternating Current）</span>は、電流の方向と大きさが周期的に変化する電気です。家庭のコンセントはすべて交流です。</p>
+
+        <h3>日本の商用電源</h3>
+        <div class="point-box">
+          <strong>日本の家庭用電源</strong>
+          電圧：100V（単相交流）<br>
+          周波数：東日本 50Hz、西日本 60Hz
+        </div>
+        <p>周波数の境界は概ね富士川（静岡県）・糸魚川（新潟県）あたりを境にしています。一部の機器は50Hz/60Hz共用設計ですが、モーター系機器では動作特性が変わる場合があります。</p>
+
+        <h3>実効値と最大値</h3>
+        <p>交流の電圧・電流は正弦波で変化するため、最大値（ピーク値）と実効値（RMS）が異なります。</p>
+        <div class="point-box">
+          <strong>実効値と最大値の関係</strong>
+          最大値 = 実効値 × √2 ≈ 実効値 × 1.414<br>
+          日本の100V（実効値）→ 最大値 = 100 × √2 ≈ <strong>141V</strong>
+        </div>
+        <p>家電製品の定格電圧「100V」は<span class="key-term">実効値</span>で表示されています。実効値は直流と等価なエネルギーを持つ値です。</p>
+
+        <div class="exam-tip">
+          <p>「東日本50Hz・西日本60Hz」と「最大値≒141V（実効値100V×√2）」は頻出。周波数の違いで家電製品に影響が出る場合があることも押さえておく。</p>
+        </div>
+      </section>
+
+      <section class="content-section" id="circuit">
+        <h2>4. 電気回路</h2>
+
+        <h3>直列接続と並列接続の違い</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>項目</th><th>直列接続</th><th>並列接続</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>電流</td>
+                <td>各素子に同じ電流が流れる</td>
+                <td>各素子に異なる電流が流れる（電圧は共通）</td>
+              </tr>
+              <tr>
+                <td>電圧</td>
+                <td>各素子の電圧の和＝全体の電圧</td>
+                <td>各素子に共通の電圧がかかる</td>
+              </tr>
+              <tr>
+                <td>合成抵抗</td>
+                <td>各抵抗の和（R = R1 + R2）</td>
+                <td>逆数の和の逆数（1/R = 1/R1 + 1/R2）</td>
+              </tr>
+              <tr>
+                <td>特徴</td>
+                <td>1か所が切れると全体が停止</td>
+                <td>1か所が切れても他は動作継続</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>合成抵抗の計算方法</h3>
+        <div class="point-box">
+          <strong>直列接続の合成抵抗</strong>
+          R合成 = R1 + R2 + R3 + …<br>
+          例：10Ω + 20Ω = 30Ω
+        </div>
+        <div class="point-box">
+          <strong>並列接続の合成抵抗</strong>
+          1/R合成 = 1/R1 + 1/R2<br>
+          例：10Ωと10Ωの並列 → 1/R = 1/10 + 1/10 = 2/10 → R = 5Ω<br>
+          （2つの等値抵抗の並列は半分になる）
+        </div>
+
+        <div class="exam-tip">
+          <p>直列は合成抵抗が「増える」、並列は「減る」という原則を覚える。2つの同じ抵抗を並列にすると合成抵抗は半分になる。</p>
+        </div>
+      </section>
+
+      <section class="content-section" id="energy">
+        <h2>5. 電気のエネルギー変換</h2>
+
+        <h3>主なエネルギー変換</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>変換の種類</th><th>変換後のエネルギー</th><th>代表的な機器</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="key-term">電熱変換</span></td>
+                <td>熱エネルギー</td>
+                <td>電気ヒーター、電子レンジ、IHクッキングヒーター、電気ケトル</td>
+              </tr>
+              <tr>
+                <td><span class="key-term">電動変換</span></td>
+                <td>運動エネルギー（機械エネルギー）</td>
+                <td>モーター（洗濯機・エアコン・扇風機・冷蔵庫のコンプレッサー）</td>
+              </tr>
+              <tr>
+                <td><span class="key-term">電光変換</span></td>
+                <td>光エネルギー</td>
+                <td>LED電球、蛍光灯、テレビディスプレイ</td>
+              </tr>
+              <tr>
+                <td><span class="key-term">電音変換</span></td>
+                <td>音響エネルギー</td>
+                <td>スピーカー、ブザー</td>
+              </tr>
+              <tr>
+                <td>逆変換（光→電）</td>
+                <td>電気エネルギー</td>
+                <td>太陽電池（光電変換）</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>エアコンは<span class="key-term">ヒートポンプ</span>技術により、電力エネルギーの2〜7倍の熱エネルギーを移動させることができます（COP：成績係数）。電力を熱に変換するのではなく、「熱を運ぶ」仕組みで非常に高効率です。</p>
+      </section>
+
+      <section class="content-section" id="formulas">
+        <h2>6. 重要公式まとめ</h2>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>公式名</th><th>式</th><th>単位</th><th>備考</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>オームの法則</td>
+                <td>E = I × R</td>
+                <td>V = A × Ω</td>
+                <td>電気計算の基本</td>
+              </tr>
+              <tr>
+                <td>電力</td>
+                <td>P = V × I</td>
+                <td>W = V × A</td>
+                <td>P = V²/R = I²R も使う</td>
+              </tr>
+              <tr>
+                <td>電力量</td>
+                <td>W = P × t</td>
+                <td>Wh = W × h</td>
+                <td>1kWh = 1,000Wh</td>
+              </tr>
+              <tr>
+                <td>最大値</td>
+                <td>Vmax = Vrms × √2</td>
+                <td>V</td>
+                <td>日本：100V×√2≈141V</td>
+              </tr>
+              <tr>
+                <td>直列合成抵抗</td>
+                <td>R = R1 + R2</td>
+                <td>Ω</td>
+                <td>直列は足し算</td>
+              </tr>
+              <tr>
+                <td>並列合成抵抗</td>
+                <td>1/R = 1/R1 + 1/R2</td>
+                <td>Ω</td>
+                <td>並列は逆数の和</td>
+              </tr>
+              <tr>
+                <td>電気料金</td>
+                <td>料金 = 電力量(kWh) × 単価</td>
+                <td>円</td>
+                <td>単価目安：約27〜31円/kWh</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="exam-tip">
+          <p>公式は丸暗記するより「E=IR」の基本形から派生できるように練習する。計算問題では単位を必ず確認（WとkWhの換算に注意）。</p>
+        </div>
+      </section>
+
+      <!-- ページナビ -->
+      <nav class="page-nav">
+        <a href="index.html" class="nav-prev">
+          <span>←</span>
+          <div>
+            <span class="nav-label">カテゴリへ戻る</span>
+            <span class="nav-title">電気の基礎トップ</span>
+          </div>
+        </a>
+        <a href="safety.html" class="nav-next">
+          <div>
+            <span class="nav-label">次のページ</span>
+            <span class="nav-title">安全規格</span>
+          </div>
+          <span>→</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 家電製品アドバイザー学習サイト | <a href="../index.html">トップへ戻る</a></p>
+  </footer>
+
+</body>
+</html>
