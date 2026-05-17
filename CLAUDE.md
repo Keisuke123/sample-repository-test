@@ -11,18 +11,19 @@
 ```
 /
 ├── CLAUDE.md
-├── index.html          # ハブページ（各用途へのルーティング）
+├── index.html          # appliance-advisor/ への即時リダイレクト
+├── appliance-advisor/  # 家電製品アドバイザー 学習サイト
 └── travel/
     ├── index.html      # 旅行一覧ページ
     └── *.html          # 旅行ごとのページ
 ```
 
-用途が増えた場合は第一階層にディレクトリを追加し、`index.html` のメニューにも追記する。
+用途が増えた場合は第一階層にディレクトリを追加する。`index.html` は現在 `appliance-advisor/` へのリダイレクトになっているため、メインコンテンツが変わった場合はリダイレクト先を更新する。
 
 ## 開発ガイドライン
 
 - 各ページは基本的に静的HTML（CSS・JSはインラインまたは同一ディレクトリに配置）
-- `index.html` はハブページとして、各用途ディレクトリへのリンクをまとめる
+- `index.html` は現在 `appliance-advisor/` へ即時リダイレクトする（meta refresh）
 - 各ディレクトリにも `index.html` を置き、そのカテゴリ内のページ一覧を示す
 - ファイル名はわかりやすい英語小文字＋ハイフン区切り（例: `singapore-2026.html`）
 - 外部依存は最小限に抑える（CDN利用は可、npmビルドは不要）
