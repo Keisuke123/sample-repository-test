@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>エアコン | 家電製品アドバイザー学習サイト</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="site-title">🏠 家電製品アドバイザー 学習サイト</div>
+      <nav class="breadcrumb">
+        <a href="../index.html">トップ</a>
+        <span class="sep">›</span>
+        <a href="index.html">生活家電</a>
+        <span class="sep">›</span>
+        <span class="current">エアコン</span>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <span class="hero-icon">❄️</span>
+    <h1>エアコン</h1>
+    <p class="hero-sub">冷暖房の仕組み（冷凍サイクル・ヒートポンプ）、APFによる省エネ評価、主要機能と省エネラベルの読み方を学びます。</p>
+    <div class="badge-row">
+      <span class="badge badge-blue">生活家電コース</span>
+      <span class="badge badge-accent">重要度：最高</span>
+    </div>
+  </section>
+
+  <div class="content-layout">
+
+    <aside class="toc">
+      <h2>目次</h2>
+      <ol>
+        <li><a href="#cycle">冷暖房の仕組み</a></li>
+        <li><a href="#apf">省エネ性能指標（APF）</a></li>
+        <li><a href="#capacity">冷暖房能力</a></li>
+        <li><a href="#functions">主要機能</a></li>
+        <li><a href="#installation">設置・工事</a></li>
+        <li><a href="#label">省エネラベルの読み方</a></li>
+      </ol>
+    </aside>
+
+    <main class="content-body">
+
+      <section class="content-section" id="cycle">
+        <h2>1. エアコンの冷暖房の仕組み</h2>
+
+        <h3>冷凍サイクル</h3>
+        <p>エアコンは<span class="key-term">冷凍サイクル</span>（ヒートポンプサイクル）を利用して熱を移動させています。直接電気で熱を生み出すのではなく、冷媒が循環することで熱を「運ぶ」仕組みです。</p>
+
+        <div class="point-box">
+          <strong>冷凍サイクルの4つのステップ</strong>
+          ①圧縮（コンプレッサー）：冷媒を圧縮して高温・高圧のガス状態にする<br>
+          ②凝縮（コンデンサー）：高温ガスが放熱して液体になる（暖房時は室内で放熱）<br>
+          ③膨張（膨張弁）：液体冷媒を減圧して低温・低圧状態にする<br>
+          ④蒸発（エバポレーター）：低温液体が熱を吸収して気化する（冷房時は室内の熱を吸収）
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>運転モード</th><th>室内機の役割</th><th>室外機の役割</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>冷房</strong></td>
+                <td>エバポレーター（蒸発器）：室内の熱を吸収して冷風を作る</td>
+                <td>コンデンサー（凝縮器）：吸収した熱を屋外に放出</td>
+              </tr>
+              <tr>
+                <td><strong>暖房</strong></td>
+                <td>コンデンサー（凝縮器）：熱を放出して温風を作る</td>
+                <td>エバポレーター（蒸発器）：外気の熱を吸収</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>冷媒ガス</h3>
+        <p>冷凍サイクルを循環する<span class="key-term">冷媒</span>は、エアコンの性能と環境影響に大きく関わります。</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>冷媒</th><th>特徴</th><th>GWP（地球温暖化係数）</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>R-22（フロン）</td><td>旧来の冷媒。オゾン層破壊。使用禁止。</td><td>1,810</td></tr>
+              <tr><td>R-410A</td><td>オゾン層非破壊。現在も使用中だが段階的廃止。</td><td>2,088</td></tr>
+              <tr><td><span class="key-term">R-32</span></td><td>現在の主流。R-410Aより環境負荷が低い。可燃性あり（微燃性）。</td><td>675</td></tr>
+              <tr><td>R-290（プロパン）</td><td>自然冷媒。GWPが極めて低い。可燃性。</td><td>3</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>ヒートポンプの原理</h3>
+        <p><span class="key-term">ヒートポンプ</span>技術により、エアコンは電力1kWhで2〜7kWh分の熱を移動できます。これを<span class="key-term">COP（成績係数）</span>といい、「移動した熱量÷消費電力量」で表されます。電気ヒーターのCOPが1であるのに対し、エアコン暖房のCOPは3〜5以上になります。</p>
+
+        <div class="exam-tip">
+          <p>冷凍サイクルは「圧縮→凝縮→膨張→蒸発」の順序を必ず覚える。冷房時は室内機が蒸発器（熱を吸収）、室外機が凝縮器（熱を放出）。暖房時は逆。R-32は現在の主流冷媒でGWP 675。</p>
+        </div>
+      </section>
+
+      <section class="content-section" id="apf">
+        <h2>2. 省エネ性能指標（APF）</h2>
+
+        <p><span class="key-term">APF（Annual Performance Factor：通年エネルギー消費効率）</span>は、エアコンの省エネ性能を年間を通じて評価する指標です。</p>
+
+        <div class="point-box">
+          <strong>APFの計算式</strong>
+          APF = 期間消費熱量（kWh）÷ 期間消費電力量（kWh）<br>
+          （JIS C 9612：2013の試験条件で算出）
+        </div>
+
+        <p>APFが高いほど省エネ性能が高いことを意味します。現在市販されているエアコンのAPFは概ね5.0〜8.0程度です。</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>APF値</th><th>省エネ性能評価</th><th>電気代の目安（年間）</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>8.0以上</td><td>最高水準（エネルギースター級）</td><td>非常に安い</td></tr>
+              <tr><td>6.0〜8.0</td><td>高省エネ（5つ星クラス）</td><td>安い</td></tr>
+              <tr><td>4.0〜6.0</td><td>標準省エネ</td><td>標準</td></tr>
+              <tr><td>4.0未満</td><td>低省エネ（旧型機が多い）</td><td>高い</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>インバーター制御</h3>
+        <p><span class="key-term">インバーター</span>とは、交流電力の周波数を変化させることでモーターの回転速度を連続的に制御する技術です。エアコンのコンプレッサーをインバーター制御することで：</p>
+        <ul>
+          <li>設定温度に近づくと回転数を下げて消費電力を節約</li>
+          <li>起動時は高回転で素早く温度調節</li>
+          <li>非インバーター機（定速型）と比べて大幅な省エネが可能</li>
+        </ul>
+
+        <div class="exam-tip">
+          <p>APFは「高いほど省エネ」。インバーターは「周波数変化でコンプレッサー回転速度を制御→省エネ」。現在の家庭用エアコンはほぼ100%インバーター制御。</p>
+        </div>
+      </section>
+
+      <section class="content-section" id="capacity">
+        <h2>3. 冷暖房能力</h2>
+
+        <h3>能力のkW表示</h3>
+        <p>エアコンの冷暖房能力は<span class="key-term">kW（キロワット）</span>で表示されます。これは消費電力ではなく、「移動できる熱量の大きさ」です。</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>能力表示</th><th>畳数目安（冷房）</th><th>畳数目安（暖房）</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>2.2kW</td><td>6〜9畳</td><td>6〜9畳</td></tr>
+              <tr><td>2.5kW</td><td>8〜12畳</td><td>7〜10畳</td></tr>
+              <tr><td>2.8kW</td><td>10〜15畳</td><td>9〜12畳</td></tr>
+              <tr><td>3.6kW</td><td>12〜18畳</td><td>11〜14畳</td></tr>
+              <tr><td>4.0kW</td><td>14〜20畳</td><td>13〜17畳</td></tr>
+              <tr><td>5.6kW以上</td><td>20畳超</td><td>17畳超</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>能力表示の数値（例：2.5kW）は定格能力（JIS規定の標準条件での能力）です。実際の能力は外気温度・室内温度・住宅の断熱性能等によって変化します。</p>
+      </section>
+
+      <section class="content-section" id="functions">
+        <h2>4. 主要機能</h2>
+
+        <h3>自動お掃除機能</h3>
+        <p>フィルターに溜まったほこりを自動的に除去する機能です。フィルターの目詰まりを防ぎ、省エネ性能を維持します。自動掃除機能付きエアコンでもフィルター以外（熱交換器等）は定期清掃が必要です。</p>
+
+        <h3>空気清浄機能</h3>
+        <p>HEPAフィルターやイオン発生装置（プラズマクラスター等）を内蔵し、カビ・花粉・ウイルス等を除去または抑制する機能です。</p>
+
+        <h3>除湿方式</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>方式</th><th>仕組み</th><th>特徴</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="key-term">弱冷房除湿</span></td>
+                <td>弱い冷房運転で除湿。冷やした空気をそのまま吐き出す。</td>
+                <td>電力消費少ない。室温が下がりやすい（夏向き）。</td>
+              </tr>
+              <tr>
+                <td><span class="key-term">再熱除湿</span></td>
+                <td>一旦冷やして除湿した後、再加熱して室温を下げずに除湿。</td>
+                <td>室温を下げずに除湿可能。消費電力やや大きい。梅雨・肌寒い時に最適。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>スマートホーム連携</h3>
+        <ul>
+          <li>Wi-Fi内蔵でスマートフォンから遠隔操作</li>
+          <li>Amazon Alexa・Google Assistant・Siriによる音声操作</li>
+          <li>HEMS（ホームエネルギーマネジメントシステム）との連携</li>
+          <li>GPS連動での外出・帰宅検知による自動ON/OFF</li>
+        </ul>
+
+        <div class="exam-tip">
+          <p>再熱除湿は「室温を下げずに除湿」が最大の特徴。弱冷房除湿より消費電力は大きいが、梅雨時の不快な蒸し暑さを室温を下げずに解消できる。</p>
+        </div>
+      </section>
+
+      <section class="content-section" id="installation">
+        <h2>5. 設置・工事</h2>
+
+        <h3>電源仕様</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>能力</th><th>電源</th><th>コンセント形状</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>〜2.8kW程度</td><td>単相100V</td><td>20A専用コンセント（アース付き）</td></tr>
+              <tr><td>3.6kW以上</td><td>単相200V</td><td>20Aまたは30A専用コンセント（200V対応）</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>200Vエアコンには専用の200V回路の増設が必要な場合があります。電気工事士の資格が必要な工事です。</p>
+
+        <h3>室外機の設置</h3>
+        <ul>
+          <li>直射日光を避けるか日よけを設置（冷房効率向上）</li>
+          <li>吸気・吐出口の周囲に十分なスペースを確保</li>
+          <li>水平に設置（傾斜するとコンプレッサーへの悪影響）</li>
+          <li>マンション・集合住宅では管理規約に従った設置が必要</li>
+        </ul>
+      </section>
+
+      <section class="content-section" id="label">
+        <h2>6. 省エネラベルの読み方</h2>
+
+        <p>エアコンの統一省エネラベルには以下の情報が表示されています：</p>
+        <ul>
+          <li><strong>多段階評価（1〜5星）：</strong>省エネ性能の相対評価</li>
+          <li><strong>年間電気代の目安：</strong>標準使用条件での年間電気料金（円）</li>
+          <li><strong>省エネ基準達成率：</strong>省エネ法基準に対する達成率（%）</li>
+          <li><strong>APF値：</strong>通年エネルギー消費効率の数値</li>
+          <li><strong>適用畳数：</strong>冷房・暖房それぞれの適用畳数目安</li>
+        </ul>
+
+        <div class="point-box">
+          <strong>ラベルの見方ポイント</strong>
+          同じ畳数クラスのエアコンを比較する際は、年間電気代の目安とAPF値を重点的に確認。5つ星・高APF製品ほど長期的なランニングコストが低くなる。
+        </div>
+
+        <div class="exam-tip">
+          <p>統一省エネラベルで「年間電気代の目安」は実際の使用状況によって異なる（ラベルは標準条件）。省エネ基準達成率が100%以上＝省エネ基準適合製品。</p>
+        </div>
+      </section>
+
+      <nav class="page-nav">
+        <a href="index.html" class="nav-prev">
+          <span>←</span>
+          <div>
+            <span class="nav-label">カテゴリへ戻る</span>
+            <span class="nav-title">生活家電トップ</span>
+          </div>
+        </a>
+        <a href="refrigerator.html" class="nav-next">
+          <div>
+            <span class="nav-label">次のページ</span>
+            <span class="nav-title">冷蔵庫</span>
+          </div>
+          <span>→</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 家電製品アドバイザー学習サイト | <a href="../index.html">トップへ戻る</a></p>
+  </footer>
+
+</body>
+</html>
