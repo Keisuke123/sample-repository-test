@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Pages</title>
+  <title>旅行</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -20,6 +20,14 @@
       width: 100%;
       padding: 48px 24px;
     }
+    .back {
+      display: inline-block;
+      font-size: 13px;
+      color: #888;
+      text-decoration: none;
+      margin-bottom: 24px;
+    }
+    .back:hover { color: #444; }
     h1 {
       font-size: 20px;
       font-weight: 600;
@@ -50,16 +58,18 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     }
     .menu a .label { font-weight: 500; }
+    .menu a .meta { font-size: 12px; color: #aaa; }
     .menu a .arrow { color: #aaa; font-size: 18px; }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>My Pages</h1>
+    <a class="back" href="../">← 戻る</a>
+    <h1>旅行</h1>
     <ul class="menu">
       <li>
-        <a href="travel/">
-          <span class="label">旅行</span>
+        <a href="singapore-2026.html">
+          <span class="label">シンガポール 2026</span>
           <span class="arrow">›</span>
         </a>
       </li>
