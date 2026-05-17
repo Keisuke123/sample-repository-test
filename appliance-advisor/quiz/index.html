@@ -1,0 +1,1376 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>クイズモード | 家電製品アドバイザー学習サイト</title>
+  <style>
+    :root {
+      --primary: #1e40af;
+      --primary-dark: #1e3a8a;
+      --primary-light: #dbeafe;
+      --accent: #f59e0b;
+      --success: #10b981;
+      --success-bg: #d1fae5;
+      --error: #ef4444;
+      --error-bg: #fee2e2;
+      --text: #1f2937;
+      --text-muted: #6b7280;
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --border: #e5e7eb;
+      --radius: 12px;
+      --shadow: 0 2px 8px rgba(0,0,0,0.08);
+      --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+    html, body {
+      height: 100%;
+      font-family: -apple-system, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    /* ===== HEADER ===== */
+    .app-header {
+      background: var(--primary);
+      color: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 0 16px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .header-back {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 22px;
+      cursor: pointer;
+      padding: 8px;
+      margin: -8px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s;
+    }
+    .header-back:active { background: rgba(255,255,255,0.2); }
+    .header-title {
+      font-size: 17px;
+      font-weight: 600;
+      flex: 1;
+    }
+    .header-badge {
+      background: rgba(255,255,255,0.2);
+      font-size: 13px;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    /* ===== SCREENS ===== */
+    .screen {
+      display: none;
+      min-height: calc(100vh - 56px);
+      animation: fadeIn 0.2s ease;
+    }
+    .screen.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+    /* ===== COURSE SELECTION ===== */
+    .hero {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+      color: #fff;
+      padding: 32px 20px 40px;
+      text-align: center;
+    }
+    .hero-icon { font-size: 48px; margin-bottom: 12px; }
+    .hero h1 { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+    .hero p { font-size: 14px; opacity: 0.85; line-height: 1.6; }
+
+    .course-list {
+      padding: 20px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .course-card {
+      background: var(--surface);
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      cursor: pointer;
+      transition: all 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      text-align: left;
+      width: 100%;
+      box-shadow: var(--shadow);
+    }
+    .course-card:active { transform: scale(0.98); box-shadow: none; }
+    .course-card.av { border-color: #3b82f6; }
+    .course-card.home { border-color: #10b981; }
+    .course-card.all { border-color: var(--accent); }
+    .course-card:hover { box-shadow: var(--shadow-lg); }
+    .course-icon {
+      font-size: 36px;
+      flex-shrink: 0;
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+    }
+    .course-card.av .course-icon { background: #eff6ff; }
+    .course-card.home .course-icon { background: #f0fdf4; }
+    .course-card.all .course-icon { background: #fffbeb; }
+    .course-info { flex: 1; }
+    .course-name { font-size: 17px; font-weight: 700; margin-bottom: 4px; }
+    .course-desc { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+    .course-count {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 20px;
+      flex-shrink: 0;
+    }
+    .course-card.av .course-count { background: #dbeafe; color: #1d4ed8; }
+    .course-card.home .course-count { background: #d1fae5; color: #065f46; }
+    .course-card.all .course-count { background: #fef3c7; color: #92400e; }
+
+    .info-box {
+      margin: 0 16px 20px;
+      background: var(--primary-light);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      font-size: 13px;
+      color: var(--primary-dark);
+      line-height: 1.6;
+    }
+    .info-box strong { display: block; margin-bottom: 4px; }
+
+    /* ===== CATEGORY SELECTION ===== */
+    .screen-title {
+      padding: 20px 16px 8px;
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .screen-subtitle {
+      padding: 0 16px 16px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+    .category-list {
+      padding: 0 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .cat-card {
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      transition: all 0.15s;
+      box-shadow: var(--shadow);
+      width: 100%;
+      text-align: left;
+    }
+    .cat-card:active { transform: scale(0.98); }
+    .cat-card:hover { border-color: var(--primary); box-shadow: var(--shadow-lg); }
+    .cat-icon {
+      font-size: 26px;
+      width: 44px;
+      height: 44px;
+      background: var(--primary-light);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .cat-name { font-size: 16px; font-weight: 600; flex: 1; }
+    .cat-meta { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+    .cat-arrow { color: var(--text-muted); font-size: 20px; }
+
+    .random-btn {
+      margin: 0 16px 24px;
+      background: linear-gradient(135deg, var(--accent) 0%, #f97316 100%);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius);
+      padding: 18px;
+      width: calc(100% - 32px);
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(245,158,11,0.4);
+      transition: all 0.15s;
+    }
+    .random-btn:active { transform: scale(0.97); box-shadow: none; }
+
+    /* ===== QUIZ SCREEN ===== */
+    .quiz-progress-bar {
+      height: 4px;
+      background: var(--border);
+    }
+    .quiz-progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), #60a5fa);
+      transition: width 0.4s ease;
+    }
+    .quiz-header-info {
+      padding: 16px 20px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .quiz-counter {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+    .quiz-category-tag {
+      font-size: 12px;
+      background: var(--primary-light);
+      color: var(--primary);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+    .quiz-question-box {
+      padding: 20px 20px 16px;
+    }
+    .quiz-question-text {
+      font-size: 17px;
+      font-weight: 600;
+      line-height: 1.65;
+      color: var(--text);
+    }
+    .quiz-choices {
+      padding: 0 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .choice-btn {
+      background: var(--surface);
+      border: 2px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      font-size: 15px;
+      line-height: 1.5;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.15s;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      width: 100%;
+      min-height: 56px;
+    }
+    .choice-btn:active { transform: scale(0.98); }
+    .choice-btn:not(.disabled):hover { border-color: var(--primary); background: var(--primary-light); }
+    .choice-label {
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      background: var(--bg);
+      border: 2px solid var(--border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-muted);
+      transition: all 0.15s;
+    }
+    .choice-text { flex: 1; }
+    .choice-btn.selected { border-color: var(--primary); background: var(--primary-light); }
+    .choice-btn.selected .choice-label { background: var(--primary); border-color: var(--primary); color: #fff; }
+    .choice-btn.correct { border-color: var(--success); background: var(--success-bg); }
+    .choice-btn.correct .choice-label { background: var(--success); border-color: var(--success); color: #fff; }
+    .choice-btn.wrong { border-color: var(--error); background: var(--error-bg); }
+    .choice-btn.wrong .choice-label { background: var(--error); border-color: var(--error); color: #fff; }
+    .choice-btn.disabled { cursor: default; }
+
+    /* 解説ボックス */
+    .explanation-box {
+      margin: 0 16px 16px;
+      padding: 16px;
+      border-radius: var(--radius);
+      font-size: 14px;
+      line-height: 1.65;
+      display: none;
+    }
+    .explanation-box.show { display: block; animation: fadeIn 0.2s ease; }
+    .explanation-box.correct-result {
+      background: var(--success-bg);
+      border: 1.5px solid var(--success);
+      color: #065f46;
+    }
+    .explanation-box.wrong-result {
+      background: var(--error-bg);
+      border: 1.5px solid var(--error);
+      color: #991b1b;
+    }
+    .explanation-title {
+      font-weight: 700;
+      font-size: 15px;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .explanation-correct {
+      font-size: 13px;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    /* 次へボタン（固定フッター） */
+    .quiz-footer {
+      position: sticky;
+      bottom: 0;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      padding: 12px 16px;
+      padding-bottom: calc(12px + env(safe-area-inset-bottom));
+    }
+    .next-btn {
+      width: 100%;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius);
+      padding: 17px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s;
+      display: none;
+    }
+    .next-btn.show { display: block; animation: fadeIn 0.2s ease; }
+    .next-btn:active { transform: scale(0.98); background: var(--primary-dark); }
+
+    /* ===== RESULT SCREEN ===== */
+    .result-hero {
+      padding: 36px 24px 28px;
+      text-align: center;
+    }
+    .result-score-circle {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .result-score-circle svg {
+      position: absolute;
+      top: 0; left: 0;
+      transform: rotate(-90deg);
+    }
+    .score-inner {
+      position: relative;
+      z-index: 1;
+    }
+    .score-num { font-size: 42px; font-weight: 800; line-height: 1; }
+    .score-denom { font-size: 14px; color: var(--text-muted); font-weight: 600; }
+    .result-message { font-size: 20px; font-weight: 700; margin-bottom: 6px; }
+    .result-sub { font-size: 14px; color: var(--text-muted); }
+
+    .result-stats {
+      margin: 0 16px 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .stat-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 14px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+    .stat-num { font-size: 28px; font-weight: 800; }
+    .stat-label { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
+    .stat-card.correct .stat-num { color: var(--success); }
+    .stat-card.wrong .stat-num { color: var(--error); }
+
+    .result-list {
+      margin: 0 16px 20px;
+    }
+    .result-list-title {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--text-muted);
+    }
+    .result-item {
+      background: var(--surface);
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      box-shadow: var(--shadow);
+    }
+    .result-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+    .result-q { font-size: 14px; line-height: 1.5; flex: 1; }
+    .result-a { font-size: 12px; color: var(--text-muted); margin-top: 3px; }
+    .result-a span { font-weight: 600; }
+
+    .result-actions {
+      padding: 0 16px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .btn-retry {
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius);
+      padding: 17px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .btn-retry:active { transform: scale(0.98); }
+    .btn-back-cat {
+      background: var(--surface);
+      color: var(--primary);
+      border: 2px solid var(--primary);
+      border-radius: var(--radius);
+      padding: 15px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .btn-back-cat:active { transform: scale(0.98); }
+    .btn-study-link {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 14px;
+      text-decoration: underline;
+      cursor: pointer;
+      padding: 8px;
+      text-align: center;
+    }
+
+    /* ===== UTILS ===== */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 8px 0;
+    }
+    .section-header {
+      padding: 20px 16px 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* Desktop layout */
+    @media (min-width: 600px) {
+      .screen { max-width: 480px; margin: 0 auto; }
+      .app-header { max-width: 480px; margin: 0 auto; left: 0; right: 0; }
+      html { background: #e2e8f0; }
+      body { background: #e2e8f0; }
+      .screen { background: var(--bg); min-height: calc(100vh - 56px); box-shadow: var(--shadow-lg); }
+    }
+  </style>
+</head>
+<body>
+
+<header class="app-header" id="appHeader">
+  <button class="header-back" id="headerBack" onclick="goBack()" style="display:none">‹</button>
+  <span class="header-title" id="headerTitle">クイズモード</span>
+  <span class="header-badge" id="headerBadge" style="display:none"></span>
+</header>
+
+<!-- ===== SCREEN 1: コース選択 ===== -->
+<div class="screen active" id="screenCourse">
+  <div class="hero">
+    <div class="hero-icon">📝</div>
+    <h1>コース別クイズ</h1>
+    <p>カテゴリを選んで知識を確認しよう<br>全60問・各カテゴリ10問</p>
+  </div>
+
+  <div class="course-list">
+    <button class="course-card av" onclick="selectCourse('av')">
+      <div class="course-icon">📺</div>
+      <div class="course-info">
+        <div class="course-name">AV情報家電コース</div>
+        <div class="course-desc">電気の基礎・AV家電・法規・販売・環境</div>
+      </div>
+      <span class="course-count">5カテゴリ</span>
+    </button>
+
+    <button class="course-card home" onclick="selectCourse('home')">
+      <div class="course-icon">🏠</div>
+      <div class="course-info">
+        <div class="course-name">生活家電コース</div>
+        <div class="course-desc">電気の基礎・生活家電・法規・販売・環境</div>
+      </div>
+      <span class="course-count">5カテゴリ</span>
+    </button>
+
+    <button class="course-card all" onclick="selectCourse('all')">
+      <div class="course-icon">🎯</div>
+      <div class="course-info">
+        <div class="course-name">全カテゴリ（総合）</div>
+        <div class="course-desc">6カテゴリすべてをカバー</div>
+      </div>
+      <span class="course-count">6カテゴリ</span>
+    </button>
+  </div>
+
+  <div class="info-box">
+    <strong>📌 クイズの使い方</strong>
+    コースを選んでカテゴリを指定するか、ランダム出題で総合的に力試し。解答後に解説が表示されます。
+  </div>
+
+  <div style="text-align:center; padding: 0 16px 24px;">
+    <a href="../" style="color:var(--text-muted); font-size:14px; text-decoration:none;">← 学習サイトトップへ戻る</a>
+  </div>
+</div>
+
+<!-- ===== SCREEN 2: カテゴリ選択 ===== -->
+<div class="screen" id="screenCategory">
+  <div class="screen-title" id="catScreenTitle">カテゴリを選択</div>
+  <div class="screen-subtitle" id="catScreenSub">出題したいカテゴリを選んでください</div>
+
+  <button class="random-btn" id="randomBtn" onclick="startRandom()">
+    🎲 ランダム出題（全カテゴリ混合 10問）
+  </button>
+
+  <div class="section-header">カテゴリ別</div>
+  <div class="category-list" id="categoryList"></div>
+</div>
+
+<!-- ===== SCREEN 3: クイズ ===== -->
+<div class="screen" id="screenQuiz">
+  <div class="quiz-progress-bar">
+    <div class="quiz-progress-fill" id="progressFill" style="width:0%"></div>
+  </div>
+  <div class="quiz-header-info">
+    <span class="quiz-counter" id="quizCounter">問1 / 10</span>
+    <span class="quiz-category-tag" id="quizCatTag"></span>
+  </div>
+  <div class="quiz-question-box">
+    <p class="quiz-question-text" id="questionText"></p>
+  </div>
+  <div class="quiz-choices" id="choicesContainer"></div>
+  <div class="explanation-box" id="explanationBox">
+    <div class="explanation-title" id="explanationTitle"></div>
+    <div class="explanation-correct" id="explanationCorrect"></div>
+    <div id="explanationText"></div>
+  </div>
+  <div style="height: 80px"></div>
+  <div class="quiz-footer">
+    <button class="next-btn" id="nextBtn" onclick="nextQuestion()">次の問題へ →</button>
+  </div>
+</div>
+
+<!-- ===== SCREEN 4: 結果 ===== -->
+<div class="screen" id="screenResult">
+  <div class="result-hero">
+    <div class="result-score-circle" id="scoreCircle">
+      <svg width="140" height="140" viewBox="0 0 140 140">
+        <circle cx="70" cy="70" r="60" fill="none" stroke="#e5e7eb" stroke-width="10"/>
+        <circle cx="70" cy="70" r="60" fill="none" stroke="#1e40af" stroke-width="10"
+          stroke-dasharray="377" stroke-dashoffset="377" id="scoreArc" stroke-linecap="round"/>
+      </svg>
+      <div class="score-inner">
+        <div class="score-num" id="scoreNum">0</div>
+        <div class="score-denom" id="scoreDenom">/ 10問</div>
+      </div>
+    </div>
+    <div class="result-message" id="resultMessage"></div>
+    <div class="result-sub" id="resultSub"></div>
+  </div>
+
+  <div class="result-stats">
+    <div class="stat-card correct">
+      <div class="stat-num" id="statCorrect">0</div>
+      <div class="stat-label">✅ 正解</div>
+    </div>
+    <div class="stat-card wrong">
+      <div class="stat-num" id="statWrong">0</div>
+      <div class="stat-label">❌ 不正解</div>
+    </div>
+  </div>
+
+  <div class="result-list">
+    <div class="result-list-title">問題の振り返り</div>
+    <div id="resultItems"></div>
+  </div>
+
+  <div class="result-actions">
+    <button class="btn-retry" onclick="retryQuiz()">🔄 同じカテゴリでもう一度</button>
+    <button class="btn-back-cat" onclick="backToCategory()">← カテゴリ選択に戻る</button>
+    <button class="btn-study-link" id="studyLink" onclick="goToStudy()">📚 このカテゴリの学習ページへ</button>
+  </div>
+</div>
+
+<script>
+// ============================
+// QUESTION BANK
+// ============================
+const QUESTIONS = {
+  basics: {
+    name: '電気の基礎',
+    icon: '🔌',
+    studyUrl: '../basics/',
+    qs: [
+      {
+        q: '100Vの電圧をかけると5Aの電流が流れた。このときの抵抗値は？',
+        choices: ['20Ω', '500Ω', '0.05Ω', '5Ω'],
+        ans: 0,
+        exp: 'オームの法則 R = E/I より、R = 100V ÷ 5A = 20Ω。電圧・電流・抵抗の関係を表すオームの法則は試験の基本。'
+      },
+      {
+        q: '日本の商用電源の周波数（東日本・西日本）について正しいものは？',
+        choices: ['東日本60Hz・西日本50Hz', '東日本50Hz・西日本60Hz', '全国統一で50Hz', '全国統一で60Hz'],
+        ans: 1,
+        exp: '日本では東日本（東京電力管内等）が50Hz、西日本（中部・関西以西）が60Hz。富士川・糸魚川付近が境界。'
+      },
+      {
+        q: '100Wの電球を5時間使用したときの電力量として正しいものは？',
+        choices: ['0.5kWh', '500kWh', '5kWh', '50Wh'],
+        ans: 0,
+        exp: '電力量 = 電力 × 時間 = 100W × 5h = 500Wh = 0.5kWh。1kWh = 1000Wh。'
+      },
+      {
+        q: '交流100V（実効値）の最大値（ピーク値）に最も近いものは？',
+        choices: ['100V', '141V', '200V', '70V'],
+        ans: 1,
+        exp: '最大値 = 実効値 × √2 ≈ 100 × 1.414 ≈ 141V。家庭用コンセントの100Vは実効値。瞬間的には141V近くになる。'
+      },
+      {
+        q: 'PSEマークにおいて「菱形（◇）マーク」が必要な電気用品の区分は？',
+        choices: ['特定電気用品以外の電気用品', '特定電気用品', '全ての電気用品', '自主的に表示する任意品目'],
+        ans: 1,
+        exp: '菱形PSEは規制が厳しい「特定電気用品」（116品目）に必要。エアコン・テレビ・電気温水器等が該当。丸PSEは341品目の特定電気用品以外。'
+      },
+      {
+        q: '防水規格「IPX7」が意味するものは？',
+        choices: ['防塵のみに対応', '水滴や雨水から保護', '水深1mに30分浸漬しても影響なし', '水流に対して保護'],
+        ans: 2,
+        exp: 'IPコードの「X」は防塵なし、数字は防水等級。IPX7は水深1mに30分間浸漬しても機能を保つことを意味する。'
+      },
+      {
+        q: '10Ωと20Ωの抵抗を直列接続したときの合成抵抗は？',
+        choices: ['30Ω', '6.7Ω', '200Ω', '15Ω'],
+        ans: 0,
+        exp: '直列接続の合成抵抗は各抵抗の和。R = 10 + 20 = 30Ω。並列の場合は 1/R = 1/10 + 1/20 → R ≈ 6.7Ω。'
+      },
+      {
+        q: '統一省エネラベルの多段階評価は何段階か？',
+        choices: ['3段階', '5段階', '10段階', '4段階'],
+        ans: 1,
+        exp: '統一省エネラベルは1〜5の5段階評価（星の数で表示）。年間電気代の目安と省エネ基準達成率も表示される。'
+      },
+      {
+        q: '電気用品の「クラスⅡ（クラス2）」絶縁が意味するものは？',
+        choices: ['アース（接地）が必要', '二重絶縁構造でアース端子が不要', '非絶縁で危険な機器', '超低電圧で使用する機器'],
+        ans: 1,
+        exp: 'クラスⅡは二重絶縁または強化絶縁が施されており、アース端子が不要。クラスⅠはアース接地が必要。'
+      },
+      {
+        q: '省エネ法のトップランナー制度の説明として正しいものは？',
+        choices: ['最も省エネ性能が低い製品を基準にする', '国が独自に基準を設定する', '市場最高水準の機器を基準に目標値を設定する', '国際規格をそのまま採用する'],
+        ans: 2,
+        exp: 'トップランナー制度は現在市場に存在する最高の省エネ性能を持つ製品を基準に、将来の目標値を設定する仕組み。'
+      }
+    ]
+  },
+
+  avInfo: {
+    name: 'AV・情報家電',
+    icon: '📺',
+    studyUrl: '../av-info/',
+    qs: [
+      {
+        q: '4K（UHD）テレビの解像度として正しいものは？',
+        choices: ['1920×1080', '3840×2160', '7680×4320', '2560×1440'],
+        ans: 1,
+        exp: '4K UHDは3840×2160ピクセル。フルHDの4倍の画素数。8Kは7680×4320でフルHDの16倍。'
+      },
+      {
+        q: '有機EL（OLED）ディスプレイの特徴として正しいものは？',
+        choices: ['バックライトが必要', '表示が暗いほど消費電力が増える', '完全な黒（真の黒）を表示できる', '液晶より筐体が厚い'],
+        ans: 2,
+        exp: '有機ELは画素が自発光するため、黒を表示する際は素子を消灯でき、完全な黒が実現できる。コントラスト比が理論上無限大。'
+      },
+      {
+        q: '人間の一般的な可聴周波数域として正しいものは？',
+        choices: ['20Hz〜20kHz', '2Hz〜20kHz', '20Hz〜200kHz', '200Hz〜20kHz'],
+        ans: 0,
+        exp: '人間の可聴域は約20Hz〜20kHz。加齢とともに高音域が聞こえにくくなる。20kHz以上は超音波領域。'
+      },
+      {
+        q: 'Bluetoothオーディオコーデックの中でSONYが開発した高音質コーデックは？',
+        choices: ['SBC', 'AAC', 'aptX', 'LDAC'],
+        ans: 3,
+        exp: 'LDACはSONY独自のコーデックで最大990kbpsの転送が可能。SBCは標準（最大345kbps）、AACはAppleデバイスで普及。'
+      },
+      {
+        q: 'デジタルカメラのCMOSセンサーの特徴として正しいものは？',
+        choices: ['CCDより消費電力が大きい', 'CCDより読み出し速度が速い', '動画撮影に不向き', 'ノイズがCCDより著しく多い'],
+        ans: 1,
+        exp: 'CMOSは各画素で信号を処理するため高速読み出しが可能。消費電力も少ない。現在のデジカメ・スマホはほぼCMOSを採用。'
+      },
+      {
+        q: 'USB 3.0（USB 3.2 Gen1）の理論最大転送速度は？',
+        choices: ['480Mbps', '5Gbps', '10Gbps', '40Gbps'],
+        ans: 1,
+        exp: 'USB 3.0（= USB 3.2 Gen1）は5Gbps。USB 2.0は480Mbps、USB 3.2 Gen2は10Gbps、USB4は最大40Gbps。'
+      },
+      {
+        q: 'Wi-Fi 6（IEEE 802.11ax）の主な特徴として正しいものは？',
+        choices: ['2.4GHz帯のみ対応', '最大速度は600Mbps', 'OFDMA技術で多端末への同時通信効率が向上', 'Bluetooth 5と同一規格'],
+        ans: 2,
+        exp: 'Wi-Fi 6はOFDMA（直交周波数分割多元接続）により複数デバイスへの効率的な同時通信が可能。混雑した環境でも安定。'
+      },
+      {
+        q: 'CD（コンパクトディスク）音源のサンプリング周波数とビット深度は？',
+        choices: ['48kHz / 24bit', '44.1kHz / 16bit', '96kHz / 16bit', '44.1kHz / 24bit'],
+        ans: 1,
+        exp: 'CDの規格はサンプリング周波数44.1kHz・量子化ビット数16bit・2チャンネル（ステレオ）。これがCDの音質の基準。'
+      },
+      {
+        q: 'HDMI 2.1で新たに対応した機能として正しいものは？',
+        choices: ['4K映像伝送', 'HDR映像伝送', '8K/60Hz・4K/120Hzの映像伝送', 'ARC（音声リターンチャンネル）'],
+        ans: 2,
+        exp: 'HDMI 2.1では最大10K解像度・8K/60Hz・4K/120Hzに対応。帯域幅は48Gbps。eARCや可変リフレッシュレート（VRR）にも対応。'
+      },
+      {
+        q: 'カメラのF値（絞り値）が小さいとどうなるか？',
+        choices: ['シャッタースピードが遅くなる', '撮影できる範囲（画角）が広くなる', '背景ボケが大きくなる（被写界深度が浅くなる）', '画素数が上がる'],
+        ans: 2,
+        exp: 'F値が小さい（絞りが開く）ほどレンズが多くの光を取り込み、背景がボケやすくなる（浅い被写界深度）。ポートレート撮影に有利。'
+      }
+    ]
+  },
+
+  homeAppliances: {
+    name: '生活家電',
+    icon: '🏠',
+    studyUrl: '../home-appliances/',
+    qs: [
+      {
+        q: 'エアコンの省エネ性能指標「APF」の正式名称は？',
+        choices: ['Average Power Factor', '通年エネルギー消費効率', '最大冷房能力', '年間消費電力量'],
+        ans: 1,
+        exp: 'APF（Annual Performance Factor）は年間を通じた冷暖房の効率を示す指標。値が大きいほど省エネ性能が高い。'
+      },
+      {
+        q: '現在の家庭用エアコンで主流の冷媒はどれか？',
+        choices: ['フロン（R-11）', 'R-22（HCFC）', 'R-32（HFC）', 'R-404A'],
+        ans: 2,
+        exp: 'R-32は地球温暖化係数（GWP）がR-410Aの約1/3で環境負荷が低い。現在の新型エアコンの主流冷媒。'
+      },
+      {
+        q: '冷凍サイクルの正しい順序はどれか？',
+        choices: ['蒸発→圧縮→凝縮→膨張', '圧縮→凝縮→蒸発→膨張', '凝縮→圧縮→蒸発→膨張', '膨張→圧縮→凝縮→蒸発'],
+        ans: 0,
+        exp: '冷媒は低圧で蒸発（吸熱）→圧縮（高圧・高温化）→凝縮（放熱）→膨張弁で減圧のサイクルを繰り返す。'
+      },
+      {
+        q: 'ドラム式洗濯機の特徴として正しいものは？',
+        choices: ['「もみ洗い」で洗浄力が最高', '縦型全自動より節水効果が高い', '設置面積が縦型より常に小さい', 'ヒーター乾燥のみ対応'],
+        ans: 1,
+        exp: 'ドラム式は「たたき洗い」方式で少量の水でも洗える。縦型全自動より使用水量が少なく節水効果が高い。'
+      },
+      {
+        q: '電子レンジが使用するマイクロ波の周波数は？',
+        choices: ['1.25GHz', '2.45GHz', '5.0GHz', '900MHz'],
+        ans: 1,
+        exp: '電子レンジは2.45GHzのマイクロ波を照射し、食品中の水分子を振動させて発熱させる。Wi-Fiの2.4GHz帯と近いため干渉することも。'
+      },
+      {
+        q: 'IHクッキングヒーターで使用できない鍋の素材は？',
+        choices: ['鉄製フライパン', '磁性ステンレス鍋', 'アルミ鍋（非IH対応）', 'IH対応マルチ鍋'],
+        ans: 2,
+        exp: 'IHは電磁誘導で磁性体の鍋底に渦電流を発生させて加熱する。磁力を通さないアルミ・銅・土鍋・ガラスは非対応。'
+      },
+      {
+        q: 'LED照明の発光効率を表す単位として正しいものは？',
+        choices: ['W/lm（ワット毎ルーメン）', 'lm/W（ルーメン毎ワット）', 'lx/m²（ルクス毎平方メートル）', 'cd/m²（カンデラ毎平方メートル）'],
+        ans: 1,
+        exp: 'lm/W（ルーメン毎ワット）は1Wの消費で何ルーメンの光が出るかを示す発光効率の単位。数値が大きいほど省エネ。'
+      },
+      {
+        q: '照明の色温度「昼白色」に相当するケルビン（K）数は？',
+        choices: ['2700K', '3000K', '5000K', '6500K'],
+        ans: 2,
+        exp: '電球色：約2700K（温かみのあるオレンジ）、昼白色：約5000K（自然光に近い白）、昼光色：約6500K（青みがかった白）。'
+      },
+      {
+        q: '家庭用冷蔵庫のノンフロン冷媒として広く使われているものは？',
+        choices: ['R-134a', 'R-410A', 'イソブタン（R-600a）', 'アンモニア（R-717）'],
+        ans: 2,
+        exp: 'R-600a（イソブタン）は天然冷媒でオゾン層を破壊せず、地球温暖化係数も極めて低い。現在の家庭用冷蔵庫の主流。'
+      },
+      {
+        q: 'ヒートポンプ乾燥方式の洗濯乾燥機の特徴として正しいものは？',
+        choices: ['乾燥時間が非常に短い', 'ヒーター乾燥方式より消費電力が少ない', '衣類への熱ダメージが大きい', '100V専用で200Vは不要'],
+        ans: 1,
+        exp: 'ヒートポンプ乾燥はエアコンと同じ原理で大気の熱を利用するため、ヒーター乾燥より消費電力が大幅に少なく、温度が低いため衣類にも優しい。'
+      }
+    ]
+  },
+
+  laws: {
+    name: '法規・制度',
+    icon: '📋',
+    studyUrl: '../laws/',
+    qs: [
+      {
+        q: '電気用品安全法における「特定電気用品」の品目数は？',
+        choices: ['116品目', '341品目', '200品目', '457品目'],
+        ans: 0,
+        exp: '特定電気用品は116品目（菱形PSE必須）。安全上の危険が大きい品目が該当。それ以外の341品目は丸PSE（自主検査）。合計457品目。'
+      },
+      {
+        q: '訪問販売でのクーリングオフが適用される期間は？',
+        choices: ['3日間', '5日間', '8日間', '14日間'],
+        ans: 2,
+        exp: '訪問販売・電話勧誘販売のクーリングオフ期間は契約書受取日から8日間。マルチ商法・内職商法は20日間。通信販売には適用されない（返品特約による）。'
+      },
+      {
+        q: '製造物責任法（PL法）における「欠陥」の種類に含まれないものは？',
+        choices: ['設計上の欠陥', '製造上の欠陥', '指示・警告上の欠陥', '販売価格の設定'],
+        ans: 3,
+        exp: 'PL法の欠陥は①設計上の欠陥②製造上の欠陥③指示（警告）上の欠陥の3種類。価格設定は欠陥に含まれない。'
+      },
+      {
+        q: '家電リサイクル法（特定家庭用機器再商品化法）の対象品目に含まれないものは？',
+        choices: ['エアコン', '洗濯機・衣類乾燥機', '電子レンジ', '冷蔵庫・冷凍庫'],
+        ans: 2,
+        exp: '家電リサイクル法の対象は4品目群：エアコン・テレビ（ブラウン管・液晶・プラズマ）・冷蔵庫冷凍庫・洗濯機衣類乾燥機。電子レンジは対象外。'
+      },
+      {
+        q: '景品表示法が禁止する「優良誤認表示」の説明として正しいものは？',
+        choices: ['他社製品より安いと宣伝すること', '実際より著しく優れていると誤認させる表示', '割引率を広告に記載すること', '比較広告を行うこと全般'],
+        ans: 1,
+        exp: '景品表示法は①優良誤認（実際より優れているように見せる）②有利誤認（価格等で実際より有利に見せる）の不当表示を禁止。'
+      },
+      {
+        q: '消費生活用製品安全法（消安法）で、重大製品事故の報告期限は？',
+        choices: ['24時間以内', '3日以内', '10日以内', '1ヶ月以内'],
+        ans: 2,
+        exp: '製造・輸入事業者は重大製品事故を知った日から10日以内に消費者庁長官に報告する義務がある。'
+      },
+      {
+        q: '菱形PSEマーク（特定電気用品）の検査について正しいものは？',
+        choices: ['製造者の自主検査のみでよい', '登録検査機関による適合性検査が必要', '経済産業省が直接検査を行う', '販売前の検査は不要'],
+        ans: 1,
+        exp: '特定電気用品は国が登録した第三者機関（登録検査機関）による検査・証明が必要。丸PSEは自主検査でよい。'
+      },
+      {
+        q: '統一省エネラベルに表示されない情報は？',
+        choices: ['年間電気代の目安', '多段階評価（1〜5）', '製品の販売価格', '省エネ基準達成率'],
+        ans: 2,
+        exp: '統一省エネラベルには年間電気代の目安・多段階評価・省エネ基準達成率が表示される。販売価格は含まれない。'
+      },
+      {
+        q: '個人情報保護法における「要配慮個人情報」に該当するものは？',
+        choices: ['氏名と住所', '勤務先の情報', '病歴・障害に関する情報', '電話番号'],
+        ans: 2,
+        exp: '要配慮個人情報は本人への差別・不利益につながる恐れがある情報。人種・信条・社会的身分・病歴・犯罪歴・障害等が該当。'
+      },
+      {
+        q: '省エネ法の「トップランナー制度」の基準設定方法として正しいものは？',
+        choices: ['エネルギー効率が最低の製品を基準とする', '過去10年間の平均を基準とする', '市場に存在する最高水準の製品を基準に将来目標を設定する', '国際機関が設定した値を採用する'],
+        ans: 2,
+        exp: 'トップランナー制度は現在市場に流通する製品のうち最高の省エネ性能を持つもの（トップランナー）を基準に将来達成すべき目標値を設定。'
+      }
+    ]
+  },
+
+  sales: {
+    name: '販売・接客',
+    icon: '🤝',
+    studyUrl: '../sales/',
+    qs: [
+      {
+        q: 'AIDMAの法則において「D」が表すものは？',
+        choices: ['Desire（欲求）', 'Decision（決断）', 'Delivery（配送）', 'Display（展示）'],
+        ans: 0,
+        exp: 'AIDMAはAttention（注意）→Interest（興味）→Desire（欲求）→Memory（記憶）→Action（行動）の購買プロセスモデル。'
+      },
+      {
+        q: '接客における「尊敬語」の使い方として正しいものは？',
+        choices: ['「私がご説明いたします」', '「お客様がいらっしゃいます」', '「拝見いたします」', '「申し上げます」'],
+        ans: 1,
+        exp: '尊敬語は相手の動作・状態に使う。「いらっしゃる」は「いる・来る・行く」の尊敬語。「拝見」「申し上げる」は自分の動作に使う謙譲語。'
+      },
+      {
+        q: 'SPIN話法における「P（Problem）」の質問はどれか？',
+        choices: ['「現在どのようなテレビを使用されていますか？」', '「画質に不満を感じることはありますか？」', '「高画質になると映画観賞がより楽しめますね」', '「本日お求めのご予算はいかほどですか？」'],
+        ans: 1,
+        exp: 'SPINはSituation（状況）→Problem（問題）→Implication（示唆）→Need-Payoff（解決の確認）。問題質問は顧客の課題・不満を引き出す。'
+      },
+      {
+        q: 'Feature-Benefit（F-B）説明法について正しいものは？',
+        choices: ['まず価格を提示してから機能を説明する', '製品の特徴が顧客にとってどんな利益になるかを伝える', '競合他社との比較を中心に説明する', 'ベネフィットより専門用語の説明を優先する'],
+        ans: 1,
+        exp: 'F-B法は製品の特徴（Feature）を「ということは〜というメリットがあります」と顧客の利益（Benefit）に結びつけて説明する技法。'
+      },
+      {
+        q: 'クレーム対応で最初にすべきことは？',
+        choices: ['原因の調査・究明', '上司・責任者への即時報告', '誠実な謝罪と顧客の話をしっかり聞く', '交換・返金の提案'],
+        ans: 2,
+        exp: 'クレーム対応の第一歩は誠実な謝罪と傾聴。顧客の怒りや不満を受け止めることで対話の基礎を作る。原因究明・解決策提示はその後。'
+      },
+      {
+        q: 'オムニチャネル販売の説明として正しいものは？',
+        choices: ['ECサイトのみで販売する戦略', '実店舗のみに特化した戦略', '複数の販売チャネルをシームレスに連携させる戦略', 'テレビ通販に特化した販売戦略'],
+        ans: 2,
+        exp: 'オムニチャネルは実店舗・ECサイト・SNS・カタログ等あらゆるチャネルを統合し、どのチャネルでも一貫した顧客体験を提供する。'
+      },
+      {
+        q: 'メーカー保証と延長保証（販売店保証）の違いとして正しいものは？',
+        choices: ['メーカー保証の方が必ず期間が長い', '延長保証はメーカーが提供する保証', '延長保証はメーカー保証終了後もカバーできる', '両方を同時に利用することはできない'],
+        ans: 2,
+        exp: '延長保証は販売店が提供する保証でメーカー保証期間終了後をカバーする。条件は各社異なる。メーカー保証期間中は両方が有効。'
+      },
+      {
+        q: '売上高100万円・原価60万円の場合の粗利率は？',
+        choices: ['40%', '60%', '167%', '25%'],
+        ans: 0,
+        exp: '粗利率 = (売上高 − 原価) ÷ 売上高 × 100 = (100万 − 60万) ÷ 100万 × 100 = 40%。原価率は60%。'
+      },
+      {
+        q: '「クローズド質問」の例として正しいものは？',
+        choices: ['「どのような機能をお求めですか？」', '「なぜ買い換えをお考えですか？」', '「4Kテレビをご検討中ですか？」', '「最近困っていることはありますか？」'],
+        ans: 2,
+        exp: 'クローズド質問は「はい・いいえ」で答えられる質問。オープン質問は自由に答えられる質問。クローズドは事実確認、オープンはニーズ把握に使う。'
+      },
+      {
+        q: 'メラビアンの法則（第一印象の3V）における視覚情報の割合は？',
+        choices: ['7%', '38%', '55%', '80%'],
+        ans: 2,
+        exp: 'メラビアンの法則：第一印象は視覚（見た目・表情・姿勢）55%・聴覚（声のトーン・速さ）38%・言語（話の内容）7%で決まる。'
+      }
+    ]
+  },
+
+  environment: {
+    name: '環境・エコ',
+    icon: '♻️',
+    studyUrl: '../environment/',
+    qs: [
+      {
+        q: '3R（スリーアール）の正しい優先順位は？',
+        choices: ['Reuse→Reduce→Recycle', 'Reduce→Reuse→Recycle', 'Recycle→Reuse→Reduce', 'Reduce→Recycle→Reuse'],
+        ans: 1,
+        exp: '優先順位はReduce（発生抑制）→Reuse（再使用）→Recycle（再資源化）。まずごみを出さない、次に繰り返し使う、最後にリサイクルが正しい順序。'
+      },
+      {
+        q: 'フロン排出抑制法の対象となる主な機器は？',
+        choices: ['電子レンジ・炊飯器', '洗濯機・乾燥機', 'エアコン・業務用冷凍冷蔵機器', 'テレビ・パソコン'],
+        ans: 2,
+        exp: 'フロン排出抑制法はフロン類を冷媒として使用する冷凍空調機器（エアコン・業務用冷凍冷蔵庫等）の管理・回収を規制する。'
+      },
+      {
+        q: 'RoHS指令（有害物質規制）で使用が規制されている物質として正しいものは？',
+        choices: ['アルミニウム', '銅', '鉛', '鉄'],
+        ans: 2,
+        exp: 'RoHS指令は電気・電子機器における鉛・水銀・カドミウム・六価クロム・ポリ臭化ビフェニル（PBB）・ポリ臭化ジフェニルエーテル（PBDE）等を規制。'
+      },
+      {
+        q: '小型家電リサイクル法の対象品目として正しいものは？',
+        choices: ['エアコン', '冷蔵庫', '携帯電話・スマートフォン', '洗濯機'],
+        ans: 2,
+        exp: '小型家電リサイクル法は家電リサイクル法4品目以外の小型電子機器等が対象。携帯・デジカメ・ゲーム機・パソコン等。回収ボックスで収集。'
+      },
+      {
+        q: 'リチウムイオン電池のリサイクル回収を推進する業界団体は？',
+        choices: ['経済産業省', 'JBRC', '環境省', '電気事業連合会'],
+        ans: 1,
+        exp: 'JBRC（一般社団法人JBRCリサイクル推進協力店）はニカド・ニッケル水素・リチウムイオン二次電池のリサイクルを推進する業界団体。'
+      },
+      {
+        q: 'グリーン購入法の主な内容として正しいものは？',
+        choices: ['一般消費者に省エネ製品の購入を義務付ける', '国・地方公共団体等に環境負荷の少ない製品の優先購入を義務付ける', '電力会社に再生可能エネルギーの使用を義務付ける', '製造業者に100%リサイクルを義務付ける'],
+        ans: 1,
+        exp: 'グリーン購入法（2001年施行）は国等が率先して環境負荷の少ない物品・サービスを調達することを義務付け、市場全体の環境配慮を促進する。'
+      },
+      {
+        q: '循環型社会形成推進基本法における廃棄物処理の正しい優先順位は？',
+        choices: ['再使用→発生抑制→再生利用→熱回収→適正処分', '発生抑制→再使用→再生利用→熱回収→適正処分', '再生利用→発生抑制→再使用→熱回収→適正処分', '熱回収→再生利用→再使用→発生抑制→適正処分'],
+        ans: 1,
+        exp: '優先順位：①発生抑制（Reduce）②再使用（Reuse）③再生利用（Recycle）④熱回収（サーマルリサイクル）⑤適正処分。'
+      },
+      {
+        q: 'エコマークの認定基準に含まれないものは？',
+        choices: ['製品の環境負荷が少ないこと', '品質・安全性が使用に耐えること', '価格が市場最安値であること', '廃棄時の処理が容易なこと'],
+        ans: 2,
+        exp: 'エコマーク（日本環境協会）の認定基準は環境負荷の低減・品質・安全性・廃棄しやすさ等。価格の安さは要件ではない。'
+      },
+      {
+        q: '家電リサイクル法に基づき、消費者が廃エアコンを処分する正しい方法は？',
+        choices: ['通常の粗大ごみとして自治体に出す', '小売業者に引取依頼してリサイクル料を支払う', '自分で分解して金属をスクラップに出す', '無料で処分してくれる業者に依頼する'],
+        ans: 1,
+        exp: '家電リサイクル法の対象4品目は、購入した小売業者またはその製品を販売した小売業者に引取依頼し、リサイクル料と収集運搬費を支払う必要がある。'
+      },
+      {
+        q: '統一省エネラベルの「年間電気代の目安」計算に使用される電力単価の基準は？',
+        choices: ['ユーザーの実際の契約単価', '各電力会社の平均単価', '国が告示で定めた基準単価（例：1kWh＝27円）', '最安単価プランを適用'],
+        ans: 2,
+        exp: '統一省エネラベルの年間電気代は国（経済産業省）が告示で定めた基準単価を使って計算。一律の条件で比較できるようにするため。'
+      }
+    ]
+  }
+};
+
+// コース定義
+const COURSES = {
+  av: {
+    name: 'AV情報家電コース',
+    categories: ['basics', 'avInfo', 'laws', 'sales', 'environment']
+  },
+  home: {
+    name: '生活家電コース',
+    categories: ['basics', 'homeAppliances', 'laws', 'sales', 'environment']
+  },
+  all: {
+    name: '全カテゴリ',
+    categories: ['basics', 'avInfo', 'homeAppliances', 'laws', 'sales', 'environment']
+  }
+};
+
+// ============================
+// STATE
+// ============================
+let currentCourse = null;
+let currentCategory = null;
+let currentQuestions = [];
+let currentIndex = 0;
+let score = 0;
+let answers = [];
+let selectedAnswer = null;
+let screenHistory = [];
+
+// ============================
+// NAVIGATION
+// ============================
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+function goBack() {
+  if (screenHistory.length > 0) {
+    const prev = screenHistory.pop();
+    showScreen(prev);
+    updateHeader(prev);
+  }
+}
+
+function updateHeader(screenId) {
+  const back = document.getElementById('headerBack');
+  const title = document.getElementById('headerTitle');
+  const badge = document.getElementById('headerBadge');
+  badge.style.display = 'none';
+
+  if (screenId === 'screenCourse') {
+    back.style.display = 'none';
+    title.textContent = 'クイズモード';
+  } else if (screenId === 'screenCategory') {
+    back.style.display = 'flex';
+    title.textContent = currentCourse ? COURSES[currentCourse].name : 'カテゴリ選択';
+  } else if (screenId === 'screenQuiz') {
+    back.style.display = 'flex';
+    title.textContent = currentCategory ? QUESTIONS[currentCategory].name : 'クイズ';
+    badge.style.display = 'block';
+    badge.textContent = `${currentIndex + 1}/${currentQuestions.length}`;
+  } else if (screenId === 'screenResult') {
+    back.style.display = 'none';
+    title.textContent = '結果';
+  }
+}
+
+function navigateTo(screenId) {
+  const currentActive = document.querySelector('.screen.active');
+  if (currentActive) screenHistory.push(currentActive.id);
+  showScreen(screenId);
+  updateHeader(screenId);
+}
+
+// ============================
+// COURSE SELECTION
+// ============================
+function selectCourse(course) {
+  currentCourse = course;
+  buildCategoryScreen();
+  navigateTo('screenCategory');
+}
+
+function buildCategoryScreen() {
+  const cats = COURSES[currentCourse].categories;
+  document.getElementById('catScreenTitle').textContent = COURSES[currentCourse].name;
+  document.getElementById('catScreenSub').textContent = '出題したいカテゴリを選択してください';
+
+  const list = document.getElementById('categoryList');
+  list.innerHTML = '';
+
+  cats.forEach(key => {
+    const cat = QUESTIONS[key];
+    const btn = document.createElement('button');
+    btn.className = 'cat-card';
+    btn.innerHTML = `
+      <div class="cat-icon">${cat.icon}</div>
+      <div style="flex:1">
+        <div class="cat-name">${cat.name}</div>
+        <div class="cat-meta">${cat.qs.length}問</div>
+      </div>
+      <span class="cat-arrow">›</span>
+    `;
+    btn.onclick = () => startQuiz(key);
+    list.appendChild(btn);
+  });
+}
+
+// ============================
+// QUIZ START
+// ============================
+function startQuiz(categoryKey) {
+  currentCategory = categoryKey;
+  const cat = QUESTIONS[categoryKey];
+  currentQuestions = shuffle([...cat.qs]).slice(0, 10);
+  currentIndex = 0;
+  score = 0;
+  answers = [];
+  navigateTo('screenQuiz');
+  renderQuestion();
+}
+
+function startRandom() {
+  currentCategory = null;
+  const cats = COURSES[currentCourse].categories;
+  const pool = [];
+  cats.forEach(key => {
+    QUESTIONS[key].qs.forEach(q => pool.push({ ...q, _category: key }));
+  });
+  currentQuestions = shuffle(pool).slice(0, 10);
+  currentIndex = 0;
+  score = 0;
+  answers = [];
+  navigateTo('screenQuiz');
+  renderQuestion();
+}
+
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+// ============================
+// QUIZ RENDERING
+// ============================
+function renderQuestion() {
+  const q = currentQuestions[currentIndex];
+  const total = currentQuestions.length;
+  const catKey = q._category || currentCategory;
+  const catName = catKey ? QUESTIONS[catKey].name : '総合';
+
+  // Header badge
+  document.getElementById('headerBadge').textContent = `${currentIndex + 1}/${total}`;
+  document.getElementById('headerBadge').style.display = 'block';
+
+  // Progress
+  document.getElementById('progressFill').style.width = `${(currentIndex / total) * 100}%`;
+  document.getElementById('quizCounter').textContent = `問${currentIndex + 1} / ${total}`;
+  document.getElementById('quizCatTag').textContent = catName;
+
+  // Question
+  document.getElementById('questionText').textContent = q.q;
+
+  // Choices
+  const container = document.getElementById('choicesContainer');
+  container.innerHTML = '';
+  const labels = ['A', 'B', 'C', 'D'];
+  q.choices.forEach((choice, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'choice-btn';
+    btn.innerHTML = `<span class="choice-label">${labels[i]}</span><span class="choice-text">${choice}</span>`;
+    btn.onclick = () => selectAnswer(i);
+    container.appendChild(btn);
+  });
+
+  // Reset state
+  selectedAnswer = null;
+  const expBox = document.getElementById('explanationBox');
+  expBox.className = 'explanation-box';
+  document.getElementById('nextBtn').className = 'next-btn';
+}
+
+function selectAnswer(idx) {
+  if (selectedAnswer !== null) return;
+  selectedAnswer = idx;
+
+  const q = currentQuestions[currentIndex];
+  const isCorrect = idx === q.ans;
+  if (isCorrect) score++;
+
+  answers.push({ q: q.q, chosen: idx, correct: q.ans, isCorrect, choices: q.choices, exp: q.exp });
+
+  // Style buttons
+  const btns = document.querySelectorAll('.choice-btn');
+  btns.forEach((btn, i) => {
+    btn.classList.add('disabled');
+    if (i === q.ans) btn.classList.add('correct');
+    else if (i === idx && !isCorrect) btn.classList.add('wrong');
+  });
+
+  // Explanation
+  const expBox = document.getElementById('explanationBox');
+  expBox.className = `explanation-box show ${isCorrect ? 'correct-result' : 'wrong-result'}`;
+  document.getElementById('explanationTitle').innerHTML = isCorrect ? '✅ 正解！' : '❌ 不正解';
+  const labels = ['A', 'B', 'C', 'D'];
+  document.getElementById('explanationCorrect').textContent = isCorrect ? '' : `正解：${labels[q.ans]}. ${q.choices[q.ans]}`;
+  document.getElementById('explanationText').textContent = q.exp;
+
+  // Next button
+  const nextBtn = document.getElementById('nextBtn');
+  nextBtn.className = 'next-btn show';
+  nextBtn.textContent = currentIndex + 1 >= currentQuestions.length ? '結果を見る →' : '次の問題へ →';
+
+  // Auto-scroll to explanation on mobile
+  setTimeout(() => {
+    expBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }, 100);
+}
+
+function nextQuestion() {
+  currentIndex++;
+  if (currentIndex >= currentQuestions.length) {
+    showResult();
+  } else {
+    renderQuestion();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+// ============================
+// RESULT
+// ============================
+function showResult() {
+  const total = currentQuestions.length;
+  const pct = Math.round((score / total) * 100);
+
+  navigateTo('screenResult');
+  window.scrollTo({ top: 0 });
+
+  document.getElementById('scoreNum').textContent = score;
+  document.getElementById('scoreDenom').textContent = `/ ${total}問`;
+  document.getElementById('statCorrect').textContent = score;
+  document.getElementById('statWrong').textContent = total - score;
+
+  // Arc animation
+  const arc = document.getElementById('scoreArc');
+  const circumference = 2 * Math.PI * 60;
+  const offset = circumference - (pct / 100) * circumference;
+  arc.style.strokeDashoffset = circumference;
+  arc.style.transition = 'none';
+  setTimeout(() => {
+    arc.style.transition = 'stroke-dashoffset 1s ease';
+    arc.style.strokeDashoffset = offset;
+    const color = pct >= 80 ? '#10b981' : pct >= 60 ? '#f59e0b' : '#ef4444';
+    arc.style.stroke = color;
+    document.getElementById('scoreNum').style.color = color;
+  }, 100);
+
+  // Message
+  let msg, sub;
+  if (pct >= 90) { msg = '🎉 素晴らしい！'; sub = '完璧な理解です！'; }
+  else if (pct >= 80) { msg = '👏 よくできました！'; sub = 'ほぼ完璧です。'; }
+  else if (pct >= 60) { msg = '📚 もう少し！'; sub = '苦手な問題を復習しましょう。'; }
+  else { msg = '💪 復習が必要です'; sub = '学習ページで確認しましょう。'; }
+  document.getElementById('resultMessage').textContent = msg;
+  document.getElementById('resultSub').textContent = sub;
+
+  // Answer list
+  const items = document.getElementById('resultItems');
+  items.innerHTML = '';
+  const labels = ['A', 'B', 'C', 'D'];
+  answers.forEach((a, i) => {
+    const div = document.createElement('div');
+    div.className = 'result-item';
+    div.innerHTML = `
+      <div class="result-icon">${a.isCorrect ? '✅' : '❌'}</div>
+      <div>
+        <div class="result-q">問${i + 1}. ${a.q}</div>
+        <div class="result-a">正解：<span>${labels[a.correct]}. ${a.choices[a.correct]}</span></div>
+      </div>
+    `;
+    items.appendChild(div);
+  });
+
+  // Study link
+  const catKey = currentCategory || (currentQuestions[0] && currentQuestions[0]._category);
+  if (catKey) {
+    document.getElementById('studyLink').style.display = 'block';
+    document.getElementById('studyLink').dataset.url = QUESTIONS[catKey].studyUrl;
+  } else {
+    document.getElementById('studyLink').style.display = 'none';
+  }
+}
+
+function retryQuiz() {
+  if (currentCategory) {
+    startQuiz(currentCategory);
+  } else {
+    startRandom();
+  }
+}
+
+function backToCategory() {
+  screenHistory = [];
+  navigateTo('screenCategory');
+}
+
+function goToStudy() {
+  const url = document.getElementById('studyLink').dataset.url;
+  if (url) window.location.href = url;
+}
+</script>
+</body>
+</html>
