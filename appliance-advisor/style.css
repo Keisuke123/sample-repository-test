@@ -786,33 +786,91 @@ img {
   line-height: 1.6;
 }
 
-/* レスポンシブ補完 */
-@media (max-width: 768px) {
-  .top-hero h1 {
-    font-size: 1.7rem;
-  }
+/* ========================================
+   レスポンシブ・モバイル対応
+   ======================================== */
 
-  .hero h1 {
-    font-size: 1.5rem;
-  }
+/* タッチデバイス共通 */
+@media (hover: none) {
+  a:hover { text-decoration: none; }
+  .card:hover { transform: none; box-shadow: var(--shadow); }
+}
 
-  .content-section {
-    padding: 22px 18px;
-  }
+/* スマホ（〜767px） */
+@media (max-width: 767px) {
+  body { font-size: 15px; }
 
-  .page-nav {
-    flex-direction: column;
-  }
+  .top-hero { padding: 32px 16px 36px; }
+  .top-hero h1 { font-size: 1.6rem; }
+  .top-hero .top-sub { font-size: 0.88rem; }
+  .badge-row { flex-wrap: wrap; gap: 6px; }
 
-  .page-nav a {
-    width: 100%;
-  }
+  .hero { padding: 24px 16px 28px; }
+  .hero h1 { font-size: 1.4rem; }
 
+  .main-container { padding: 20px 14px; }
+
+  /* カードグリッド：スマホは1列 */
+  .card-grid { grid-template-columns: 1fr; gap: 12px; }
+  .card { padding: 18px; }
+
+  /* コンテンツレイアウト：サイドバー非表示 */
+  .content-layout { grid-template-columns: 1fr; gap: 0; }
+  .toc {
+    position: static;
+    background: var(--primary-light);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+    max-height: 220px;
+    overflow-y: auto;
+  }
+  .toc h3 { margin-bottom: 8px; }
+
+  /* コンテンツセクション */
+  .content-section { padding: 18px 16px; margin-bottom: 14px; }
+  .content-section h2 { font-size: 1.15rem; padding-bottom: 8px; }
+  .content-section h3 { font-size: 1rem; }
+
+  /* ページナビ */
+  .page-nav { flex-direction: column; gap: 8px; }
+  .page-nav a { width: 100%; text-align: center; min-height: 52px; display:flex; align-items:center; justify-content:center; }
+
+  /* ヘッダー */
   .site-header .header-inner {
     flex-direction: column;
     height: auto;
-    padding: 12px 16px;
-    gap: 6px;
+    padding: 10px 14px;
+    gap: 4px;
     align-items: flex-start;
   }
+  .site-header .site-title { font-size: 0.95rem; }
+  .breadcrumb { font-size: 0.78rem; }
+
+  /* テーブル */
+  .table-wrap { -webkit-overflow-scrolling: touch; }
+  .content-section table { font-size: 0.82rem; }
+
+  /* info-box-grid */
+  .info-box-grid { grid-template-columns: 1fr; }
+
+  /* tips-grid */
+  .tips-grid { grid-template-columns: 1fr; }
+
+  /* exam-tip・point-box */
+  .exam-tip, .point-box { padding: 14px; font-size: 0.88rem; }
+  .exam-tip::before { font-size: 0.8rem; }
+
+  /* カテゴリインデックスのカード */
+  .cat-index-grid { grid-template-columns: 1fr; }
+
+  /* フッター */
+  .site-footer { padding: 20px 14px; font-size: 0.82rem; }
+}
+
+/* タブレット（768〜1023px） */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .card-grid { grid-template-columns: repeat(2, 1fr); }
+  .content-layout { grid-template-columns: 220px 1fr; }
+  .main-container { padding: 28px 20px; }
 }
