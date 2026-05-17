@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>パソコン・モバイル機器 | 家電製品アドバイザー学習サイト</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="site-title">🏠 家電製品アドバイザー 学習サイト</div>
+      <nav class="breadcrumb">
+        <a href="../index.html">トップ</a>
+        <span class="sep">›</span>
+        <a href="index.html">AV・情報家電</a>
+        <span class="sep">›</span>
+        <span class="current">パソコン・モバイル機器</span>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <span class="hero-icon">💻</span>
+    <h1>パソコン・モバイル機器</h1>
+    <p class="hero-sub">PCの基本構成・インターフェース・タブレット・スマートフォン・プリンターまで、情報機器の技術知識を体系的に学びます。</p>
+    <div class="badge-row">
+      <span class="badge badge-blue">AV情報家電コース</span>
+      <span class="badge badge-accent">重要度：高</span>
+    </div>
+  </section>
+
+  <div class="content-layout">
+
+    <aside class="toc">
+      <h2>目次</h2>
+      <ol>
+        <li><a href="#pc-basics">パソコンの基本構成</a></li>
+        <li><a href="#interface">インターフェース・接続</a></li>
+        <li><a href="#notebook">ノートPCの特徴</a></li>
+        <li><a href="#mobile">タブレット・スマートフォン</a></li>
+        <li><a href="#printer">プリンター・周辺機器</a></li>
+      </ol>
+    </aside>
+
+    <main class="content-body">
+
+      <section class="content-section" id="pc-basics">
+        <h2>1. パソコンの基本構成</h2>
+
+        <h3>CPU（Central Processing Unit）</h3>
+        <p><span class="key-term">CPU</span>はコンピューターの頭脳にあたる演算処理装置です。主な性能指標：</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>指標</th><th>内容</th><th>目安</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><span class="key-term">クロック周波数</span></td><td>1秒間の処理サイクル数（GHz）</td><td>現在は3〜5GHz程度</td></tr>
+              <tr><td><span class="key-term">コア数</span></td><td>並列処理できる演算コアの数</td><td>一般：4〜8コア、高性能：16〜24コア以上</td></tr>
+              <tr><td><span class="key-term">キャッシュ</span></td><td>CPUが高速にアクセスできる小容量メモリ（L1/L2/L3）</td><td>L3は数MB〜数十MB</td></tr>
+              <tr><td>TDP</td><td>Thermal Design Power（発熱設計電力）</td><td>モバイル：15〜45W、デスクトップ：65〜125W+</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>メモリ（RAM）</h3>
+        <p><span class="key-term">RAM（Random Access Memory）</span>はCPUが処理するデータを一時的に保存する作業領域です。</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>規格</th><th>転送速度</th><th>特徴</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><span class="key-term">DDR4</span></td><td>最大3,200MHz</td><td>現在の標準。廉価。</td></tr>
+              <tr><td><span class="key-term">DDR5</span></td><td>4,800MHz〜（6,400MHz以上も）</td><td>DDR4の2倍以上の帯域幅。次世代標準。</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <ul>
+          <li>一般的な用途：8〜16GB</li>
+          <li>クリエイティブ作業・高性能ゲーミング：32GB以上</li>
+        </ul>
+
+        <h3>ストレージ：HDD vs SSD</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>項目</th><th>HDD（ハードディスク）</th><th>SSD（SATA接続）</th><th>SSD（NVMe接続）</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>記録媒体</td><td>磁気ディスク（回転）</td><td>フラッシュメモリ</td><td>フラッシュメモリ</td></tr>
+              <tr><td>読み込み速度</td><td>約100〜150MB/s</td><td>約500〜550MB/s</td><td>3,000〜7,000MB/s以上</td></tr>
+              <tr><td>書き込み速度</td><td>約80〜120MB/s</td><td>約450〜520MB/s</td><td>2,500〜6,500MB/s</td></tr>
+              <tr><td>衝撃耐性</td><td>低（可動部品あり）</td><td>高</td><td>高</td></tr>
+              <tr><td>騒音</td><td>あり</td><td>なし</td><td>なし</td></tr>
+              <tr><td>価格/TB</td><td>安い</td><td>中</td><td>やや高い</td></tr>
+              <tr><td>主な用途</td><td>大容量データ保管</td><td>一般PCのシステムドライブ</td><td>高性能PC・ゲーミング</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="exam-tip">
+          <p>NVMe SSDの読み込み速度は「SATA SSDの約6倍以上・HDDの約50倍以上」。HDDは「衝撃に弱い・動作音あり」がキーワード。ノートPCは落下衝撃でHDDが損傷しやすいため現在はSSDが主流。</p>
+        </div>
+      </section>
+
+      <section class="content-section" id="interface">
+        <h2>2. インターフェース・接続</h2>
+
+        <h3>USB規格</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>規格名</th><th>旧称</th><th>最大転送速度</th><th>コネクタ形状</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>USB 2.0</td><td>Hi-Speed USB</td><td>480Mbps</td><td>Type-A/B/Mini/Micro</td></tr>
+              <tr><td><span class="key-term">USB 3.2 Gen 1</span></td><td>USB 3.0</td><td>5Gbps</td><td>Type-A/Type-C</td></tr>
+              <tr><td><span class="key-term">USB 3.2 Gen 2</span></td><td>USB 3.1</td><td>10Gbps</td><td>Type-A/Type-C</td></tr>
+              <tr><td>USB 3.2 Gen 2×2</td><td>—</td><td>20Gbps</td><td>Type-C</td></tr>
+              <tr><td><span class="key-term">USB 4</span></td><td>—</td><td>40Gbps（最大）</td><td>Type-C</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Type-Cコネクタは上下対称で挿し込み向きを気にしなくて良い形状です。USB Power Delivery（USB PD）により最大240Wまでの電力供給も可能です。</p>
+
+        <h3>Thunderbolt</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>規格</th><th>最大転送速度</th><th>映像出力</th><th>特記</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Thunderbolt 4</td><td>40Gbps</td><td>DisplayPort 2.0</td><td>USB4と互換。PCIe 3.0×4通路</td></tr>
+              <tr><td><span class="key-term">Thunderbolt 5</span></td><td>120Gbps（双方向）</td><td>DisplayPort 2.1</td><td>8K映像出力・240W給電対応</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Wi-Fi規格</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Wi-Fi規格</th><th>IEEE規格</th><th>最大速度</th><th>周波数帯</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Wi-Fi 4</td><td>802.11n</td><td>600Mbps</td><td>2.4GHz / 5GHz</td></tr>
+              <tr><td><span class="key-term">Wi-Fi 5</span></td><td>802.11ac</td><td>6.9Gbps</td><td>5GHz</td></tr>
+              <tr><td><span class="key-term">Wi-Fi 6</span></td><td>802.11ax</td><td>9.6Gbps</td><td>2.4GHz / 5GHz</td></tr>
+              <tr><td>Wi-Fi 6E</td><td>802.11ax</td><td>9.6Gbps</td><td>2.4/5/6GHz</td></tr>
+              <tr><td>Wi-Fi 7</td><td>802.11be</td><td>46Gbps</td><td>2.4/5/6GHz</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Wi-Fi 6（802.11ax）の新機能：<span class="key-term">OFDMA</span>（多数のデバイスへの同時通信）、<span class="key-term">MU-MIMO</span>（4ストリーム以上の同時送受信）、WPA3セキュリティ。</p>
+
+        <div class="exam-tip">
+          <p>Wi-Fi 6の規格名は「IEEE 802.11ax」。Wi-Fi 5は「802.11ac」。Thunderbolt 4は「40Gbps・USB4互換」。USBの規格名は改定で複雑になったため、旧称（USB 3.0等）と新称の対応を確認する。</p>
+        </div>
+      </section>
+
+      <section class="content-section" id="notebook">
+        <h2>3. ノートPCの特徴</h2>
+
+        <h3>バッテリー</h3>
+        <p>ノートPCのバッテリー容量は<span class="key-term">Wh（ワット時）</span>で表されます。容量が大きいほど長時間駆動が可能ですが、重量も増加します。</p>
+        <ul>
+          <li>一般的な軽量ノート：35〜60Wh（約10〜15時間）</li>
+          <li>高性能ノート：70〜100Wh（約6〜12時間）</li>
+          <li>航空機内持込制限：100Wh以下（一部条件で160Wh以下）</li>
+        </ul>
+
+        <h3>モバイルCPUの特性</h3>
+        <p>ノートPC用のモバイルCPUは、デスクトップ用CPUと比較して：</p>
+        <ul>
+          <li>TDP（発熱設計電力）が低く設定され、発熱・消費電力を抑制</li>
+          <li>バッテリー動作時はパフォーマンスが制限される場合がある</li>
+          <li>最近はPerformanceコアとEfficiencyコアを組み合わせたハイブリッドアーキテクチャが主流（Intel Core Ultra、Apple M系等）</li>
+        </ul>
+
+        <div class="exam-tip">
+          <p>バッテリー容量は「Wh（ワット時）」で表示。航空機への持込規制は「100Wh以下は通常持込可能」。モバイルCPUは低TDP・省電力が特徴。</p>
+        </div>
+      </section>
+
+      <section class="content-section" id="mobile">
+        <h2>4. タブレット・スマートフォン</h2>
+
+        <h3>SoC（System on a Chip）</h3>
+        <p><span class="key-term">SoC</span>は、CPU・GPU・NPU（AI処理）・通信モジュール等を1チップに統合したものです。スマートフォン・タブレットの心臓部です。</p>
+        <ul>
+          <li>Apple：Apple Silicon（M系・A系チップ）</li>
+          <li>Qualcomm：Snapdragon（ハイエンド・ミドル・エントリー）</li>
+          <li>Samsung：Exynos（一部地域のGalaxy向け）</li>
+          <li>MediaTek：Dimensity（コスト重視）</li>
+        </ul>
+
+        <h3>ディスプレイ</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>項目</th><th>内容</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>パネル種類</td><td>有機EL（AMOLED）またはIPS液晶。ハイエンドは有機ELが主流。</td></tr>
+              <tr><td><span class="key-term">リフレッシュレート</span></td><td>1秒間の画面更新回数（Hz）。60Hz標準、90/120/144Hz以上でスムーズな表示。</td></tr>
+              <tr><td>解像度</td><td>FHD+（2340×1080等）〜4K（3840×2160）</td></tr>
+              <tr><td>輝度</td><td>屋外での視認性に重要。ハイエンドは2,000nit以上も。</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>通信規格</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>規格</th><th>最大速度（理論値）</th><th>周波数帯</th><th>特徴</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><span class="key-term">4G LTE</span></td><td>下り1Gbps（LTE-A）</td><td>700MHz〜3.5GHz</td><td>現在の主力。広いカバレッジ。</td></tr>
+              <tr><td><span class="key-term">5G（Sub-6）</span></td><td>下り数Gbps</td><td>3.7GHz・4.5GHz帯</td><td>現在普及が進む。4Gより高速・低遅延。</td></tr>
+              <tr><td>5G（ミリ波）</td><td>下り20Gbps+</td><td>28GHz帯</td><td>超高速だが通信距離が短い。屋内・都市部限定。</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="exam-tip">
+          <p>5Gの「Sub-6」（6GHz以下）と「ミリ波」（28GHz帯）の違いを覚える。ミリ波は超高速だが直進性が強く障害物に弱い。リフレッシュレートが高いほどスクロールが滑らか。</p>
+        </div>
+      </section>
+
+      <section class="content-section" id="printer">
+        <h2>5. プリンター・周辺機器</h2>
+
+        <h3>インクジェット vs レーザー（トナー）</h3>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>項目</th><th>インクジェット</th><th>レーザー（トナー）</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>印刷方式</td><td>液体インクをノズルから噴射</td><td>トナー（粉末）を熱定着</td></tr>
+              <tr><td>印刷品質（写真）</td><td>高（色数が多い）</td><td>中（フォト専用機以外）</td></tr>
+              <tr><td>印刷速度（文書）</td><td>中</td><td>高速</td></tr>
+              <tr><td>ランニングコスト</td><td>家庭用は高め。エコタンク式で改善。</td><td>大量印刷で有利</td></tr>
+              <tr><td>本体価格</td><td>低〜中</td><td>中〜高</td></tr>
+              <tr><td>主な用途</td><td>家庭・写真印刷</td><td>オフィス・大量文書印刷</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>印刷解像度（dpi）</h3>
+        <p><span class="key-term">dpi（dots per inch）</span>は1インチあたりに印刷できるドット数です。数値が高いほど細部まで鮮明に印刷できます。</p>
+        <ul>
+          <li>文書印刷：300〜600dpi程度で十分</li>
+          <li>写真印刷：1,200〜4,800dpi以上</li>
+          <li>インクジェット最高解像度：5,760×1,440dpi等（Epson等の高精細モデル）</li>
+        </ul>
+
+        <div class="point-box">
+          <strong>エコタンク（タンク式インクジェット）</strong>
+          大容量インクタンクにボトルからインクを補充する方式。カートリッジ交換型と比べてランニングコストが大幅に低い（1枚あたりの印刷コストが約1/10以下になることも）。
+        </div>
+
+        <div class="exam-tip">
+          <p>レーザープリンターは「トナー（粉末）・熱定着」、インクジェットは「液体インク・ノズル噴射」。オフィスでの大量印刷にはレーザー、家庭での写真印刷にはインクジェットが一般的。</p>
+        </div>
+      </section>
+
+      <nav class="page-nav">
+        <a href="camera.html" class="nav-prev">
+          <span>←</span>
+          <div>
+            <span class="nav-label">前のページ</span>
+            <span class="nav-title">カメラ・映像機器</span>
+          </div>
+        </a>
+        <a href="../home-appliances/index.html" class="nav-next">
+          <div>
+            <span class="nav-label">次のカテゴリ</span>
+            <span class="nav-title">生活家電</span>
+          </div>
+          <span>→</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 家電製品アドバイザー学習サイト | <a href="../index.html">トップへ戻る</a></p>
+  </footer>
+
+</body>
+</html>
