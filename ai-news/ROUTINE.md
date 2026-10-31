@@ -62,16 +62,36 @@ Markdown 記法と絵文字は使わない。ニュースがない日も必ず1�
 
 ## 4. 書き込み先1：リポジトリ
 
-1. `main` ブランチを最新にする（`git fetch origin main && git checkout main && git pull origin main`）
-2. `ai-news/data/YYYY-MM-DD.json` に書き込む（同じ日付のファイルがあれば上書き）
-3. `python3 ai-news/scripts/update_index.py` を実行する。検証・30日より前のデータの削除・`data/index.json` の再生成をまとめて行う。検証エラーが出たら JSON を直して再実行する
-4. コミットして push する
+作業用ブランチに書き込み、PR を作ってマージする。main に直接 push しない。
+
+1. 事前確認
+   - `git status --porcelain` が空であること。未コミットの変更がある場合は、それを消したり上書きしたりせず、この手順4を中止して失敗として扱う
+   - `gh auth status` が成功すること。失敗した場合はこの手順4を中止して失敗として扱う
+2. `main` を最新にし、作業用ブランチを作る
+   ```
+   git checkout main && git pull origin main
+   BRANCH="ai-news/$(TZ=Asia/Tokyo date +%Y-%m-%d-%H%M)"
+   git checkout -b "$BRANCH"
+   ```
+3. `ai-news/data/YYYY-MM-DD.json` に書き込む（同じ日付のファイルがあれば上書き）
+4. `python3 ai-news/scripts/update_index.py` を実行する。検証・30日より前のデータの削除・`data/index.json` の再生成をまとめて行う。検証エラーが出たら JSON を直して再実行する
+5. コミットして作業用ブランチを push する
    ```
    git add ai-news/data
    git commit -m "AIニュース YYYY-MM-DD"
-   git push -u origin main
+   git push -u origin "$BRANCH"
    ```
-   push がネットワークエラーで失敗した場合は1回だけ再試行する。
+6. PR を作る
+   ```
+   gh pr create --base main --head "$BRANCH" --title "AIニュース YYYY-MM-DD" --body "スケジュールタスクによる自動更新（掲載 N 件：A n件 / B n件 / C n件）"
+   ```
+7. PR を squash でマージし、作業用ブランチを削除する
+   ```
+   gh pr merge "$BRANCH" --squash --delete-branch
+   ```
+8. 後片付け：`git checkout main && git pull origin main` を実行し、ローカルに作業用ブランチが残っていれば `git branch -D "$BRANCH"` で消す
+
+push・PR 作成・マージがネットワークエラーで失敗した場合は、その操作だけ1回再試行する。それでもマージできない場合（コンフリクト、ブランチ保護など）は PR を開いたまま残し、PR の URL とエラー内容を通知に含める。PR を閉じたり、main に直接 push したりしない。
 
 ## 5. 書き込み先2：Artifact
 
@@ -91,7 +111,8 @@ Markdown 記法と絵文字は使わない。ニュースがない日も必ず1�
 - 1文目：「AIニュース YYYY/MM/DD：」に続けてトップ見出し
 - 掲載件数（カテゴリ別）
 - 各ニュースの見出しを1行ずつ
-- 最後に2つのページURL
+- マージした PR の URL
+- 最後に2つのページURL（GitHub Pages への反映はマージから1〜2分かかる）
 
 どちらかが再試行後も失敗した場合は、PushNotification で、どちらが失敗したか、エラー内容、その日の見出し一覧を知らせる。
 
