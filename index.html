@@ -2,10 +2,271 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=appliance-advisor/">
-  <title>家電製品アドバイザー 学習サイト</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Pages</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --page: #f9f9f7;
+      --surface: #fcfcfb;
+      --surface-2: #f0efec;
+      --text: #0b0b0b;
+      --text-2: #52514e;
+      --muted: #898781;
+      --ring: rgba(11, 11, 11, 0.10);
+      --shadow: 0 1px 2px rgba(11, 11, 11, 0.04), 0 8px 24px rgba(11, 11, 11, 0.06);
+      --blue: #2a78d6;
+      --orange: #eb6834;
+      --aqua: #1baf7a;
+      --blue-soft: #e6f0fb;
+      --orange-soft: #fdeee7;
+      --aqua-soft: #e3f5ee;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        color-scheme: dark;
+        --page: #0d0d0d;
+        --surface: #1a1a19;
+        --surface-2: #232321;
+        --text: #f0efec;
+        --text-2: #c3c2b7;
+        --ring: rgba(255, 255, 255, 0.10);
+        --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.3);
+        --blue: #3987e5;
+        --orange: #d95926;
+        --aqua: #199e70;
+        --blue-soft: #17263a;
+        --orange-soft: #33201a;
+        --aqua-soft: #13291f;
+      }
+    }
+
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --page: #0d0d0d;
+      --surface: #1a1a19;
+      --surface-2: #232321;
+      --text: #f0efec;
+      --text-2: #c3c2b7;
+      --ring: rgba(255, 255, 255, 0.10);
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.3);
+      --blue: #3987e5;
+      --orange: #d95926;
+      --aqua: #199e70;
+      --blue-soft: #17263a;
+      --orange-soft: #33201a;
+      --aqua-soft: #13291f;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN",
+        "Noto Sans JP", "Yu Gothic", sans-serif;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--page);
+      font-feature-settings: "palt";
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 56px 16px 40px;
+    }
+
+    h1 {
+      font-size: 1.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    .lead {
+      margin-top: 4px;
+      color: var(--text-2);
+      font-size: 0.9rem;
+    }
+
+    .menu {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .menu a {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 16px;
+      padding: 18px;
+      border-radius: 16px;
+      background: var(--surface);
+      border: 1px solid var(--ring);
+      box-shadow: var(--shadow);
+      color: inherit;
+      text-decoration: none;
+      transition: transform 0.2s;
+      animation: rise 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-delay: var(--delay, 0s);
+    }
+
+    .menu a:hover {
+      transform: translateY(-3px);
+    }
+
+    .menu a:hover .arrow {
+      transform: translateX(4px);
+      color: var(--text);
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: none; }
+    }
+
+    .icon {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--soft);
+      color: var(--c);
+    }
+
+    .icon svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .name {
+      display: block;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    .desc {
+      display: block;
+      font-size: 0.82rem;
+      color: var(--text-2);
+    }
+
+    .latest {
+      display: none;
+      margin-top: 8px;
+      padding: 8px 10px;
+      border-radius: 10px;
+      background: var(--surface-2);
+      font-size: 0.8rem;
+      line-height: 1.5;
+    }
+
+    .latest.show {
+      display: block;
+    }
+
+    .latest time {
+      display: block;
+      font-size: 0.72rem;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .arrow {
+      color: var(--muted);
+      transition: transform 0.2s, color 0.2s;
+    }
+
+    .arrow svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    [data-c="blue"] { --c: var(--blue); --soft: var(--blue-soft); }
+    [data-c="orange"] { --c: var(--orange); --soft: var(--orange-soft); }
+    [data-c="aqua"] { --c: var(--aqua); --soft: var(--aqua-soft); }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
 </head>
 <body>
-  <p><a href="appliance-advisor/">家電製品アドバイザー 学習サイト</a>へ移動します...</p>
+  <main class="container">
+    <h1>My Pages</h1>
+    <p class="lead">用途ごとのページ一覧</p>
+
+    <ul class="menu">
+      <li>
+        <a href="ai-news/" data-c="blue" style="--delay: 0s">
+          <span class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h12v14H6a2 2 0 0 1-2-2z"/><path d="M16 9h3a1 1 0 0 1 1 1v7a2 2 0 0 1-4 0M8 9h4M8 13h4"/></svg>
+          </span>
+          <span>
+            <span class="name">AIニュース</span>
+            <span class="desc">AI業界の重要ニュースを毎朝まとめたページ</span>
+            <span class="latest" id="ai-news-latest"><time></time><span></span></span>
+          </span>
+          <span class="arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="appliance-advisor/" data-c="orange" style="--delay: 0.08s">
+          <span class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg>
+          </span>
+          <span>
+            <span class="name">家電製品アドバイザー 学習サイト</span>
+            <span class="desc">資格試験に向けた学習ページとクイズ</span>
+          </span>
+          <span class="arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="travel/" data-c="aqua" style="--delay: 0.16s">
+          <span class="icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/></svg>
+          </span>
+          <span>
+            <span class="name">旅行</span>
+            <span class="desc">旅行ごとの計画・しおり</span>
+          </span>
+          <span class="arrow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+          </span>
+        </a>
+      </li>
+    </ul>
+  </main>
+
+  <script>
+    // AIニュースの最新見出しをカードに表示する（読めなければ何も表示しない）
+    fetch("ai-news/data/index.json", { cache: "no-cache" })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((index) => {
+        const latest = index && index.issues && index.issues[0];
+        if (!latest) return;
+        const box = document.getElementById("ai-news-latest");
+        const [y, m, d] = latest.date.split("-").map(Number);
+        const w = "日月火水木金土"[new Date(y, m - 1, d).getDay()];
+        box.querySelector("time").textContent = `最新 ${y}/${m}/${d}（${w}）`;
+        box.querySelector("span").textContent = latest.topHeadline;
+        box.classList.add("show");
+      })
+      .catch(() => {});
+  </script>
 </body>
 </html>
