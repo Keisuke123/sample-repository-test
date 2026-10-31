@@ -141,6 +141,7 @@ button {
   gap: 10px;
   font-weight: 700;
   letter-spacing: 0.02em;
+  text-decoration: none;
 }
 
 .brand svg {
