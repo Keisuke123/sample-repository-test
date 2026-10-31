@@ -4,13 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>省エネ基礎 | 家電製品アドバイザー学習サイト</title>
+  <meta name="theme-color" content="#0b1024">
+  <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=JetBrains+Mono:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap">
   <link rel="stylesheet" href="../style.css">
+  <script src="../app.js" defer></script>
 </head>
-<body>
+<body data-cat="basics">
 
   <header class="site-header">
     <div class="header-inner">
-      <div class="site-title">🏠 家電製品アドバイザー 学習サイト</div>
+      <div class="site-title"><a href="../index.html"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h7a3 3 0 0 1 3 3v14a2 2 0 0 0-2-2H2z"/><path d="M22 4h-7a3 3 0 0 0-3 3v14a2 2 0 0 1 2-2h8z"/></svg><span class="label">家電製品アドバイザー 学習サイト</span></a></div>
       <nav class="breadcrumb">
         <a href="../index.html">トップ</a>
         <span class="sep">›</span>
@@ -22,7 +28,7 @@
   </header>
 
   <section class="hero">
-    <span class="hero-icon">🌿</span>
+    <span class="hero-icon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19c0-9 6-14 15-15-1 9-6 15-15 15z"/><path d="M5 19 13 11"/></svg></span>
     <h1>省エネ基礎</h1>
     <p class="hero-sub">省エネ法の概要・トップランナー制度・統一省エネラベルの読み方など、省エネに関する制度と評価方法を学びます。</p>
     <div class="badge-row">
@@ -47,7 +53,7 @@
     <main class="content-body">
 
       <section class="content-section" id="law">
-        <h2>1. 省エネ法の概要</h2>
+        <h2><span class="h-num">01</span>省エネ法の概要</h2>
 
         <p><span class="key-term">省エネ法</span>（エネルギーの使用の合理化等に関する法律）は、工場・事業場・輸送・建築物・機械器具（家電）などあらゆる分野でのエネルギー消費効率改善を目的とした法律です。1979年に制定され、その後数次の改正を経て現在に至ります。</p>
 
@@ -65,11 +71,52 @@
       </section>
 
       <section class="content-section" id="top-runner">
-        <h2>2. トップランナー制度</h2>
+        <h2><span class="h-num">02</span>トップランナー制度</h2>
 
         <p><span class="key-term">トップランナー制度</span>とは、商品化されている製品のうち最も優れたエネルギー消費効率の製品（トップランナー）の水準を将来の目標基準として設定し、メーカーに達成を求める制度です。</p>
 
         <h3>基準設定の方法</h3>
+
+        <figure class="diagram" data-dg="toprunner">
+          <div class="diagram-head"><span class="tag">図解</span>トップランナー制度：いちばん良い製品が次の「基準」になる</div>
+          <div class="diagram-body">
+            <svg viewBox="0 0 540 270" role="img" aria-label="現在の製品の効率分布と、最高効率製品を目標年度の基準にする図">
+              <line x1="50" y1="226" x2="520" y2="226" class="d-thin"/>
+              <line x1="50" y1="226" x2="50" y2="20" class="d-thin"/>
+              <text x="40" y="30" class="d-sub" text-anchor="end">効率</text>
+              <text x="40" y="44" class="d-sub" text-anchor="end">高</text>
+              <text x="150" y="250" class="d-text" text-anchor="middle">現在の市場</text>
+              <text x="410" y="250" class="d-text" text-anchor="middle">目標年度</text>
+              <line x1="60" y1="70" x2="516" y2="70" stroke-width="2" stroke-dasharray="7 6" class="d-draw" style="--len:460;--d:.6s;stroke:var(--cat)"/>
+              <text x="516" y="92" class="d-text" text-anchor="end" style="fill:var(--cat-ink)">目標基準値</text>
+              <g class="d-muted">
+                <circle cx="80" cy="190" r="7" class="d-pop" style="--d:.0s"/>
+                <circle cx="105" cy="160" r="7" class="d-pop" style="--d:.05s"/>
+                <circle cx="125" cy="200" r="7" class="d-pop" style="--d:.1s"/>
+                <circle cx="150" cy="140" r="7" class="d-pop" style="--d:.15s"/>
+                <circle cx="170" cy="175" r="7" class="d-pop" style="--d:.2s"/>
+                <circle cx="195" cy="120" r="7" class="d-pop" style="--d:.25s"/>
+                <circle cx="220" cy="185" r="7" class="d-pop" style="--d:.3s"/>
+              </g>
+              <g class="d-pop" style="--d:.4s">
+                <circle cx="240" cy="70" r="11" class="d-cat"/>
+                <path d="M240 62l2.4 5.2 5.6.7-4.1 3.8 1 5.6-4.9-2.7-4.9 2.7 1-5.6-4.1-3.8 5.6-.7z" fill="#fff"/>
+                <text x="240" y="44" class="d-text" text-anchor="middle">トップランナー</text>
+              </g>
+              <path d="M262 150 C300 150 310 110 340 110" class="d-cat-s d-flow slow" stroke-width="2.5" fill="none"/>
+              <text x="300" y="176" class="d-sub" text-anchor="middle">技術革新で底上げ</text>
+              <g class="d-cat">
+                <circle cx="360" cy="62" r="7" class="d-pop" style="--d:1.0s"/>
+                <circle cx="385" cy="52" r="7" class="d-pop" style="--d:1.05s"/>
+                <circle cx="410" cy="66" r="7" class="d-pop" style="--d:1.1s"/>
+                <circle cx="435" cy="40" r="7" class="d-pop" style="--d:1.15s"/>
+                <circle cx="460" cy="58" r="7" class="d-pop" style="--d:1.2s"/>
+                <circle cx="485" cy="46" r="7" class="d-pop" style="--d:1.25s"/>
+              </g>
+            </svg>
+          </div>
+          <figcaption>現在いちばん効率の良い製品（トップランナー）の水準を、数年後の全製品の基準にします。メーカーは目標年度までに達成が必要です。</figcaption>
+        </figure>
         <ol>
           <li>現在市場に出ている製品の中で最高水準の省エネ製品を特定する</li>
           <li>技術進歩を見込んだうえで目標基準年度を設定する</li>
@@ -115,7 +162,7 @@
       </section>
 
       <section class="content-section" id="label">
-        <h2>3. 統一省エネラベル</h2>
+        <h2><span class="h-num">03</span>統一省エネラベル</h2>
 
         <p><span class="key-term">統一省エネラベル</span>は、省エネ法に基づいて対象製品に表示が義務付けられているラベルです。消費者が製品の省エネ性能を比較・判断しやすいよう、標準的な様式で情報を提供します。</p>
 
@@ -147,6 +194,30 @@
         </div>
 
         <h3>多段階評価（1〜5段階）の見方</h3>
+
+        <figure class="diagram" data-dg="label">
+          <div class="diagram-head"><span class="tag">図解</span>統一省エネラベルの見どころ</div>
+          <div class="diagram-body">
+            <div class="eco-label">
+              <div class="eco-label-card">
+                <div class="el-head">省エネ性能</div>
+                <div class="el-stars" aria-label="5段階中4">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span class="off">★</span>
+                </div>
+                <div class="el-row"><span>省エネ基準達成率</span><b>114%</b></div>
+                <div class="el-row"><span>エネルギー消費効率</span><b>APF 6.6</b></div>
+                <div class="el-cost"><small>年間の目安電気料金</small><b>22,800<span>円</span></b></div>
+              </div>
+              <ol class="el-notes">
+                <li><b>多段階評価（星）</b>1〜5段階。5つ星が最も省エネ。</li>
+                <li><b>省エネ基準達成率</b>100%以上なら基準達成製品。</li>
+                <li><b>エネルギー消費効率</b>APF・年間消費電力量など品目ごとの指標。</li>
+                <li><b>年間の目安電気料金</b>標準的な使い方での試算。実際とは異なる。</li>
+              </ol>
+            </div>
+          </div>
+          <figcaption>ラベルの数値は説明用の例です。比較するときは同じ製品カテゴリ（同じ畳数クラスなど）どうしで見ます。</figcaption>
+        </figure>
         <div class="point-box">
           <strong>星の数と省エネ性能</strong>
           ★★★★★（5つ星）：最高水準の省エネ性能<br>
@@ -163,8 +234,19 @@
       </section>
 
       <section class="content-section" id="efficiency">
-        <h2>4. エネルギー消費効率の指標</h2>
+        <h2><span class="h-num">04</span>エネルギー消費効率の指標</h2>
 
+        <figure class="diagram" data-dg="direction">
+          <div class="diagram-head"><span class="tag">図解</span>どっち向きが省エネ？3つの指標</div>
+          <div class="diagram-body">
+            <div class="diagram-grid dir-grid">
+              <div class="diagram-panel dir up"><span class="dir-arrow">↑</span><h4>APF（エアコン）</h4><p>数値が<strong>高い</strong>ほど省エネ<br>現在は 5〜8 程度</p></div>
+              <div class="diagram-panel dir down"><span class="dir-arrow">↓</span><h4>年間消費電力量（冷蔵庫）</h4><p>数値が<strong>少ない</strong>ほど省エネ<br>単位は kWh/年</p></div>
+              <div class="diagram-panel dir up"><span class="dir-arrow">↑</span><h4>lm/W（照明）</h4><p>数値が<strong>大きい</strong>ほど省エネ<br>LEDは 80〜180</p></div>
+            </div>
+          </div>
+          <figcaption>向きを取り違えるミスが多い分野です。「効率」は高いほど良く、「消費量」は少ないほど良いと覚えます。</figcaption>
+        </figure>
         <h3>エアコン：APF（通年エネルギー消費効率）</h3>
         <p><span class="key-term">APF（Annual Performance Factor）</span>は、1年間を通じた冷房・暖房の合計消費電力量に対する、空調総熱量の比率です。</p>
         <div class="point-box">
@@ -203,7 +285,7 @@
       </section>
 
       <section class="content-section" id="practice">
-        <h2>5. 省エネの実践</h2>
+        <h2><span class="h-num">05</span>省エネの実践</h2>
 
         <h3>家電製品別の省エネのポイント</h3>
         <div class="table-wrap">
@@ -249,7 +331,7 @@
 
       <nav class="page-nav">
         <a href="safety.html" class="nav-prev">
-          <span>←</span>
+          <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></span>
           <div>
             <span class="nav-label">前のページ</span>
             <span class="nav-title">安全規格</span>
@@ -260,7 +342,7 @@
             <span class="nav-label">次のカテゴリ</span>
             <span class="nav-title">AV・情報家電</span>
           </div>
-          <span>→</span>
+          <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
       </nav>
 

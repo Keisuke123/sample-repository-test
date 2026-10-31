@@ -4,13 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>調理家電 | 家電製品アドバイザー学習サイト</title>
+  <meta name="theme-color" content="#0b1024">
+  <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=JetBrains+Mono:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap">
   <link rel="stylesheet" href="../style.css">
+  <script src="../app.js" defer></script>
 </head>
-<body>
+<body data-cat="home-appliances">
 
   <header class="site-header">
     <div class="header-inner">
-      <div class="site-title">🏠 家電製品アドバイザー 学習サイト</div>
+      <div class="site-title"><a href="../index.html"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h7a3 3 0 0 1 3 3v14a2 2 0 0 0-2-2H2z"/><path d="M22 4h-7a3 3 0 0 0-3 3v14a2 2 0 0 1 2-2h8z"/></svg><span class="label">家電製品アドバイザー 学習サイト</span></a></div>
       <nav class="breadcrumb">
         <a href="../index.html">トップ</a>
         <span class="sep">›</span>
@@ -22,7 +28,7 @@
   </header>
 
   <section class="hero">
-    <span class="hero-icon">🍳</span>
+    <span class="hero-icon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11h16v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4v-6z"/><path d="M2 11h20"/><path d="M9 7c0-1 1-1.5 1-3M14 7c0-1 1-1.5 1-3"/></svg></span>
     <h1>調理家電</h1>
     <p class="hero-sub">電子レンジ・IHクッキングヒーター・炊飯器・トースターなど、調理家電の仕組みと特性を学びます。</p>
     <div class="badge-row">
@@ -47,7 +53,7 @@
     <main class="content-body">
 
       <section class="content-section" id="microwave">
-        <h2>1. 電子レンジ</h2>
+        <h2><span class="h-num">01</span>電子レンジ</h2>
 
         <h3>マイクロ波による加熱原理</h3>
         <p>電子レンジは<span class="key-term">マイクロ波（周波数2.45GHz）</span>を食品に照射することで、食品内の水分子を振動させて摩擦熱を発生させる仕組みです。</p>
@@ -58,6 +64,37 @@
           ・食品中の水分が少ない食品（乾いたもの）は加熱されにくい<br>
           ・金属容器はマイクロ波を反射するため使用不可
         </div>
+
+        <figure class="diagram" data-dg="microwave">
+          <div class="diagram-head"><span class="tag">図解</span>マイクロ波で水分子がゆさぶられる</div>
+          <div class="diagram-body">
+            <svg viewBox="0 0 520 240" role="img" aria-label="マイクロ波が食品に当たり、水分子が激しく向きを変えて摩擦熱が生まれる図">
+              <defs><clipPath id="mwClip"><rect x="24" y="24" width="472" height="192" rx="14"/></clipPath></defs>
+              <rect x="20" y="20" width="480" height="200" rx="18" class="d-box" style="stroke-width:2.5"/>
+              <g clip-path="url(#mwClip)">
+                <path d="M-80 70 q10 -18 20 0 q10 18 20 0 q10 -18 20 0 q10 18 20 0 q10 -18 20 0 q10 18 20 0 q10 -18 20 0 q10 18 20 0 q10 -18 20 0 q10 18 20 0 q10 -18 20 0 q10 18 20 0 q10 -18 20 0 q10 18 20 0 q10 -18 20 0 q10 18 20 0 q10 -18 20 0 q10 18 20 0 q10 -18 20 0 q10 18 20 0 q10 -18 20 0 q10 18 20 0 q10 -18 20 0 q10 18 20 0 q10 -18 20 0 q10 18 20 0 q10 -18 20 0 q10 18 20 0 q10 -18 20 0 q10 18 20 0 q10 -18 20 0 q10 18 20 0" class="d-cat-s" stroke-width="2.5" fill="none">
+                  <animateTransform attributeName="transform" type="translate" from="0 0" to="40 0" dur="0.6s" repeatCount="indefinite"/>
+                </path>
+              </g>
+              <text x="40" y="48" class="d-sub">マイクロ波 2.45GHz →</text>
+              <g transform="translate(-50 0)"><path d="M120 200 Q120 150 260 150 Q400 150 400 200 Z" style="fill:color-mix(in srgb,#f59e0b 22%,var(--surface))" class="d-thin"/>
+              <g transform="translate(170 182)"><g><animateTransform attributeName="transform" type="rotate" values="-40;40;-40" dur="0.5s" begin="0s" repeatCount="indefinite"/><circle r="9" fill="#ef4444"/><circle cx="-10" cy="8" r="5.5" fill="#e2e8f0" stroke="#94a3b8"/><circle cx="10" cy="8" r="5.5" fill="#e2e8f0" stroke="#94a3b8"/></g></g>
+              <g transform="translate(215 170)"><g><animateTransform attributeName="transform" type="rotate" values="-40;40;-40" dur="0.5s" begin="-0.1s" repeatCount="indefinite"/><circle r="9" fill="#ef4444"/><circle cx="-10" cy="8" r="5.5" fill="#e2e8f0" stroke="#94a3b8"/><circle cx="10" cy="8" r="5.5" fill="#e2e8f0" stroke="#94a3b8"/></g></g>
+              <g transform="translate(260 184)"><g><animateTransform attributeName="transform" type="rotate" values="-40;40;-40" dur="0.5s" begin="-0.2s" repeatCount="indefinite"/><circle r="9" fill="#ef4444"/><circle cx="-10" cy="8" r="5.5" fill="#e2e8f0" stroke="#94a3b8"/><circle cx="10" cy="8" r="5.5" fill="#e2e8f0" stroke="#94a3b8"/></g></g>
+              <g transform="translate(305 170)"><g><animateTransform attributeName="transform" type="rotate" values="-40;40;-40" dur="0.5s" begin="-0.3s" repeatCount="indefinite"/><circle r="9" fill="#ef4444"/><circle cx="-10" cy="8" r="5.5" fill="#e2e8f0" stroke="#94a3b8"/><circle cx="10" cy="8" r="5.5" fill="#e2e8f0" stroke="#94a3b8"/></g></g>
+              <g transform="translate(350 182)"><g><animateTransform attributeName="transform" type="rotate" values="-40;40;-40" dur="0.5s" begin="-0.15s" repeatCount="indefinite"/><circle r="9" fill="#ef4444"/><circle cx="-10" cy="8" r="5.5" fill="#e2e8f0" stroke="#94a3b8"/><circle cx="10" cy="8" r="5.5" fill="#e2e8f0" stroke="#94a3b8"/></g></g>
+              <g class="d-hot-s" stroke-width="2" fill="none">
+                <path d="M200 140 q-6 -8 0 -16 q6 -8 0 -16" class="d-rise"/>
+                <path d="M260 140 q-6 -8 0 -16 q6 -8 0 -16" class="d-rise" style="animation-delay:1s"/>
+                <path d="M320 140 q-6 -8 0 -16 q6 -8 0 -16" class="d-rise" style="animation-delay:2s"/>
+              </g></g>
+              <text x="360" y="168" class="d-sub">水分子（H₂O）が</text>
+              <text x="360" y="186" class="d-sub">1秒に24.5億回</text>
+              <text x="360" y="204" class="d-sub">向きを変えて発熱</text>
+            </svg>
+          </div>
+          <figcaption>金属はマイクロ波を反射するため使えません。水分の少ない乾いた食品が温まりにくいのも、この原理のためです。</figcaption>
+        </figure>
 
         <h3>電子レンジの種類</h3>
         <div class="table-wrap">
@@ -120,7 +157,7 @@
       </section>
 
       <section class="content-section" id="ih">
-        <h2>2. IHクッキングヒーター</h2>
+        <h2><span class="h-num">02</span>IHクッキングヒーター</h2>
 
         <h3>電磁誘導加熱の原理</h3>
         <p><span class="key-term">IH（Induction Heating：電磁誘導加熱）</span>は、コイルに高周波電流を流すことで磁力線を発生させ、鍋底の金属に渦電流を生じさせることで発熱する技術です。</p>
@@ -129,6 +166,43 @@
           コイルに高周波電流→磁界発生→金属鍋底に渦電流→鍋そのものが発熱<br>
           ⇒ ヒーター表面は発熱せず、鍋が直接発熱する（高効率）
         </div>
+
+        <figure class="diagram" data-dg="ih">
+          <div class="diagram-head"><span class="tag live">インタラクティブ</span>IHのしくみと「使える鍋」</div>
+          <div class="diagram-body">
+            <div data-widget="ih" class="ih">
+              <div class="seg"><button data-v="iron" aria-pressed="true">鉄</button><button data-v="cast">鋳鉄・ホーロー</button><button data-v="ss">ステンレス(18-0)</button><button data-v="alu">アルミ</button><button data-v="cu">銅</button><button data-v="clay">土鍋・ガラス</button></div>
+              <svg viewBox="0 0 520 250" role="img" aria-label="コイルの磁力線が鍋底に渦電流を起こし、鍋そのものが発熱する図" style="margin-top:14px">
+                <g class="ih-heat d-hot-s" stroke-width="2.5" fill="none">
+                  <path d="M200 60 q-7 -9 0 -18 q7 -9 0 -18" class="d-rise"/>
+                  <path d="M260 60 q-7 -9 0 -18 q7 -9 0 -18" class="d-rise" style="animation-delay:1s"/>
+                  <path d="M320 60 q-7 -9 0 -18 q7 -9 0 -18" class="d-rise" style="animation-delay:2s"/>
+                </g>
+                <path d="M200 216 C200 120 320 120 320 216" class="field d-flow" fill="none" stroke-width="2"/>
+                <path d="M170 216 C170 90 350 90 350 216" class="field d-flow" fill="none" stroke-width="2"/>
+                <path d="M230 216 C230 150 290 150 290 216" class="field d-flow" fill="none" stroke-width="2"/>
+                <rect x="142" y="128" width="236" height="18" class="ih-bottom"/>
+                <path d="M140 64 V140 Q140 148 148 148 H372 Q380 148 380 140 V64" class="d-line" stroke-width="4" style="stroke:var(--text)"/>
+                <path d="M380 78 H450" stroke-width="8" stroke-linecap="round" style="stroke:var(--text)"/>
+                <g class="ih-eddy">
+                  <ellipse cx="200" cy="137" rx="26" ry="5" class="d-flow" fill="none" stroke-width="2" style="stroke:#fff"/>
+                  <ellipse cx="260" cy="137" rx="26" ry="5" class="d-flow" fill="none" stroke-width="2" style="stroke:#fff"/>
+                  <ellipse cx="320" cy="137" rx="26" ry="5" class="d-flow" fill="none" stroke-width="2" style="stroke:#fff"/>
+                </g>
+                <rect x="60" y="156" width="400" height="12" rx="6" class="d-soft" style="stroke:var(--border-strong)"/>
+                <g fill="#c2410c"><circle cx="160" cy="200" r="7"/><circle cx="181" cy="200" r="7"/><circle cx="202" cy="200" r="7"/><circle cx="223" cy="200" r="7"/><circle cx="244" cy="200" r="7"/><circle cx="265" cy="200" r="7"/><circle cx="286" cy="200" r="7"/><circle cx="307" cy="200" r="7"/><circle cx="328" cy="200" r="7"/><circle cx="349" cy="200" r="7"/></g>
+                <text x="60" y="236" class="d-sub">コイル（高周波電流）</text>
+                <text x="468" y="166" class="d-sub">トッププレート</text>
+                <text x="468" y="182" class="d-sub">（発熱しない）</text>
+                <text x="392" y="132" class="d-sub ih-eddy">渦電流で</text>
+                <text x="392" y="148" class="d-sub ih-eddy">鍋底が発熱</text>
+                <text x="96" y="120" class="d-sub" style="fill:var(--cat-2)">磁力線</text>
+              </svg>
+              <div class="ih-verdict"><b data-o="verdict">IH対応</b><span data-o="why"></span></div>
+            </div>
+          </div>
+          <figcaption>加熱されるのはプレートではなく鍋そのもの。磁石がつく金属（磁性体）の鍋でないと渦電流が起きません。</figcaption>
+        </figure>
 
         <h3>対応鍋の素材</h3>
         <p>IHクッキングヒーターで使用できる鍋は、<span class="key-term">磁性体（磁石がつく）の金属製</span>のものに限られます。</p>
@@ -156,9 +230,21 @@
       </section>
 
       <section class="content-section" id="rice">
-        <h2>3. 炊飯器</h2>
+        <h2><span class="h-num">03</span>炊飯器</h2>
 
         <h3>加熱方式の比較</h3>
+
+        <figure class="diagram" data-dg="rice">
+          <div class="diagram-head"><span class="tag">図解</span>炊飯器は3段階でグレードアップ</div>
+          <div class="diagram-body">
+            <ol class="flow">
+              <li style="--i:0"><span class="flow-num">1</span><b>マイコン式</b><small>底のヒーターで外側から加熱。シンプル・安価</small></li>
+              <li style="--i:1"><span class="flow-num">2</span><b>IH式</b><small>電磁誘導で内釜全体を直接加熱。ムラが少ない</small></li>
+              <li style="--i:2"><span class="flow-num">3</span><b>圧力IH式</b><small>1.2〜2.0気圧で沸点を上げ、110〜115℃で炊く</small></li>
+            </ol>
+          </div>
+          <figcaption>下に行くほど高温・均一に炊けて、価格帯も上がります。</figcaption>
+        </figure>
         <div class="table-wrap">
           <table>
             <thead>
@@ -201,7 +287,7 @@
       </section>
 
       <section class="content-section" id="toaster">
-        <h2>4. トースター・オーブン</h2>
+        <h2><span class="h-num">04</span>トースター・オーブン</h2>
 
         <h3>種類と特徴</h3>
         <div class="table-wrap">
@@ -231,7 +317,7 @@
       </section>
 
       <section class="content-section" id="others">
-        <h2>5. その他の調理家電</h2>
+        <h2><span class="h-num">05</span>その他の調理家電</h2>
 
         <h3>電気ケトル・電気ポット</h3>
         <div class="table-wrap">
@@ -268,7 +354,7 @@
 
       <nav class="page-nav">
         <a href="washing.html" class="nav-prev">
-          <span>←</span>
+          <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></span>
           <div>
             <span class="nav-label">前のページ</span>
             <span class="nav-title">洗濯機・乾燥機</span>
@@ -279,7 +365,7 @@
             <span class="nav-label">次のページ</span>
             <span class="nav-title">照明器具</span>
           </div>
-          <span>→</span>
+          <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
       </nav>
 

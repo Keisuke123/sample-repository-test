@@ -4,19 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>クイズモード | 家電製品アドバイザー学習サイト</title>
+  <meta name="theme-color" content="#0b1024">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap">
   <style>
     :root {
-      --primary: #1e40af;
-      --primary-dark: #1e3a8a;
-      --primary-light: #dbeafe;
+      --primary: #4f46e5;
+      --primary-dark: #3730a3;
+      --primary-light: #eef2ff;
       --accent: #f59e0b;
       --success: #10b981;
       --success-bg: #d1fae5;
       --error: #ef4444;
       --error-bg: #fee2e2;
-      --text: #1f2937;
-      --text-muted: #6b7280;
-      --bg: #f8fafc;
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --bg: #f5f7fb;
       --surface: #ffffff;
       --border: #e5e7eb;
       --radius: 12px;
@@ -28,7 +32,8 @@
 
     html, body {
       height: 100%;
-      font-family: -apple-system, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+      font-family: "Inter", "Noto Sans JP", -apple-system, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif;
+      font-feature-settings: "palt" 1;
       background: var(--bg);
       color: var(--text);
       font-size: 16px;
@@ -37,7 +42,7 @@
 
     /* ===== HEADER ===== */
     .app-header {
-      background: var(--primary);
+      background: #0b1024;
       color: #fff;
       position: sticky;
       top: 0;
@@ -87,9 +92,12 @@
 
     /* ===== COURSE SELECTION ===== */
     .hero {
-      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+      background:
+        radial-gradient(60% 80% at 15% 20%, rgba(99,102,241,.7), transparent 70%),
+        radial-gradient(50% 70% at 90% 10%, rgba(236,72,153,.5), transparent 70%),
+        #0b1024;
       color: #fff;
-      padding: 32px 20px 40px;
+      padding: 40px 20px 48px;
       text-align: center;
     }
     .hero-icon { font-size: 48px; margin-bottom: 12px; }

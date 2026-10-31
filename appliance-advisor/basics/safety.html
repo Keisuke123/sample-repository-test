@@ -4,13 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>安全規格 | 家電製品アドバイザー学習サイト</title>
+  <meta name="theme-color" content="#0b1024">
+  <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=JetBrains+Mono:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap">
   <link rel="stylesheet" href="../style.css">
+  <script src="../app.js" defer></script>
 </head>
-<body>
+<body data-cat="basics">
 
   <header class="site-header">
     <div class="header-inner">
-      <div class="site-title">🏠 家電製品アドバイザー 学習サイト</div>
+      <div class="site-title"><a href="../index.html"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h7a3 3 0 0 1 3 3v14a2 2 0 0 0-2-2H2z"/><path d="M22 4h-7a3 3 0 0 0-3 3v14a2 2 0 0 1 2-2h8z"/></svg><span class="label">家電製品アドバイザー 学習サイト</span></a></div>
       <nav class="breadcrumb">
         <a href="../index.html">トップ</a>
         <span class="sep">›</span>
@@ -22,7 +28,7 @@
   </header>
 
   <section class="hero">
-    <span class="hero-icon">🛡️</span>
+    <span class="hero-icon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3z"/><path d="m9 12 2 2 4-4"/></svg></span>
     <h1>安全規格</h1>
     <p class="hero-sub">電気製品の安全基準・PSEマーク・国際規格・漏電防止の知識を学びます。販売する製品の安全性を正しく説明できるようになりましょう。</p>
     <div class="badge-row">
@@ -47,7 +53,7 @@
     <main class="content-body">
 
       <section class="content-section" id="insulation">
-        <h2>1. 電気製品の安全性</h2>
+        <h2><span class="h-num">01</span>電気製品の安全性</h2>
 
         <h3>絶縁クラス</h3>
         <p>電気製品は、感電防止のために金属外装と電気回路を絶縁する設計が義務付けられています。絶縁の方式によって3つのクラスに分類されます。</p>
@@ -81,6 +87,27 @@
 
         <h3>防水規格（IPコード）</h3>
         <p><span class="key-term">IPコード（IP：Ingress Protection）</span>は、IEC規格で定められた防塵・防水性能を示す国際規格です。「IP○○」の形式で表示され、1桁目が防塵、2桁目が防水を示します。</p>
+
+        <figure class="diagram" data-dg="ip">
+          <div class="diagram-head"><span class="tag live">インタラクティブ</span>IPコードを組み立てて読む</div>
+          <div class="diagram-body">
+            <div data-widget="ip">
+              <div class="ip-code"><b data-o="code">IPX4</b></div>
+              <div class="ip-rows">
+                <div class="ip-row"><span class="ip-lbl">第1桁<small>防塵</small></span>
+                  <div class="seg seg-dust"><button data-v="X" aria-pressed="true">X</button><button data-v="0">0</button><button data-v="1">1</button><button data-v="2">2</button><button data-v="3">3</button><button data-v="4">4</button><button data-v="5">5</button><button data-v="6">6</button></div></div>
+                <div class="ip-row"><span class="ip-lbl">第2桁<small>防水</small></span>
+                  <div class="seg seg-water"><button data-v="0">0</button><button data-v="1">1</button><button data-v="2">2</button><button data-v="3">3</button><button data-v="4" aria-pressed="true">4</button><button data-v="5">5</button><button data-v="6">6</button><button data-v="7">7</button><button data-v="8">8</button></div></div>
+              </div>
+              <div class="ip-out">
+                <p data-o="dust"></p>
+                <p data-o="water"></p>
+                <div class="ip-meter"><span></span></div>
+              </div>
+            </div>
+          </div>
+          <figcaption>「X」はその項目を試験していないという意味です。数字が大きいほど保護等級は高くなります。</figcaption>
+        </figure>
         <div class="table-wrap">
           <table>
             <thead>
@@ -104,7 +131,7 @@
       </section>
 
       <section class="content-section" id="pse">
-        <h2>2. PSEマーク</h2>
+        <h2><span class="h-num">02</span>PSEマーク</h2>
 
         <p><span class="key-term">PSEマーク</span>は、電気用品安全法に基づき、安全基準に適合した電気製品に表示される日本固有のマークです。PSEマークのない電気製品を販売することは法律で禁止されています。</p>
 
@@ -154,7 +181,7 @@
       </section>
 
       <section class="content-section" id="international">
-        <h2>3. 国際安全規格</h2>
+        <h2><span class="h-num">03</span>国際安全規格</h2>
 
         <h3>主な国際安全マーク</h3>
         <div class="table-wrap">
@@ -195,7 +222,7 @@
       </section>
 
       <section class="content-section" id="leakage">
-        <h2>4. 漏電・感電・ショートの基礎</h2>
+        <h2><span class="h-num">04</span>漏電・感電・ショートの基礎</h2>
 
         <h3>漏電（Leakage Current）</h3>
         <p><span class="key-term">漏電</span>とは、電気が正規の回路以外に流れ出す現象です。絶縁不良、老化、湿気などが原因となります。漏電した家電製品に触れると感電し、発火・火災の危険もあります。</p>
@@ -210,6 +237,46 @@
 
         <h3>漏電遮断器（ELB）の仕組み</h3>
         <p><span class="key-term">漏電遮断器（ELB：Earth Leakage Breaker）</span>は、回路内の漏電電流を検知して自動的に電力を遮断する安全装置です。</p>
+
+        <figure class="diagram" data-dg="elb">
+          <div class="diagram-head"><span class="tag live">インタラクティブ</span>漏電遮断器が「電流の差」で遮断するまで</div>
+          <div class="diagram-body">
+            <div data-widget="elb" class="elb">
+              <svg viewBox="0 0 540 250" role="img" aria-label="分電盤の漏電遮断器から家電へ電流が流れ、漏電時に差を検知して遮断する図">
+                <rect x="16" y="40" width="150" height="160" rx="16" class="d-box"/>
+                <text x="91" y="30" class="d-sub" text-anchor="middle">分電盤</text>
+                <rect x="36" y="64" width="110" height="112" rx="12" class="d-soft"/>
+                <text x="91" y="194" class="d-text" text-anchor="middle" style="font-size:12px">漏電遮断器</text>
+                <circle cx="96" cy="120" r="37" fill="none" class="d-thin" stroke-width="6" style="stroke:var(--border-strong)"/>
+                <text x="96" y="124" class="d-sub" text-anchor="middle" style="font-size:10px">検出部</text>
+                <circle cx="56" cy="80" r="6" class="elb-led"/>
+                <line x1="146" y1="90" x2="176" y2="90" class="d-line elb-sw" stroke-width="4" style="stroke:var(--text)"/>
+                <path d="M60 90 H146 M176 90 H400" class="d-line"/>
+                <path d="M60 150 H400" class="d-line"/>
+                <path d="M176 90 H400" class="d-flow" stroke-width="3" fill="none" style="stroke:var(--cat)"/>
+                <path d="M400 150 H60" class="d-flow" stroke-width="3" fill="none" style="stroke:var(--cat)"/>
+                <text x="288" y="80" class="d-sub" text-anchor="middle">往路 →</text>
+                <text x="288" y="170" class="d-sub" text-anchor="middle">← 復路</text>
+                <rect x="400" y="50" width="120" height="140" rx="16" class="d-box"/>
+                <text x="460" y="118" class="d-text" text-anchor="middle">家電製品</text>
+                <text x="460" y="138" class="d-sub" text-anchor="middle">（洗濯機など）</text>
+                <g class="leak-path">
+                  <path d="M460 190 V226" class="d-flow" stroke-width="3" fill="none" style="stroke:var(--danger)"/>
+                  <path d="M444 228 h32 M450 235 h20 M456 242 h8" stroke-width="2.5" style="stroke:var(--danger)"/>
+                  <text x="476" y="214" class="d-text" style="fill:var(--danger);font-size:12px">漏れ電流</text>
+                </g>
+              </svg>
+              <div class="readout">
+                <div><small>往路の電流</small><b data-o="go">10.000 A</b></div>
+                <div><small>復路の電流</small><b data-o="back">10.000 A</b></div>
+                <div class="hl"><small>差（漏れ電流）</small><b data-o="diff">0 mA</b></div>
+                <div><small>状態</small><b data-o="state" style="font-size:1rem">通電中</b></div>
+              </div>
+              <button type="button" class="btn-act elb-btn">漏電を発生させる</button>
+            </div>
+          </div>
+          <figcaption>行きと帰りの電流は通常ぴったり同じ。差（15〜30mA程度）が出たら漏電と判断し、0.1秒以内に電気を止めます。</figcaption>
+        </figure>
         <div class="point-box">
           <strong>ELBの動作原理</strong>
           往路（電圧側）と復路（接地側）の電流の差（漏れ電流）を検知し、設定値（一般的に15〜30mA）を超えると0.1秒以内に遮断します。
@@ -221,7 +288,7 @@
       </section>
 
       <section class="content-section" id="caution">
-        <h2>5. 安全使用上の注意事項</h2>
+        <h2><span class="h-num">05</span>安全使用上の注意事項</h2>
 
         <h3>電気製品の安全使用ルール</h3>
         <ul>
@@ -235,11 +302,24 @@
 
         <h3>電源コードの管理</h3>
         <p><span class="key-term">トラッキング現象</span>とは、プラグとコンセントの間に堆積した埃が湿気を吸収し、微小な電流が流れることで炭化（トラック）し、最終的に発火する現象です。長期間差し込んだままのプラグは定期的に抜いて清掃することが重要です。</p>
+
+        <figure class="diagram" data-dg="tracking">
+          <div class="diagram-head"><span class="tag">図解</span>トラッキング現象が起きるまで</div>
+          <div class="diagram-body">
+            <ol class="flow">
+              <li style="--i:0"><span class="flow-num">1</span><b>ほこりが積もる</b><small>差しっぱなしのプラグとコンセントの間</small></li>
+              <li style="--i:1"><span class="flow-num">2</span><b>湿気を吸う</b><small>結露・水まわりの湿気</small></li>
+              <li style="--i:2"><span class="flow-num">3</span><b>微小な電流が流れる</b><small>表面が炭化（トラック）していく</small></li>
+              <li style="--i:3"><span class="flow-num">4</span><b>発火</b><small>就寝中・外出中にも起こり得る</small></li>
+            </ol>
+          </div>
+          <figcaption>対策は「定期的にプラグを抜いて清掃する」こと。</figcaption>
+        </figure>
       </section>
 
       <nav class="page-nav">
         <a href="electricity.html" class="nav-prev">
-          <span>←</span>
+          <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></span>
           <div>
             <span class="nav-label">前のページ</span>
             <span class="nav-title">電気の基礎</span>
@@ -250,7 +330,7 @@
             <span class="nav-label">次のページ</span>
             <span class="nav-title">省エネ基礎</span>
           </div>
-          <span>→</span>
+          <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
       </nav>
 

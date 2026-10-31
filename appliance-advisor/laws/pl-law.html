@@ -4,13 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PL法・消費者関連法 | 家電製品アドバイザー学習サイト</title>
+  <meta name="theme-color" content="#0b1024">
+  <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=JetBrains+Mono:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap">
   <link rel="stylesheet" href="../style.css">
+  <script src="../app.js" defer></script>
 </head>
-<body>
+<body data-cat="laws">
 
   <header class="site-header">
     <div class="header-inner">
-      <div class="site-title">🏠 家電製品アドバイザー 学習サイト</div>
+      <div class="site-title"><a href="../index.html"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h7a3 3 0 0 1 3 3v14a2 2 0 0 0-2-2H2z"/><path d="M22 4h-7a3 3 0 0 0-3 3v14a2 2 0 0 1 2-2h8z"/></svg><span class="label">家電製品アドバイザー 学習サイト</span></a></div>
       <nav class="breadcrumb">
         <a href="../index.html">トップ</a>
         <span class="sep">›</span>
@@ -22,7 +28,7 @@
   </header>
 
   <section class="hero">
-    <span class="hero-icon">⚖️</span>
+    <span class="hero-icon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M7 21h10M4 7h16"/><path d="M4 7 1 14a3 3 0 0 0 6 0L4 7zM20 7l-3 7a3 3 0 0 0 6 0l-3-7z"/></svg></span>
     <h1>PL法・消費者関連法</h1>
     <p class="hero-sub">製造物責任法（PL法）・消費者基本法・消費生活用製品安全法・特定商取引法・景品表示法・個人情報保護法を学びます。</p>
     <div class="badge-row">
@@ -48,12 +54,31 @@
     <main class="content-body">
 
       <section class="content-section" id="pl">
-        <h2>1. 製造物責任法（PL法）</h2>
+        <h2><span class="h-num">01</span>製造物責任法（PL法）</h2>
 
         <p><span class="key-term">製造物責任法（PL法：Product Liability）</span>は、製品の欠陥によって生じた身体・財産への損害について、製造業者等の賠償責任を規定した法律です。1994年に制定され、1995年7月に施行されました。</p>
 
         <h3>PL法の目的</h3>
         <p>従来は「製造者の過失」を被害者が証明しなければならなかったのに対し、PL法では<strong>製品の「欠陥」を証明するだけで損害賠償を請求できる</strong>ようになりました（過失責任から欠陥責任への転換）。</p>
+
+        <figure class="diagram" data-dg="pl-proof">
+          <div class="diagram-head"><span class="tag">図解</span>被害者が証明すること</div>
+          <div class="diagram-body">
+            <div class="diagram-grid">
+              <div class="diagram-panel proof old">
+                <h4>民法（不法行為）</h4>
+                <div class="proof-big">「過失」を証明</div>
+                <p>メーカーの不注意を被害者側が立証しなければならず、ハードルが高い。</p>
+              </div>
+              <div class="diagram-panel proof new">
+                <h4>PL法（製造物責任法）</h4>
+                <div class="proof-big">「欠陥」を証明</div>
+                <p>製品に欠陥があったことを示せば、過失がなくても賠償を請求できる。</p>
+              </div>
+            </div>
+          </div>
+          <figcaption>PL法は1994年制定。立証の負担を軽くして、被害者を救済しやすくしたのがポイントです。</figcaption>
+        </figure>
 
         <h3>「欠陥」の3類型</h3>
         <div class="table-wrap">
@@ -97,13 +122,40 @@
           ただし、身体・生命への損害の場合は除斥期間が20年に延長
         </div>
 
+        <figure class="diagram" data-dg="pl-time">
+          <div class="diagram-head"><span class="tag">図解</span>時効・除斥期間をタイムラインで見る</div>
+          <div class="diagram-body">
+            <svg viewBox="0 0 540 210" role="img" aria-label="損害を知った時から3年、引き渡しから10年、身体・生命は20年の期間を示すタイムライン">
+              <line x1="130" y1="170" x2="500" y2="170" class="d-thin"/>
+              <g class="d-sub d-mono" text-anchor="middle">
+                <text x="130" y="190">0年</text><text x="220" y="190">5</text><text x="310" y="190">10</text><text x="400" y="190">15</text><text x="490" y="190">20年</text>
+              </g>
+              <text x="130" y="206" class="d-sub">↑ 製品の引き渡し</text>
+              <g class="d-text" text-anchor="end" style="font-size:13px">
+                <text x="120" y="42">損害を知った時から</text>
+                <text x="120" y="92">引き渡しから</text>
+                <text x="120" y="142">身体・生命の損害</text>
+              </g>
+              <line x1="202" y1="22" x2="202" y2="170" class="d-thin" stroke-dasharray="3 4"/>
+              <text x="202" y="16" class="d-sub" text-anchor="middle">損害を知った</text>
+              <rect x="202" y="26" width="54" height="24" rx="8" class="d-pop" style="--d:.1s;fill:var(--cat-2)"/>
+              <text x="229" y="43" class="d-text d-white" text-anchor="middle">3年</text>
+              <rect x="130" y="76" width="180" height="24" rx="8" class="d-pop d-cat" style="--d:.3s"/>
+              <text x="220" y="93" class="d-text d-white" text-anchor="middle">10年（除斥期間）</text>
+              <rect x="130" y="126" width="360" height="24" rx="8" class="d-pop" style="--d:.5s;fill:var(--danger)"/>
+              <text x="310" y="143" class="d-text d-white" text-anchor="middle">20年に延長</text>
+            </svg>
+          </div>
+          <figcaption>「知った時から3年」と「引き渡しから10年」のどちらか早いほうで請求できなくなります（「知った時」の位置は一例）。</figcaption>
+        </figure>
+
         <div class="exam-tip">
           <p>欠陥の3類型（設計上・製造上・指示・警告上）は必ず覚える。PL法は「過失の証明が不要（欠陥の証明でOK）」という点が民法の不法行為との大きな違い。時効は「3年・10年（20年）」。</p>
         </div>
       </section>
 
       <section class="content-section" id="consumer-basic">
-        <h2>2. 消費者基本法</h2>
+        <h2><span class="h-num">02</span>消費者基本法</h2>
 
         <p><span class="key-term">消費者基本法</span>（旧・消費者保護基本法）は、消費者の権利と責務、国・地方公共団体・事業者の責務を定めた消費者政策の基本法です。2004年に改正されました。</p>
 
@@ -120,7 +172,7 @@
       </section>
 
       <section class="content-section" id="consumer-safety">
-        <h2>3. 消費生活用製品安全法（消安法）</h2>
+        <h2><span class="h-num">03</span>消費生活用製品安全法（消安法）</h2>
 
         <p><span class="key-term">消費生活用製品安全法（消安法）</span>は、消費生活用製品による一般消費者の生命・身体への危害の防止を目的とした法律です。</p>
 
@@ -140,12 +192,27 @@
       </section>
 
       <section class="content-section" id="specific-commercial">
-        <h2>4. 特定商取引法</h2>
+        <h2><span class="h-num">04</span>特定商取引法</h2>
 
         <p><span class="key-term">特定商取引法</span>は、訪問販売・通信販売・電話勧誘販売等の消費者トラブルが生じやすい取引形態を規制する法律です。</p>
 
         <h3>クーリングオフ制度</h3>
         <p><span class="key-term">クーリングオフ</span>は、一定の取引について、消費者が契約後一定期間内に無条件で契約を解除できる制度です。</p>
+
+        <figure class="diagram" data-dg="cooling-off">
+          <div class="diagram-head"><span class="tag">図解</span>クーリングオフできる期間</div>
+          <div class="diagram-body">
+            <div class="bars">
+              <div class="bar" style="--v:40;--i:0"><span class="bar-label">訪問販売</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-val">8日間</span></div>
+              <div class="bar" style="--v:40;--i:1"><span class="bar-label">電話勧誘販売</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-val">8日間</span></div>
+              <div class="bar" style="--v:40;--i:2"><span class="bar-label">特定継続的役務提供</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-val">8日間</span></div>
+              <div class="bar" style="--v:100;--i:3"><span class="bar-label">連鎖販売取引</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-val">20日間</span></div>
+              <div class="bar" style="--v:100;--i:4"><span class="bar-label">業務提供誘引販売</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-val">20日間</span></div>
+              <div class="bar is-muted" style="--v:0;--i:5"><span class="bar-label">通信販売</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-val">制度なし</span></div>
+            </div>
+          </div>
+          <figcaption>通信販売（ネット通販）にはクーリングオフ制度がありません。返品の可否は事業者の返品特約によります。</figcaption>
+        </figure>
         <div class="table-wrap">
           <table>
             <thead>
@@ -175,7 +242,7 @@
       </section>
 
       <section class="content-section" id="premium">
-        <h2>5. 景品表示法</h2>
+        <h2><span class="h-num">05</span>景品表示法</h2>
 
         <p><span class="key-term">景品表示法</span>（不当景品類及び不当表示防止法）は、消費者が適正な商品・サービスを選択できるよう、事業者の過大な景品類の提供や虚偽・誇大な広告・表示を規制する法律です。</p>
 
@@ -214,7 +281,7 @@
       </section>
 
       <section class="content-section" id="personal-info">
-        <h2>6. 個人情報保護法（顧客情報管理）</h2>
+        <h2><span class="h-num">06</span>個人情報保護法（顧客情報管理）</h2>
 
         <p><span class="key-term">個人情報保護法</span>は、個人情報を取り扱う事業者に対して、個人情報の適正な取得・管理・利用・提供を義務付けた法律です。家電量販店では顧客の購入情報・会員情報等の個人情報を大量に扱います。</p>
 
@@ -238,7 +305,7 @@
 
       <nav class="page-nav">
         <a href="recycling-law.html" class="nav-prev">
-          <span>←</span>
+          <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></span>
           <div>
             <span class="nav-label">前のページ</span>
             <span class="nav-title">家電リサイクル法</span>
@@ -249,7 +316,7 @@
             <span class="nav-label">次のカテゴリ</span>
             <span class="nav-title">販売・接客</span>
           </div>
-          <span>→</span>
+          <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
       </nav>
 

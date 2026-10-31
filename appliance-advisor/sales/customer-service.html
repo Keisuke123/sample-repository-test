@@ -4,13 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>接客・顧客対応 | 家電製品アドバイザー学習サイト</title>
+  <meta name="theme-color" content="#0b1024">
+  <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=JetBrains+Mono:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap">
   <link rel="stylesheet" href="../style.css">
+  <script src="../app.js" defer></script>
 </head>
-<body>
+<body data-cat="sales">
 
   <header class="site-header">
     <div class="header-inner">
-      <div class="site-title">🏠 家電製品アドバイザー 学習サイト</div>
+      <div class="site-title"><a href="../index.html"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h7a3 3 0 0 1 3 3v14a2 2 0 0 0-2-2H2z"/><path d="M22 4h-7a3 3 0 0 0-3 3v14a2 2 0 0 1 2-2h8z"/></svg><span class="label">家電製品アドバイザー 学習サイト</span></a></div>
       <nav class="breadcrumb">
         <a href="../index.html">トップ</a>
         <span class="sep">›</span>
@@ -22,7 +28,7 @@
   </header>
 
   <section class="hero">
-    <span class="hero-icon">😊</span>
+    <span class="hero-icon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><path d="M9 9h.01M15 9h.01"/></svg></span>
     <h1>接客・顧客対応</h1>
     <p class="hero-sub">接客の基本マナー・ヒアリング技術・商品提案・クレーム対応・高齢者・障がい者対応まで、CS試験に必要な接客スキルを学びます。</p>
     <div class="badge-row">
@@ -47,7 +53,7 @@
     <main class="content-body">
 
       <section class="content-section" id="basics">
-        <h2>1. 接客の基本</h2>
+        <h2><span class="h-num">01</span>接客の基本</h2>
 
         <h3>あいさつ・身だしなみ</h3>
         <p>接客の第一印象は数秒で決まります。清潔感のある身だしなみと明るいあいさつが基本です。</p>
@@ -105,6 +111,30 @@
 
         <h3>非言語コミュニケーション</h3>
         <p>言葉以外の表現も重要です。<span class="key-term">メラビアンの法則</span>によると、コミュニケーションの印象は言語7%・声のトーン38%・身体言語55%で決まるとされています。</p>
+
+        <figure class="diagram" data-dg="mehrabian">
+          <div class="diagram-head"><span class="tag">図解</span>メラビアンの法則：印象を決めるものの割合</div>
+          <div class="diagram-body">
+            <svg viewBox="0 0 520 210" role="img" aria-label="身体言語55%、声のトーン38%、言語7%の割合を示すドーナツグラフ">
+              <g transform="translate(120 105) rotate(-90)"><g class="d-pop">
+                <circle cx="0" cy="0" r="70" fill="none" stroke-width="30" style="stroke:var(--cat)" stroke-dasharray="239.9 199.9" stroke-dashoffset="0.0"/>
+                <circle cx="0" cy="0" r="70" fill="none" stroke-width="30" style="stroke:var(--cat-2)" stroke-dasharray="165.1 274.7" stroke-dashoffset="-241.9"/>
+                <circle cx="0" cy="0" r="70" fill="none" stroke-width="30" style="stroke:var(--line)" stroke-dasharray="28.8 411.0" stroke-dashoffset="-409.0"/>
+              </g></g>
+              <text x="120" y="102" class="d-sub" text-anchor="middle">印象</text>
+              <text x="120" y="122" class="d-big" text-anchor="middle">100%</text>
+              <g>
+                <rect x="250" y="38" width="16" height="16" rx="4" style="fill:var(--cat)"/>
+                <text x="276" y="52" class="d-text">身体言語（表情・態度）</text><text x="500" y="52" class="d-big" text-anchor="end">55%</text>
+                <rect x="250" y="98" width="16" height="16" rx="4" style="fill:var(--cat-2)"/>
+                <text x="276" y="112" class="d-text">声のトーン・話し方</text><text x="500" y="112" class="d-big" text-anchor="end">38%</text>
+                <rect x="250" y="158" width="16" height="16" rx="4" style="fill:var(--line)"/>
+                <text x="276" y="172" class="d-text">言葉の内容</text><text x="500" y="172" class="d-big" text-anchor="end">7%</text>
+              </g>
+            </svg>
+          </div>
+          <figcaption>言葉そのものより、表情・姿勢・声のトーンの影響が大きいとされます。</figcaption>
+        </figure>
         <ul>
           <li><strong>表情：</strong>笑顔・真剣な表情を適切に使い分ける</li>
           <li><strong>姿勢：</strong>前傾姿勢でお客様に関心を示す</li>
@@ -118,13 +148,25 @@
       </section>
 
       <section class="content-section" id="needs">
-        <h2>2. 顧客ニーズの把握</h2>
+        <h2><span class="h-num">02</span>顧客ニーズの把握</h2>
 
         <h3>ヒアリング技術</h3>
         <p>お客様のニーズを正確に把握するには、適切な質問と傾聴が重要です。</p>
 
         <h3>SPIN話法</h3>
         <p><span class="key-term">SPIN話法</span>は、顧客の潜在ニーズを引き出す質問技術です。</p>
+
+        <figure class="diagram" data-dg="spin">
+          <div class="diagram-head"><span class="tag">図解</span>SPIN話法：4つの質問で潜在ニーズを引き出す</div>
+          <div class="diagram-body">
+            <ol class="flow">
+              <li style="--i:0"><span class="flow-num">S</span><b>状況質問</b><small>Situation：今の使い方を知る</small></li>
+              <li style="--i:1"><span class="flow-num">P</span><b>問題質問</b><small>Problem：不満・課題を明確に</small></li>
+              <li style="--i:2"><span class="flow-num">I</span><b>示唆質問</b><small>Implication：問題の影響を意識してもらう</small></li>
+              <li style="--i:3"><span class="flow-num">N</span><b>解決質問</b><small>Need-payoff：解決したときの価値を示す</small></li>
+            </ol>
+          </div>
+        </figure>
         <div class="table-wrap">
           <table>
             <thead>
@@ -195,7 +237,7 @@
       </section>
 
       <section class="content-section" id="proposal">
-        <h2>3. 商品提案・説明</h2>
+        <h2><span class="h-num">03</span>商品提案・説明</h2>
 
         <h3>Feature（特徴）→ Benefit（利益）の説明</h3>
         <p>製品の技術的な特徴（Feature）だけを説明するのではなく、お客様にとっての<span class="key-term">Benefit（利益・メリット）</span>に結びつけて説明することが重要です。</p>
@@ -218,12 +260,26 @@
       </section>
 
       <section class="content-section" id="complaint">
-        <h2>4. クレーム対応</h2>
+        <h2><span class="h-num">04</span>クレーム対応</h2>
 
         <h3>クレーム対応の基本原則</h3>
         <p>クレームは適切に対処すれば、お客様の信頼を回復・向上させる機会になります。まず<strong>誠実な謝罪</strong>と<strong>迅速な対応</strong>が基本です。</p>
 
         <h3>クレーム対応の5ステップ</h3>
+
+        <figure class="diagram" data-dg="claim">
+          <div class="diagram-head"><span class="tag">図解</span>クレーム対応は順番が大切</div>
+          <div class="diagram-body">
+            <ol class="flow">
+              <li style="--i:0"><span class="flow-num">1</span><b>傾聴・受け止め</b><small>最後まで聞き、反論しない</small></li>
+              <li style="--i:1"><span class="flow-num">2</span><b>お詫び</b><small>ご迷惑へのお詫びが先</small></li>
+              <li style="--i:2"><span class="flow-num">3</span><b>事実確認</b><small>いつ・どこで・どのように</small></li>
+              <li style="--i:3"><span class="flow-num">4</span><b>解決策の提示</b><small>交換・修理・返金など</small></li>
+              <li style="--i:4"><span class="flow-num">5</span><b>フォローアップ</b><small>満足度の確認と再発防止</small></li>
+            </ol>
+          </div>
+          <figcaption>最初に「でも」「しかし」と反論するのはNG。まず気持ちを受け止めてから事実確認に進みます。</figcaption>
+        </figure>
         <div class="table-wrap">
           <table>
             <thead>
@@ -269,7 +325,7 @@
       </section>
 
       <section class="content-section" id="accessibility">
-        <h2>5. 高齢者・障がい者への対応</h2>
+        <h2><span class="h-num">05</span>高齢者・障がい者への対応</h2>
 
         <h3>高齢者への配慮</h3>
         <ul>
@@ -316,7 +372,7 @@
 
       <nav class="page-nav">
         <a href="index.html" class="nav-prev">
-          <span>←</span>
+          <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></span>
           <div>
             <span class="nav-label">カテゴリへ戻る</span>
             <span class="nav-title">販売・接客トップ</span>
@@ -327,7 +383,7 @@
             <span class="nav-label">次のページ</span>
             <span class="nav-title">販売技術</span>
           </div>
-          <span>→</span>
+          <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
       </nav>
 

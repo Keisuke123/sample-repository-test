@@ -4,13 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>省エネ法 | 家電製品アドバイザー学習サイト</title>
+  <meta name="theme-color" content="#0b1024">
+  <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=JetBrains+Mono:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap">
   <link rel="stylesheet" href="../style.css">
+  <script src="../app.js" defer></script>
 </head>
-<body>
+<body data-cat="laws">
 
   <header class="site-header">
     <div class="header-inner">
-      <div class="site-title">🏠 家電製品アドバイザー 学習サイト</div>
+      <div class="site-title"><a href="../index.html"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h7a3 3 0 0 1 3 3v14a2 2 0 0 0-2-2H2z"/><path d="M22 4h-7a3 3 0 0 0-3 3v14a2 2 0 0 1 2-2h8z"/></svg><span class="label">家電製品アドバイザー 学習サイト</span></a></div>
       <nav class="breadcrumb">
         <a href="../index.html">トップ</a>
         <span class="sep">›</span>
@@ -22,7 +28,7 @@
   </header>
 
   <section class="hero">
-    <span class="hero-icon">🌿</span>
+    <span class="hero-icon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19c0-9 6-14 15-15-1 9-6 15-15 15z"/><path d="M5 19 13 11"/></svg></span>
     <h1>省エネ法</h1>
     <p class="hero-sub">エネルギーの使用の合理化等に関する法律（省エネ法）・トップランナー制度・統一省エネラベルの詳細を学びます。</p>
     <div class="badge-row">
@@ -47,7 +53,7 @@
     <main class="content-body">
 
       <section class="content-section" id="purpose">
-        <h2>1. 省エネ法の目的</h2>
+        <h2><span class="h-num">01</span>省エネ法の目的</h2>
 
         <p><span class="key-term">省エネ法</span>（エネルギーの使用の合理化等に関する法律）は、エネルギーを効率よく使用し、エネルギーの消費量を抑制することを目的とした法律です。1979年（昭和54年）にオイルショックを受けて制定され、その後数次の改正を経ています。</p>
 
@@ -84,11 +90,24 @@
       </section>
 
       <section class="content-section" id="top-runner">
-        <h2>2. トップランナー制度</h2>
+        <h2><span class="h-num">02</span>トップランナー制度</h2>
 
         <p><span class="key-term">トップランナー制度</span>は、省エネ法に基づく制度で、現在市場に出回っている対象製品の中で最もエネルギー消費効率が優れた製品（トップランナー）の性能以上を、一定期間後の目標基準として設定し、製造業者・輸入業者に達成を義務付ける制度です。</p>
 
         <h3>基準設定の方法</h3>
+
+        <figure class="diagram" data-dg="tr-steps">
+          <div class="diagram-head"><span class="tag">図解</span>トップランナー基準ができるまで</div>
+          <div class="diagram-body">
+            <ol class="flow">
+              <li style="--i:0"><span class="flow-num">1</span><b>現状把握</b><small>市場の製品の効率分布を調査</small></li>
+              <li style="--i:1"><span class="flow-num">2</span><b>トップランナー特定</b><small>現在の最高効率製品の水準</small></li>
+              <li style="--i:2"><span class="flow-num">3</span><b>目標年度設定</b><small>技術進歩を見込み5〜10年後</small></li>
+              <li style="--i:3"><span class="flow-num">4</span><b>基準値決定</b><small>目標年度に達成すべき効率</small></li>
+              <li style="--i:4"><span class="flow-num">5</span><b>公表・義務化</b><small>製造・輸入業者に達成を義務付け</small></li>
+            </ol>
+          </div>
+        </figure>
         <ol>
           <li><strong>現状把握：</strong>対象品目の市場にある製品の効率分布を調査</li>
           <li><strong>トップランナー特定：</strong>現在の最高効率製品の水準を把握</li>
@@ -105,13 +124,35 @@
           エアコンの例：1997年度から2019年度のトップランナー基準で、APFは約3.0から5.8以上に向上。消費電力は大幅に削減され、同等能力の製品の年間電気代が半分以下になった機種も多い。
         </div>
 
+        <figure class="diagram" data-dg="apf-up">
+          <div class="diagram-head"><span class="tag">図解</span>エアコンのAPFはどれだけ伸びたか</div>
+          <div class="diagram-body">
+            <svg viewBox="0 0 520 210" role="img" aria-label="1997年度のAPF約3.0から2019年度の5.8以上へ向上したことを示すグラフ">
+              <line x1="60" y1="180" x2="500" y2="180" class="d-thin"/>
+              <g class="d-sub d-mono" text-anchor="end"><text x="52" y="184">0</text><text x="52" y="124">3</text><text x="52" y="64">6</text></g>
+              <line x1="60" y1="120" x2="500" y2="120" class="d-thin" stroke-dasharray="3 6"/>
+              <line x1="60" y1="60" x2="500" y2="60" class="d-thin" stroke-dasharray="3 6"/>
+              <rect x="110" y="120" width="90" height="60" rx="8" class="d-pop" style="--d:.1s;fill:var(--line)"/>
+              <rect x="340" y="64" width="90" height="116" rx="8" class="d-pop d-cat" style="--d:.5s"/>
+              <text x="155" y="110" class="d-big" text-anchor="middle">約3.0</text>
+              <text x="385" y="54" class="d-big" text-anchor="middle" style="fill:var(--cat-ink)">5.8以上</text>
+              <text x="155" y="200" class="d-sub" text-anchor="middle">1997年度</text>
+              <text x="385" y="200" class="d-sub" text-anchor="middle">2019年度</text>
+              <path d="M215 140 C260 140 290 100 325 96" class="d-cat-s d-draw" stroke-width="3" fill="none" style="--len:140;--d:.3s"/>
+              <path d="M316 90 l10 6 -9 8" class="d-cat-s" stroke-width="3" fill="none"/>
+              <text x="270" y="160" class="d-text" text-anchor="middle">約2倍</text>
+            </svg>
+          </div>
+          <figcaption>APFが約2倍になれば、同じ冷暖房に必要な電力はおよそ半分です。</figcaption>
+        </figure>
+
         <div class="exam-tip">
           <p>トップランナー制度のキーポイントは「現在の最高水準を将来の目標基準にする」こと。これにより市場全体の省エネ水準が継続的に向上する。製造業者は目標年度までに基準を達成しなければ勧告・命令を受ける場合がある。</p>
         </div>
       </section>
 
       <section class="content-section" id="label">
-        <h2>3. 統一省エネラベル（改定版）</h2>
+        <h2><span class="h-num">03</span>統一省エネラベル（改定版）</h2>
 
         <p><span class="key-term">統一省エネラベル</span>は省エネ法に基づき、特定機器（家電・自動車等）に表示が義務付けられているラベルです。消費者が製品を購入する際に省エネ性能を比較できるよう、標準化された様式で情報を提供します。</p>
 
@@ -150,7 +191,7 @@
       </section>
 
       <section class="content-section" id="products">
-        <h2>4. 対象品目（32品目）</h2>
+        <h2><span class="h-num">04</span>対象品目（32品目）</h2>
 
         <p>省エネ法のトップランナー制度の対象品目は32品目あります。主な品目を分野別に整理します。</p>
         <div class="table-wrap">
@@ -181,7 +222,7 @@
       </section>
 
       <section class="content-section" id="identification">
-        <h2>5. 省エネ製品の識別方法</h2>
+        <h2><span class="h-num">05</span>省エネ製品の識別方法</h2>
 
         <h3>エネルギースター</h3>
         <p><span class="key-term">エネルギースター</span>は、米国環境保護庁（EPA）が創設した国際的な省エネ機器の認定プログラムです。日本では経済産業省と環境省が参加し、パソコン・モニター・プリンター等の情報機器を中心に認定マークが付与されます。</p>
@@ -200,7 +241,7 @@
 
       <nav class="page-nav">
         <a href="pse-law.html" class="nav-prev">
-          <span>←</span>
+          <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></span>
           <div>
             <span class="nav-label">前のページ</span>
             <span class="nav-title">電気用品安全法（PSE法）</span>
@@ -211,7 +252,7 @@
             <span class="nav-label">次のページ</span>
             <span class="nav-title">家電リサイクル法</span>
           </div>
-          <span>→</span>
+          <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
       </nav>
 

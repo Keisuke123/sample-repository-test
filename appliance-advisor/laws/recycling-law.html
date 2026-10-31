@@ -4,13 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>家電リサイクル法 | 家電製品アドバイザー学習サイト</title>
+  <meta name="theme-color" content="#0b1024">
+  <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=JetBrains+Mono:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap">
   <link rel="stylesheet" href="../style.css">
+  <script src="../app.js" defer></script>
 </head>
-<body>
+<body data-cat="laws">
 
   <header class="site-header">
     <div class="header-inner">
-      <div class="site-title">🏠 家電製品アドバイザー 学習サイト</div>
+      <div class="site-title"><a href="../index.html"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h7a3 3 0 0 1 3 3v14a2 2 0 0 0-2-2H2z"/><path d="M22 4h-7a3 3 0 0 0-3 3v14a2 2 0 0 1 2-2h8z"/></svg><span class="label">家電製品アドバイザー 学習サイト</span></a></div>
       <nav class="breadcrumb">
         <a href="../index.html">トップ</a>
         <span class="sep">›</span>
@@ -22,7 +28,7 @@
   </header>
 
   <section class="hero">
-    <span class="hero-icon">♻️</span>
+    <span class="hero-icon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 19H4.8a1.8 1.8 0 0 1-1.6-2.7L7 9.5"/><path d="M11 19h8.2a1.8 1.8 0 0 0 1.6-2.7l-1.2-2"/><path d="m14 16-3 3 3 3"/><path d="M8.3 13.6 7 9.5 3 10.7"/><path d="m9.3 5.5 1.1-1.8a1.8 1.8 0 0 1 3.1 0l3.6 6.2"/><path d="m13.4 9.1 3.9.8.9-4"/></svg></span>
     <h1>家電リサイクル法</h1>
     <p class="hero-sub">特定家庭用機器再商品化法（家電リサイクル法）の対象品目・リサイクルの流れ・関係者の義務を詳しく学びます。</p>
     <div class="badge-row">
@@ -49,7 +55,7 @@
     <main class="content-body">
 
       <section class="content-section" id="purpose">
-        <h2>1. 家電リサイクル法の目的</h2>
+        <h2><span class="h-num">01</span>家電リサイクル法の目的</h2>
 
         <p><span class="key-term">家電リサイクル法</span>（特定家庭用機器再商品化法）は、廃家電製品に含まれる有用な資源（鉄・アルミ・銅等）を再活用し、廃棄物の削減を図ることを目的とした法律です。2001年4月に施行されました。</p>
 
@@ -66,7 +72,21 @@
       </section>
 
       <section class="content-section" id="targets">
-        <h2>2. 対象4品目</h2>
+        <h2><span class="h-num">02</span>対象4品目</h2>
+
+        <figure class="diagram" data-dg="four">
+          <div class="diagram-head"><span class="tag">図解</span>対象は「エアコン・テレビ・冷蔵庫・洗濯機」の4品目</div>
+          <div class="diagram-body">
+            <div class="four-grid">
+              <div class="four-item" style="--i:0"><span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M3.3 7l17.4 10M20.7 7 3.3 17"/><path d="m9 3.5 3 2 3-2M9 20.5l3-2 3 2"/></svg></span><b>エアコン</b><small>室外機も含む</small></div>
+              <div class="four-item" style="--i:1"><span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="m8 2 4 4 4-4"/><path d="M8 21h8"/></svg></span><b>テレビ</b><small>ブラウン管・液晶・プラズマ</small></div>
+              <div class="four-item" style="--i:2"><span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M5 10h14M9 5v2M9 13v3"/></svg></span><b>冷蔵庫・冷凍庫</b><small>家庭用</small></div>
+              <div class="four-item" style="--i:3"><span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="2" width="18" height="20" rx="2"/><circle cx="12" cy="13" r="5"/><path d="M7 6h.01M10 6h.01"/></svg></span><b>洗濯機・衣類乾燥機</b><small>縦型・ドラム式・二槽式</small></div>
+            </div>
+            <p class="four-out">対象外：電子レンジ・掃除機・パソコン・スマホ など → <strong>小型家電リサイクル法</strong>などで回収</p>
+          </div>
+          <figcaption>頭文字で「エ・テ・レ・セ」と覚える方法もあります。</figcaption>
+        </figure>
 
         <div class="point-box">
           <strong>家電リサイクル法の対象4品目</strong>
@@ -112,7 +132,20 @@
       </section>
 
       <section class="content-section" id="flow">
-        <h2>3. リサイクルの流れ</h2>
+        <h2><span class="h-num">03</span>リサイクルの流れ</h2>
+
+        <figure class="diagram" data-dg="recycle-flow">
+          <div class="diagram-head"><span class="tag">図解</span>廃家電がリサイクルされるまで</div>
+          <div class="diagram-body">
+            <ol class="flow">
+              <li style="--i:0"><span class="flow-ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0"/><path d="M16 4a4 4 0 0 1 0 8M22 21a7 7 0 0 0-4-6.3"/></svg></span><b>消費者</b><small>リサイクル料金を支払って引き渡す</small></li>
+              <li style="--i:1"><span class="flow-ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9.5 21v-6h5v6"/></svg></span><b>小売業者</b><small>引取義務あり</small></li>
+              <li style="--i:2"><span class="flow-ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="18" rx="2"/><path d="M9 2h6v4H9z"/><path d="M9 12h6M9 16h4"/></svg></span><b>指定引取場所</b><small>メーカー系列の集積所</small></li>
+              <li style="--i:3"><span class="flow-ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 19H4.8a1.8 1.8 0 0 1-1.6-2.7L7 9.5"/><path d="M11 19h8.2a1.8 1.8 0 0 0 1.6-2.7l-1.2-2"/><path d="m14 16-3 3 3 3"/><path d="M8.3 13.6 7 9.5 3 10.7"/><path d="m9.3 5.5 1.1-1.8a1.8 1.8 0 0 1 3.1 0l3.6 6.2"/><path d="m13.4 9.1 3.9.8.9-4"/></svg></span><b>再商品化施設</b><small>解体・分別・フロン回収</small></li>
+              <li style="--i:4"><span class="flow-ico"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19c0-9 6-14 15-15-1 9-6 15-15 15z"/><path d="M5 19 13 11"/></svg></span><b>素材として再利用</b><small>鉄・アルミ・銅・ガラス</small></li>
+            </ol>
+          </div>
+        </figure>
 
         <div class="point-box">
           <strong>リサイクルの流れ</strong>
@@ -139,7 +172,7 @@
       </section>
 
       <section class="content-section" id="fee">
-        <h2>4. リサイクル料金</h2>
+        <h2><span class="h-num">04</span>リサイクル料金</h2>
 
         <p>リサイクル料金は品目・メーカーによって異なります。消費者が廃棄時に支払います（前払方式：家電リサイクル券購入時に支払）。</p>
         <div class="table-wrap">
@@ -161,7 +194,7 @@
       </section>
 
       <section class="content-section" id="retailer">
-        <h2>5. 小売業者の義務</h2>
+        <h2><span class="h-num">05</span>小売業者の義務</h2>
 
         <p>家電リサイクル法では、小売業者に以下の引取義務が課されています。</p>
 
@@ -180,11 +213,25 @@
       </section>
 
       <section class="content-section" id="manufacturer">
-        <h2>6. 製造業者の義務</h2>
+        <h2><span class="h-num">06</span>製造業者の義務</h2>
 
         <p>家電リサイクル法では、製造業者（輸入業者を含む）にも再商品化等の義務が課されています。</p>
 
         <h3>再商品化等基準</h3>
+
+        <figure class="diagram" data-dg="recycle-rate">
+          <div class="diagram-head"><span class="tag">図解</span>再商品化等基準（重量比）</div>
+          <div class="diagram-body">
+            <div class="bars">
+              <div class="bar" style="--v:82;--i:0"><span class="bar-label">洗濯機・乾燥機</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-val">82%以上</span></div>
+              <div class="bar" style="--v:80;--i:1"><span class="bar-label">エアコン</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-val">80%以上</span></div>
+              <div class="bar" style="--v:74;--i:2"><span class="bar-label">テレビ（液晶等）</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-val">74%以上</span></div>
+              <div class="bar" style="--v:70;--i:3"><span class="bar-label">冷蔵庫・冷凍庫</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-val">70%以上</span></div>
+              <div class="bar is-muted" style="--v:55;--i:4"><span class="bar-label">テレビ（ブラウン管）</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-val">55%以上</span></div>
+            </div>
+          </div>
+          <figcaption>数値の高い順に並べています。洗濯機82%・エアコン80%が特に高い基準です。</figcaption>
+        </figure>
         <div class="table-wrap">
           <table>
             <thead>
@@ -206,7 +253,7 @@
       </section>
 
       <section class="content-section" id="related">
-        <h2>7. 関連法律</h2>
+        <h2><span class="h-num">07</span>関連法律</h2>
 
         <h3>資源有効利用促進法</h3>
         <p><span class="key-term">資源有効利用促進法</span>は、3R（Reduce・Reuse・Recycle）の促進と廃棄物の発生抑制を目的とした法律です。製品の設計・製造段階での省資源化、分解しやすい設計（製品アセスメント）などを求めています。</p>
@@ -222,7 +269,7 @@
 
       <nav class="page-nav">
         <a href="energy-law.html" class="nav-prev">
-          <span>←</span>
+          <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></span>
           <div>
             <span class="nav-label">前のページ</span>
             <span class="nav-title">省エネ法</span>
@@ -233,7 +280,7 @@
             <span class="nav-label">次のページ</span>
             <span class="nav-title">PL法・消費者関連法</span>
           </div>
-          <span>→</span>
+          <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
       </nav>
 

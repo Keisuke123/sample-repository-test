@@ -4,13 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>電気用品安全法（PSE法）| 家電製品アドバイザー学習サイト</title>
+  <meta name="theme-color" content="#0b1024">
+  <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=JetBrains+Mono:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap">
   <link rel="stylesheet" href="../style.css">
+  <script src="../app.js" defer></script>
 </head>
-<body>
+<body data-cat="laws">
 
   <header class="site-header">
     <div class="header-inner">
-      <div class="site-title">🏠 家電製品アドバイザー 学習サイト</div>
+      <div class="site-title"><a href="../index.html"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h7a3 3 0 0 1 3 3v14a2 2 0 0 0-2-2H2z"/><path d="M22 4h-7a3 3 0 0 0-3 3v14a2 2 0 0 1 2-2h8z"/></svg><span class="label">家電製品アドバイザー 学習サイト</span></a></div>
       <nav class="breadcrumb">
         <a href="../index.html">トップ</a>
         <span class="sep">›</span>
@@ -22,7 +28,7 @@
   </header>
 
   <section class="hero">
-    <span class="hero-icon">🔒</span>
+    <span class="hero-icon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="11" width="16" height="11" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span>
     <h1>電気用品安全法（PSE法）</h1>
     <p class="hero-sub">電気製品の製造・販売を規制するPSE法の目的・PSEマークの種類・検査要件・罰則・中古品の扱いを学びます。</p>
     <div class="badge-row">
@@ -48,7 +54,7 @@
     <main class="content-body">
 
       <section class="content-section" id="overview">
-        <h2>1. 電気用品安全法の目的と概要</h2>
+        <h2><span class="h-num">01</span>電気用品安全法の目的と概要</h2>
 
         <p><span class="key-term">電気用品安全法（PSE法）</span>は、電気用品の製造・輸入・販売を規制し、電気用品による危険・障害の発生を防止することを目的とした法律です。正式名称は「電気用品安全法」（1961年制定、2001年全面改正）です。</p>
 
@@ -60,6 +66,29 @@
         </ul>
 
         <h3>電気用品の2分類</h3>
+
+        <figure class="diagram" data-dg="pse">
+          <div class="diagram-head"><span class="tag">図解</span>菱形PSEと丸PSEの違い</div>
+          <div class="diagram-body">
+            <div class="diagram-grid pse-grid">
+              <div class="diagram-panel pse-card strict">
+                <svg viewBox="0 0 84 84" class="pse-mark" aria-label="菱形PSEマーク"><path d="M42 4 L80 42 L42 80 L4 42 Z"/><text x="42" y="48" text-anchor="middle">PSE</text></svg>
+                <h4>特定電気用品</h4>
+                <div class="pse-num"><b>116</b>品目</div>
+                <p class="pse-check">登録検査機関（第三者）の適合性検査が必要</p>
+                <p>電線・ヒューズ・漏電遮断器・コンセント・電気温水器・電気便座 など</p>
+              </div>
+              <div class="diagram-panel pse-card">
+                <svg viewBox="0 0 84 84" class="pse-mark" aria-label="丸PSEマーク"><circle cx="42" cy="42" r="36"/><text x="42" y="48" text-anchor="middle">PSE</text></svg>
+                <h4>特定電気用品以外</h4>
+                <div class="pse-num"><b>341</b>品目</div>
+                <p class="pse-check">製造・輸入事業者の自主検査でOK</p>
+                <p>テレビ・エアコン・冷蔵庫・洗濯機・電子レンジ・掃除機 など</p>
+              </div>
+            </div>
+          </div>
+          <figcaption>危険度が高いものほど規制が厳しく、品目数は少なくなります。量販店の主力の白物家電は「丸PSE」側です。</figcaption>
+        </figure>
         <div class="table-wrap">
           <table>
             <thead>
@@ -88,7 +117,7 @@
       </section>
 
       <section class="content-section" id="diamond-pse">
-        <h2>2. 特定電気用品（◇菱形PSE）</h2>
+        <h2><span class="h-num">02</span>特定電気用品（◇菱形PSE）</h2>
 
         <div class="point-box">
           <strong>特定電気用品の概要</strong>
@@ -116,7 +145,7 @@
       </section>
 
       <section class="content-section" id="circle-pse">
-        <h2>3. 特定電気用品以外（○丸PSE）</h2>
+        <h2><span class="h-num">03</span>特定電気用品以外（○丸PSE）</h2>
 
         <div class="point-box">
           <strong>特定電気用品以外の概要</strong>
@@ -142,7 +171,7 @@
       </section>
 
       <section class="content-section" id="display">
-        <h2>4. PSEマークの表示義務</h2>
+        <h2><span class="h-num">04</span>PSEマークの表示義務</h2>
 
         <p>PSEマークの表示には、法令で定められた書式があります。マークだけでなく付記情報も含めて表示が義務付けられています。</p>
         <div class="table-wrap">
@@ -163,7 +192,19 @@
       </section>
 
       <section class="content-section" id="penalty">
-        <h2>5. 違反した場合の罰則</h2>
+        <h2><span class="h-num">05</span>違反した場合の罰則</h2>
+
+        <figure class="diagram" data-dg="pse-penalty">
+          <div class="diagram-head"><span class="tag">図解</span>罰則の重さを比べる（罰金の上限）</div>
+          <div class="diagram-body">
+            <div class="bars">
+              <div class="bar is-muted" style="--v:33;--i:0"><span class="bar-label">PSEマークなしの販売</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-val">100万円</span></div>
+              <div class="bar is-muted" style="--v:33;--i:1"><span class="bar-label">基準不適合品の販売</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-val">100万円</span></div>
+              <div class="bar is-hot" style="--v:100;--i:2"><span class="bar-label">虚偽のPSE表示</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-val">300万円</span></div>
+            </div>
+          </div>
+          <figcaption>懲役はそれぞれ1年以下・1年以下・3年以下。虚偽表示がもっとも重く罰せられます。</figcaption>
+        </figure>
 
         <div class="table-wrap">
           <table>
@@ -189,7 +230,7 @@
       </section>
 
       <section class="content-section" id="used">
-        <h2>6. 中古品の扱い</h2>
+        <h2><span class="h-num">06</span>中古品の扱い</h2>
 
         <p>PSE法では、個人間売買・ネットオークション等での中古家電の販売についても規制があります。</p>
 
@@ -211,7 +252,7 @@
 
       <nav class="page-nav">
         <a href="index.html" class="nav-prev">
-          <span>←</span>
+          <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></span>
           <div>
             <span class="nav-label">カテゴリへ戻る</span>
             <span class="nav-title">法規・制度トップ</span>
@@ -222,7 +263,7 @@
             <span class="nav-label">次のページ</span>
             <span class="nav-title">省エネ法</span>
           </div>
-          <span>→</span>
+          <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
       </nav>
 

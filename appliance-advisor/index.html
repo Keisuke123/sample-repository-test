@@ -4,13 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>家電製品アドバイザー 学習サイト</title>
+  <meta name="theme-color" content="#0b1024">
+  <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=JetBrains+Mono:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap">
   <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
 </head>
-<body>
+<body data-cat="top">
 
   <header class="site-header">
     <div class="header-inner">
-      <div class="site-title">🏠 家電製品アドバイザー 学習サイト</div>
+      <div class="site-title"><a href="index.html"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h7a3 3 0 0 1 3 3v14a2 2 0 0 0-2-2H2z"/><path d="M22 4h-7a3 3 0 0 0-3 3v14a2 2 0 0 1 2-2h8z"/></svg><span class="label">家電製品アドバイザー 学習サイト</span></a></div>
       <nav class="breadcrumb">
         <span class="current">トップ</span>
       </nav>
@@ -18,105 +24,205 @@
   </header>
 
   <section class="top-hero">
-    <h1>家電製品アドバイザー<br>学習サイト</h1>
-    <p class="top-sub">資格取得に向けた体系的な学習コンテンツ。電気の基礎から法規・販売技術まで、試験に必要な知識を網羅。</p>
-    <div class="badge-row">
-      <span class="badge badge-blue">AV情報家電コース対応</span>
-      <span class="badge badge-blue">生活家電コース対応</span>
-      <span class="badge badge-accent">試験対策コンテンツ充実</span>
+    <div class="top-hero-inner">
+      <div>
+        <span class="eyebrow"><b>NEW</b>図解・インタラクティブ教材に対応</span>
+        <h1>家電のしくみを、<br><span class="grad">見て・動かして</span>覚える。</h1>
+        <p class="top-sub">家電製品アドバイザー資格の試験範囲を、6カテゴリ・20トピックに整理。電気の基礎から法規・接客まで、アニメーションする図解で直感的に理解できます。</p>
+        <div class="hero-cta">
+          <a href="#categories" class="btn btn-primary">学習をはじめる<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="quiz/" class="btn btn-ghost">クイズに挑戦</a>
+        </div>
+        <div class="badge-row">
+          <span class="badge badge-blue">AV情報家電コース対応</span>
+          <span class="badge badge-blue">生活家電コース対応</span>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 460 460">
+          <defs>
+            <radialGradient id="hvCore" cx="50%" cy="40%" r="60%">
+              <stop offset="0" stop-color="#a5b4fc"/>
+              <stop offset="1" stop-color="#4f46e5"/>
+            </radialGradient>
+          </defs>
+          <circle cx="230" cy="230" r="160" class="hv-ring"/>
+          <circle cx="230" cy="230" r="205" class="hv-ring dash"/>
+          <circle cx="230" cy="230" r="105" class="hv-ring"/>
+          <g class="hv-wire">
+            <path id="w0" d="M230 230 L230 70"/>
+            <path id="w1" d="M230 230 L368.6 150"/>
+            <path id="w2" d="M230 230 L368.6 310"/>
+            <path id="w3" d="M230 230 L230 390"/>
+            <path id="w4" d="M230 230 L91.4 310"/>
+            <path id="w5" d="M230 230 L91.4 150"/>
+          </g>
+          <g>
+            <circle r="4" class="hv-spark"><animateMotion dur="2.4s" repeatCount="indefinite" begin="0s"><mpath href="#w0"/></animateMotion></circle>
+            <circle r="4" class="hv-spark"><animateMotion dur="2.4s" repeatCount="indefinite" begin="-0.4s"><mpath href="#w1"/></animateMotion></circle>
+            <circle r="4" class="hv-spark"><animateMotion dur="2.4s" repeatCount="indefinite" begin="-0.8s"><mpath href="#w2"/></animateMotion></circle>
+            <circle r="4" class="hv-spark"><animateMotion dur="2.4s" repeatCount="indefinite" begin="-1.2s"><mpath href="#w3"/></animateMotion></circle>
+            <circle r="4" class="hv-spark"><animateMotion dur="2.4s" repeatCount="indefinite" begin="-1.6s"><mpath href="#w4"/></animateMotion></circle>
+            <circle r="4" class="hv-spark"><animateMotion dur="2.4s" repeatCount="indefinite" begin="-2.0s"><mpath href="#w5"/></animateMotion></circle>
+          </g>
+          <circle cx="230" cy="230" r="58" class="hv-core"/>
+          <g transform="translate(206 206) scale(2)" class="hv-ico"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></g>
+          <g class="hv-nodes">
+            <circle cx="230" cy="70" r="34" class="hv-node"/>
+            <g transform="translate(213 53) scale(1.42)" class="hv-ico"><path d="M9 2v6M15 2v6"/><path d="M6 8h12v3a6 6 0 0 1-12 0V8z"/><path d="M12 17v5"/></g>
+            <circle cx="368.6" cy="150" r="34" class="hv-node"/>
+            <g transform="translate(351.6 133) scale(1.42)" class="hv-ico"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="m8 2 4 4 4-4"/></g>
+            <circle cx="368.6" cy="310" r="34" class="hv-node"/>
+            <g transform="translate(351.6 293) scale(1.42)" class="hv-ico"><path d="M12 2v20M3.3 7l17.4 10M20.7 7 3.3 17"/></g>
+            <circle cx="230" cy="390" r="34" class="hv-node"/>
+            <g transform="translate(213 373) scale(1.42)" class="hv-ico"><path d="M12 3v18M7 21h10M4 7h16"/><path d="M4 7 1 14a3 3 0 0 0 6 0L4 7zM20 7l-3 7a3 3 0 0 0 6 0l-3-7z"/></g>
+            <circle cx="91.4" cy="310" r="34" class="hv-node"/>
+            <g transform="translate(74.4 293) scale(1.42)" class="hv-ico"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0"/><path d="M16 4a4 4 0 0 1 0 8M22 21a7 7 0 0 0-4-6.3"/></g>
+            <circle cx="91.4" cy="150" r="34" class="hv-node"/>
+            <g transform="translate(74.4 133) scale(1.42)" class="hv-ico"><path d="M5 19c0-9 6-14 15-15-1 9-6 15-15 15z"/><path d="M5 19 13 11"/></g>
+          </g>
+          <text x="230" y="22" text-anchor="middle" class="hv-label">電気の基礎</text>
+          <text x="430" y="150" text-anchor="middle" class="hv-label">AV家電</text>
+          <text x="430" y="314" text-anchor="middle" class="hv-label">生活家電</text>
+          <text x="230" y="448" text-anchor="middle" class="hv-label">法規</text>
+          <text x="30" y="314" text-anchor="middle" class="hv-label">接客</text>
+          <text x="30" y="150" text-anchor="middle" class="hv-label">環境</text>
+        </svg>
+      </div>
     </div>
   </section>
 
-  <main class="main-container">
+  <div class="stats">
+    <div class="stat"><b>6</b><span>学習カテゴリ</span></div>
+    <div class="stat"><b>20</b><span>解説トピック</span></div>
+    <div class="stat"><b>55</b><span>図解・アニメーション</span></div>
+    <div class="stat"><b>90</b><span>確認クイズ</span></div>
+  </div>
+
+  <main class="main-container" id="categories">
 
     <div class="section-header">
+      <span class="section-eyebrow">Categories</span>
       <h2 class="section-title">学習カテゴリ</h2>
-      <p class="section-desc">6つのカテゴリから学習を始めましょう。各カテゴリには詳細な解説ページが含まれています。</p>
+      <p class="section-desc">6つのカテゴリから学習を始めましょう。各ページに図解と「試験に出るポイント」をまとめています。</p>
     </div>
 
-    <div class="card-grid">
+    <div class="card-grid cat-grid">
 
-      <a href="basics/" class="card">
-        <span class="card-icon">🔌</span>
+      <a href="basics/" class="card" data-cat="basics" data-count="3 TOPICS">
+        <span class="card-icon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 2v6M15 2v6"/><path d="M6 8h12v3a6 6 0 0 1-12 0V8z"/><path d="M12 17v5"/></svg></span>
         <h3>電気の基礎</h3>
-        <p>電気の基本概念・オームの法則・省エネの基礎知識を学習します。</p>
+        <p>電気の基本概念・オームの法則・安全規格・省エネの基礎知識を学習します。</p>
         <ul class="card-topics">
-          <li>電気の基本（電圧・電流・抵抗）</li>
-          <li>安全規格（PSEマーク・IP規格）</li>
-          <li>省エネ基礎（トップランナー制度）</li>
+          <li>オームの法則</li>
+          <li>PSE・IPコード</li>
+          <li>トップランナー制度</li>
         </ul>
-        <span class="card-arrow">→</span>
+        <span class="card-arrow"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
 
-      <a href="av-info/" class="card">
-        <span class="card-icon">📺</span>
+      <a href="av-info/" class="card" data-cat="av-info" data-count="4 TOPICS">
+        <span class="card-icon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="m8 2 4 4 4-4"/><path d="M8 21h8"/></svg></span>
         <h3>AV・情報家電</h3>
         <p>テレビ・オーディオ・カメラ・パソコン等の技術知識を学習します。</p>
         <ul class="card-topics">
-          <li>テレビ（表示方式・解像度・放送）</li>
-          <li>オーディオ（スピーカー・アンプ）</li>
-          <li>カメラ・PC・モバイル機器</li>
+          <li>液晶と有機EL</li>
+          <li>サンプリング</li>
+          <li>F値・センサー</li>
+          <li>USB・Wi-Fi</li>
         </ul>
-        <span class="card-arrow">→</span>
+        <span class="card-arrow"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
 
-      <a href="home-appliances/" class="card">
-        <span class="card-icon">🏠</span>
+      <a href="home-appliances/" class="card" data-cat="home-appliances" data-count="5 TOPICS">
+        <span class="card-icon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M3.3 7l17.4 10M20.7 7 3.3 17"/><path d="m9 3.5 3 2 3-2M9 20.5l3-2 3 2"/></svg></span>
         <h3>生活家電</h3>
         <p>エアコン・冷蔵庫・洗濯機・調理家電・照明の仕組みと省エネを学習します。</p>
         <ul class="card-topics">
-          <li>エアコン（冷凍サイクル・APF）</li>
-          <li>冷蔵庫・洗濯機・調理家電</li>
-          <li>照明（LED・省エネ計算）</li>
+          <li>冷凍サイクル</li>
+          <li>IH・電子レンジ</li>
+          <li>色温度・LED</li>
         </ul>
-        <span class="card-arrow">→</span>
+        <span class="card-arrow"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
 
-      <a href="laws/" class="card">
-        <span class="card-icon">📋</span>
+      <a href="laws/" class="card" data-cat="laws" data-count="4 TOPICS">
+        <span class="card-icon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M7 21h10M4 7h16"/><path d="M4 7 1 14a3 3 0 0 0 6 0L4 7zM20 7l-3 7a3 3 0 0 0 6 0l-3-7z"/></svg></span>
         <h3>法規・制度</h3>
-        <p>電気用品安全法・省エネ法・リサイクル法・PL法等の法律知識を学習します。</p>
+        <p>電気用品安全法・省エネ法・家電リサイクル法・PL法等の法律知識を学習します。</p>
         <ul class="card-topics">
-          <li>電気用品安全法（PSE法）</li>
-          <li>省エネ法・家電リサイクル法</li>
-          <li>PL法・消費者関連法</li>
+          <li>菱形PSE・丸PSE</li>
+          <li>リサイクル4品目</li>
+          <li>PL法・クーリングオフ</li>
         </ul>
-        <span class="card-arrow">→</span>
+        <span class="card-arrow"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
 
-      <a href="sales/" class="card">
-        <span class="card-icon">🤝</span>
+      <a href="sales/" class="card" data-cat="sales" data-count="2 TOPICS">
+        <span class="card-icon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0"/><path d="M16 4a4 4 0 0 1 0 8M22 21a7 7 0 0 0-4-6.3"/></svg></span>
         <h3>販売・接客</h3>
         <p>接客の基本・顧客ニーズの把握・販売技術・クレーム対応を学習します。</p>
         <ul class="card-topics">
-          <li>接客マナー・言葉遣い・敬語</li>
-          <li>商品提案・AIDMA の法則</li>
-          <li>アフターサービス・販売管理</li>
+          <li>SPIN話法</li>
+          <li>AIDMA・AISAS</li>
+          <li>粗利計算</li>
         </ul>
-        <span class="card-arrow">→</span>
+        <span class="card-arrow"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
 
-      <a href="environment/" class="card">
-        <span class="card-icon">♻️</span>
+      <a href="environment/" class="card" data-cat="environment" data-count="2 TOPICS">
+        <span class="card-icon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19c0-9 6-14 15-15-1 9-6 15-15 15z"/><path d="M5 19 13 11"/></svg></span>
         <h3>環境・エコ</h3>
-        <p>省エネ計算・グリーン購入・フロン規制・リサイクルシステムを学習します。</p>
+        <p>省エネ計算・フロン規制・RoHS指令・リサイクルシステムを学習します。</p>
         <ul class="card-topics">
-          <li>地球温暖化と家電の関係</li>
-          <li>フロン排出抑制法・RoHS指令</li>
-          <li>家電・小型家電リサイクル法</li>
+          <li>電気代の計算</li>
+          <li>冷媒とGWP</li>
+          <li>3Rの優先順位</li>
         </ul>
-        <span class="card-arrow">→</span>
+        <span class="card-arrow"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
 
     </div>
 
+    <!-- 学習ロードマップ -->
+    <section class="roadmap">
+      <div class="section-header">
+        <span class="section-eyebrow">Roadmap</span>
+        <h2 class="section-title">おすすめの学習ルート</h2>
+        <p class="section-desc">基礎から順に積み上げると、製品知識と法規がつながって覚えやすくなります。</p>
+      </div>
+      <figure class="diagram">
+        <div class="diagram-body">
+          <ol class="flow">
+            <li style="--i:0"><span class="flow-num">1</span><b>電気の基礎</b><small>オームの法則・交流・安全</small></li>
+            <li style="--i:1"><span class="flow-num">2</span><b>製品知識</b><small>AV家電・生活家電のしくみ</small></li>
+            <li style="--i:2"><span class="flow-num">3</span><b>法規・環境</b><small>PSE・省エネ法・リサイクル</small></li>
+            <li style="--i:3"><span class="flow-num">4</span><b>販売・接客</b><small>CS試験の対策</small></li>
+            <li style="--i:4"><span class="flow-num">5</span><b>クイズで確認</b><small>90問で弱点チェック</small></li>
+          </ol>
+        </div>
+      </figure>
+    </section>
+
+    <!-- クイズモードバナー -->
+    <a href="quiz/" class="quiz-banner">
+      <span class="qb-icon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></span>
+      <span class="qb-body">
+        <span class="qb-kicker">QUIZ MODE</span>
+        <span class="qb-title" style="display:block">クイズモードで腕試し</span>
+        <span class="qb-desc">全90問・コース別カテゴリ選択・解答後に解説表示・スマホ対応</span>
+      </span>
+      <span class="qb-go"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </a>
+
     <!-- 試験概要 -->
     <div class="info-box">
-      <h2>📜 試験概要</h2>
+      <h2><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h6"/></svg>試験概要</h2>
       <p style="color:var(--text-muted);font-size:0.95rem;margin-bottom:18px;">家電製品アドバイザー資格は、一般財団法人家電製品協会が実施する検定試験です。<strong>AV情報家電コース</strong>と<strong>生活家電コース</strong>の2種類があります。</p>
       <div class="info-box-grid">
         <div class="info-box-item">
-          <h3>📺 AV情報家電コース</h3>
+          <h3><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="m8 2 4 4 4-4"/><path d="M8 21h8"/></svg>AV情報家電コース</h3>
           <ul>
             <li>テレビ・オーディオ・カメラ・PC等</li>
             <li>AV機器・情報家電の専門知識</li>
@@ -125,7 +231,7 @@
           </ul>
         </div>
         <div class="info-box-item">
-          <h3>🏠 生活家電コース</h3>
+          <h3><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9.5 21v-6h5v6"/></svg>生活家電コース</h3>
           <ul>
             <li>エアコン・冷蔵庫・洗濯機・調理家電等</li>
             <li>生活家電の専門知識</li>
@@ -134,7 +240,7 @@
           </ul>
         </div>
         <div class="info-box-item">
-          <h3>📝 試験内容（共通）</h3>
+          <h3><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg>試験内容（共通）</h3>
           <ul>
             <li>電気・電子の基礎知識</li>
             <li>各製品の仕組みと機能</li>
@@ -143,7 +249,7 @@
           </ul>
         </div>
         <div class="info-box-item">
-          <h3>📅 試験実施</h3>
+          <h3><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>試験実施</h3>
           <ul>
             <li>年2回（春・秋）実施</li>
             <li>CBT方式（コンピューター試験）</li>
@@ -154,49 +260,30 @@
       </div>
     </div>
 
-    <!-- クイズモードバナー -->
-    <div style="margin-top:40px;">
-      <a href="quiz/" style="
-        display:flex; align-items:center; gap:20px;
-        background:linear-gradient(135deg,#1e3a8a 0%,#1e40af 60%,#7c3aed 100%);
-        color:#fff; border-radius:14px; padding:24px 28px;
-        text-decoration:none; box-shadow:0 8px 24px rgba(30,64,175,0.35);
-        transition:transform 0.15s, box-shadow 0.15s;
-      " onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 12px 32px rgba(30,64,175,0.45)'"
-         onmouseout="this.style.transform='';this.style.boxShadow='0 8px 24px rgba(30,64,175,0.35)'">
-        <div style="font-size:52px;flex-shrink:0">📝</div>
-        <div style="flex:1">
-          <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;opacity:0.8;margin-bottom:4px">NEW</div>
-          <div style="font-size:20px;font-weight:800;margin-bottom:6px">クイズモードで腕試し！</div>
-          <div style="font-size:14px;opacity:0.85;line-height:1.5">全60問・コース別カテゴリ選択 · 解答後に解説表示 · スマホ対応</div>
-        </div>
-        <div style="font-size:28px;opacity:0.8;flex-shrink:0">›</div>
-      </a>
-    </div>
-
     <!-- 学習のポイント -->
-    <div style="margin-top:40px;">
+    <div style="margin-top:56px;">
       <div class="section-header">
+        <span class="section-eyebrow">Tips</span>
         <h2 class="section-title">学習のポイント</h2>
         <p class="section-desc">効率よく合格するための学習アドバイス</p>
       </div>
       <div class="tips-grid">
         <div class="tip-item">
-          <span class="tip-icon">🎯</span>
+          <span class="tip-icon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
           <div>
             <h3>試験に出るポイントを押さえる</h3>
             <p>各ページの「試験に出るポイント」ボックスに頻出事項をまとめています。数値・法律名・仕組みを確実に覚えましょう。</p>
           </div>
         </div>
         <div class="tip-item">
-          <span class="tip-icon">📊</span>
+          <span class="tip-icon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3v18h18"/><path d="M8 17v-5M13 17V8M18 17v-9"/></svg></span>
           <div>
-            <h3>数値・規格を正確に暗記</h3>
-            <p>PSEマークの品目数、APFの定義、IP規格の意味など、具体的な数値や規格名が出題されます。表で整理して覚えましょう。</p>
+            <h3>図解を動かして理解する</h3>
+            <p>「インタラクティブ」と表示された図は、ボタンやスライダーで操作できます。数値を変えて結果を確かめると記憶に残ります。</p>
           </div>
         </div>
         <div class="tip-item">
-          <span class="tip-icon">🔗</span>
+          <span class="tip-icon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/></svg></span>
           <div>
             <h3>法規と製品知識を関連付ける</h3>
             <p>電気用品安全法・省エネ法・リサイクル法は実際の製品と結びつけて理解することで記憶に定着しやすくなります。</p>

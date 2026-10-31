@@ -4,13 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>冷蔵庫 | 家電製品アドバイザー学習サイト</title>
+  <meta name="theme-color" content="#0b1024">
+  <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=JetBrains+Mono:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap">
   <link rel="stylesheet" href="../style.css">
+  <script src="../app.js" defer></script>
 </head>
-<body>
+<body data-cat="home-appliances">
 
   <header class="site-header">
     <div class="header-inner">
-      <div class="site-title">🏠 家電製品アドバイザー 学習サイト</div>
+      <div class="site-title"><a href="../index.html"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h7a3 3 0 0 1 3 3v14a2 2 0 0 0-2-2H2z"/><path d="M22 4h-7a3 3 0 0 0-3 3v14a2 2 0 0 1 2-2h8z"/></svg><span class="label">家電製品アドバイザー 学習サイト</span></a></div>
       <nav class="breadcrumb">
         <a href="../index.html">トップ</a>
         <span class="sep">›</span>
@@ -22,7 +28,7 @@
   </header>
 
   <section class="hero">
-    <span class="hero-icon">🧊</span>
+    <span class="hero-icon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M5 10h14M9 5v2M9 13v3"/></svg></span>
     <h1>冷蔵庫</h1>
     <p class="hero-sub">冷蔵庫の冷却の仕組み・ノンフロン冷媒・省エネ技術・各庫室の温度管理・最新機能を学びます。</p>
     <div class="badge-row">
@@ -47,7 +53,7 @@
     <main class="content-body">
 
       <section class="content-section" id="mechanism">
-        <h2>1. 冷蔵庫の仕組み</h2>
+        <h2><span class="h-num">01</span>冷蔵庫の仕組み</h2>
 
         <h3>圧縮式冷凍の原理</h3>
         <p>冷蔵庫はエアコンと同様に<span class="key-term">冷凍サイクル（圧縮式冷凍）</span>を利用して食品を冷却します。</p>
@@ -58,6 +64,39 @@
           ③膨張弁で減圧（低温・低圧）<br>
           ④蒸発器で食品の熱を吸収して気化→食品が冷える
         </div>
+
+        <figure class="diagram" data-dg="fridge">
+          <div class="diagram-head"><span class="tag">図解</span>冷蔵庫の中で冷気がめぐるしくみ</div>
+          <div class="diagram-body">
+            <svg viewBox="0 0 520 300" role="img" aria-label="冷蔵庫の断面。冷却器で冷やした空気が各室を循環し、熱は側面・背面から放出される">
+              <rect x="150" y="16" width="200" height="266" rx="16" class="d-box" style="stroke-width:2"/>
+              <rect x="160" y="26" width="180" height="114" rx="8" style="fill:color-mix(in srgb,#34d399 14%,var(--surface))"/>
+              <rect x="160" y="146" width="180" height="56" rx="8" style="fill:color-mix(in srgb,#a3e635 16%,var(--surface))"/>
+              <rect x="160" y="208" width="180" height="64" rx="8" style="fill:color-mix(in srgb,#3b82f6 16%,var(--surface))"/>
+              <rect x="170" y="112" width="120" height="22" rx="5" style="fill:color-mix(in srgb,#22d3ee 22%,var(--surface))"/>
+              <text x="176" y="52" class="d-text">冷蔵室</text><text x="176" y="72" class="d-sub">2〜6℃</text>
+              <text x="178" y="128" class="d-sub" style="font-size:11px">チルド 0℃前後</text>
+              <text x="176" y="172" class="d-text">野菜室</text><text x="176" y="192" class="d-sub">3〜8℃</text>
+              <text x="176" y="234" class="d-text">冷凍室</text><text x="176" y="254" class="d-sub">−18℃以下</text>
+              <rect x="314" y="222" width="18" height="40" rx="4" class="d-cold"/>
+              <text x="386" y="250" class="d-sub">冷却器（蒸発器）</text>
+              <path d="M370 246 H336" class="d-thin"/>
+              <path d="M323 220 V40 H250" class="d-cold-s d-flow" stroke-width="3" fill="none"/>
+              <path d="M323 150 H270" class="d-cold-s d-flow" stroke-width="3" fill="none"/>
+              <path d="M230 60 C200 80 200 100 230 104" class="d-cold-s d-flow slow" stroke-width="2" fill="none"/>
+              <g class="d-blink">
+                <path d="M136 60 q-8 10 0 20 q8 10 0 20 q-8 10 0 20" class="d-hot-s" stroke-width="2.5" fill="none"/>
+                <path d="M118 120 q-8 10 0 20 q8 10 0 20 q-8 10 0 20" class="d-hot-s" stroke-width="2.5" fill="none"/>
+                <path d="M364 50 q8 10 0 20 q-8 10 0 20 q8 10 0 20" class="d-hot-s" stroke-width="2.5" fill="none"/>
+              </g>
+              <text x="100" y="208" class="d-text" text-anchor="middle" style="fill:var(--hot)">放熱</text>
+              <text x="100" y="226" class="d-sub" text-anchor="middle">側面・背面</text>
+              <text x="410" y="96" class="d-text" style="fill:var(--cold)">冷気が循環</text>
+              <text x="410" y="114" class="d-sub">食品の熱を吸収</text>
+            </svg>
+          </div>
+          <figcaption>食品から吸い取った熱は、本体の側面・背面から部屋へ捨てています。壁との隙間をあけて設置するのはこのためです。</figcaption>
+        </figure>
         <p>冷蔵庫の放熱器は庫外の側面・背面・底面に配置されており、室温が上がるほど冷蔵庫の消費電力が増加します。設置場所の換気と壁からの適切な隙間確保が重要です。</p>
 
         <h3>ノンフロン冷媒</h3>
@@ -90,7 +129,7 @@
       </section>
 
       <section class="content-section" id="types">
-        <h2>2. 種類と特徴</h2>
+        <h2><span class="h-num">02</span>種類と特徴</h2>
 
         <h3>扉の開閉方式</h3>
         <div class="table-wrap">
@@ -136,7 +175,7 @@
       </section>
 
       <section class="content-section" id="energy">
-        <h2>3. 省エネ技術</h2>
+        <h2><span class="h-num">03</span>省エネ技術</h2>
 
         <h3>インバーター圧縮機</h3>
         <p>エアコンと同様に、<span class="key-term">インバーター</span>を使用してコンプレッサーの回転数を連続制御することで、庫内温度を一定に保ちつつ消費電力を最小化します。扉の開閉や外気温の変化に応じて自動調節します。</p>
@@ -159,9 +198,37 @@
       </section>
 
       <section class="content-section" id="temperature">
-        <h2>4. 冷蔵室の温度管理</h2>
+        <h2><span class="h-num">04</span>冷蔵室の温度管理</h2>
 
         <h3>各庫室の温度設定</h3>
+
+        <figure class="diagram" data-dg="fridge-temp">
+          <div class="diagram-head"><span class="tag">図解</span>温度帯を一本の目盛りで比べる</div>
+          <div class="diagram-body">
+            <svg viewBox="0 0 540 240" role="img" aria-label="冷凍室、パーシャル室、チルド室、冷蔵室、野菜室の温度帯を比較した図">
+              <line x1="380" y1="20" x2="380" y2="200" stroke-dasharray="5 5" class="d-thin" style="stroke:var(--line)"/>
+              <text x="380" y="14" class="d-sub" text-anchor="middle">0℃（水が凍る）</text>
+              <line x1="120" y1="206" x2="510" y2="206" class="d-thin"/>
+              <g class="d-sub d-mono" text-anchor="middle">
+                <text x="120" y="226">−20</text><text x="250" y="226">−10</text><text x="380" y="226">0</text><text x="510" y="226">+10℃</text>
+              </g>
+              <g class="d-text" text-anchor="end">
+                <text x="108" y="45">冷凍室</text><text x="108" y="80">パーシャル</text><text x="108" y="115">チルド</text><text x="108" y="150">冷蔵室</text><text x="108" y="185">野菜室</text>
+              </g>
+              <path d="M130 31 H146 a9 9 0 0 1 0 18 H130 l-10 -9 z" fill="#3b82f6" class="d-pop" style="--d:.0s"/>
+              <text x="162" y="45" class="d-sub">−18℃以下</text>
+              <rect x="341" y="66" width="26" height="18" rx="9" fill="#38bdf8" class="d-pop" style="--d:.12s"/>
+              <text x="333" y="80" class="d-sub" text-anchor="end">−3〜−1℃（微凍結）</text>
+              <rect x="367" y="101" width="26" height="18" rx="9" fill="#22d3ee" class="d-pop" style="--d:.24s"/>
+              <text x="359" y="115" class="d-sub" text-anchor="end">0℃前後（凍らない）</text>
+              <rect x="406" y="136" width="52" height="18" rx="9" fill="#34d399" class="d-pop" style="--d:.36s"/>
+              <text x="466" y="150" class="d-sub">2〜6℃</text>
+              <rect x="419" y="171" width="65" height="18" rx="9" fill="#a3e635" class="d-pop" style="--d:.48s"/>
+              <text x="492" y="185" class="d-sub">3〜8℃</text>
+            </svg>
+          </div>
+          <figcaption>パーシャル室は0℃より下（微凍結）、チルド室は0℃前後で凍らせない——この違いが頻出です。</figcaption>
+        </figure>
         <div class="table-wrap">
           <table>
             <thead>
@@ -186,7 +253,7 @@
       </section>
 
       <section class="content-section" id="functions">
-        <h2>5. 機能・技術</h2>
+        <h2><span class="h-num">05</span>機能・技術</h2>
 
         <h3>自動製氷</h3>
         <p>給水タンクの水を冷凍室で自動的に製氷する機能。タンクの容量は約1〜1.5L程度が一般的です。製氷皿は衛生的に保つため定期清掃が必要です。</p>
@@ -216,7 +283,7 @@
 
       <nav class="page-nav">
         <a href="aircon.html" class="nav-prev">
-          <span>←</span>
+          <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></span>
           <div>
             <span class="nav-label">前のページ</span>
             <span class="nav-title">エアコン</span>
@@ -227,7 +294,7 @@
             <span class="nav-label">次のページ</span>
             <span class="nav-title">洗濯機・乾燥機</span>
           </div>
-          <span>→</span>
+          <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
       </nav>
 
