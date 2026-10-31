@@ -4,13 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>生活家電 | 家電製品アドバイザー学習サイト</title>
+  <meta name="theme-color" content="#0b1024">
+  <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=JetBrains+Mono:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap">
   <link rel="stylesheet" href="../style.css">
+  <script src="../app.js" defer></script>
 </head>
-<body>
+<body data-cat="home-appliances">
 
   <header class="site-header">
     <div class="header-inner">
-      <div class="site-title">🏠 家電製品アドバイザー 学習サイト</div>
+      <div class="site-title"><a href="../index.html"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h7a3 3 0 0 1 3 3v14a2 2 0 0 0-2-2H2z"/><path d="M22 4h-7a3 3 0 0 0-3 3v14a2 2 0 0 1 2-2h8z"/></svg><span class="label">家電製品アドバイザー 学習サイト</span></a></div>
       <nav class="breadcrumb">
         <a href="../index.html">トップ</a>
         <span class="sep">›</span>
@@ -20,7 +26,7 @@
   </header>
 
   <section class="hero">
-    <span class="hero-icon">🏠</span>
+    <span class="hero-icon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9.5 21v-6h5v6"/></svg></span>
     <h1>生活家電</h1>
     <p class="hero-sub">エアコン・冷蔵庫・洗濯機・調理家電・照明器具の仕組みと省エネ性能を体系的に学習します。</p>
     <div class="badge-row">
@@ -37,7 +43,7 @@
 
     <div class="card-grid">
       <a href="aircon.html" class="card">
-        <span class="card-icon">❄️</span>
+        <span class="card-icon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M3.3 7l17.4 10M20.7 7 3.3 17"/><path d="m9 3.5 3 2 3-2M9 20.5l3-2 3 2"/></svg></span>
         <h3>エアコン</h3>
         <p>冷凍サイクル・ヒートポンプ・APF・省エネラベルの読み方を学びます。</p>
         <ul class="card-topics">
@@ -46,11 +52,11 @@
           <li>APF（通年エネルギー消費効率）</li>
           <li>インバーター制御・除湿方式</li>
         </ul>
-        <span class="card-arrow">→</span>
+        <span class="card-arrow"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
 
       <a href="refrigerator.html" class="card">
-        <span class="card-icon">🧊</span>
+        <span class="card-icon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M5 10h14M9 5v2M9 13v3"/></svg></span>
         <h3>冷蔵庫</h3>
         <p>冷凍サイクル・ノンフロン冷媒・省エネ技術・各部屋の温度管理を学びます。</p>
         <ul class="card-topics">
@@ -59,11 +65,11 @@
           <li>真空断熱材・インバーター</li>
           <li>年間消費電力量</li>
         </ul>
-        <span class="card-arrow">→</span>
+        <span class="card-arrow"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
 
       <a href="washing.html" class="card">
-        <span class="card-icon">👕</span>
+        <span class="card-icon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="2" width="18" height="20" rx="2"/><circle cx="12" cy="13" r="5"/><path d="M7 6h.01M10 6h.01"/></svg></span>
         <h3>洗濯機・乾燥機</h3>
         <p>縦型・ドラム式の違い・乾燥方式・省エネ・節水を学びます。</p>
         <ul class="card-topics">
@@ -72,11 +78,11 @@
           <li>温水洗浄・スチーム機能</li>
           <li>洗剤自動投入</li>
         </ul>
-        <span class="card-arrow">→</span>
+        <span class="card-arrow"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
 
       <a href="cooking.html" class="card">
-        <span class="card-icon">🍳</span>
+        <span class="card-icon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11h16v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4v-6z"/><path d="M2 11h20"/><path d="M9 7c0-1 1-1.5 1-3M14 7c0-1 1-1.5 1-3"/></svg></span>
         <h3>調理家電</h3>
         <p>電子レンジ・IHクッキングヒーター・炊飯器の仕組みと特性を学びます。</p>
         <ul class="card-topics">
@@ -85,11 +91,11 @@
           <li>炊飯器（マイコン・IH・圧力IH）</li>
           <li>電気ケトル・ホットプレート</li>
         </ul>
-        <span class="card-arrow">→</span>
+        <span class="card-arrow"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
 
       <a href="lighting.html" class="card">
-        <span class="card-icon">💡</span>
+        <span class="card-icon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg></span>
         <h3>照明器具</h3>
         <p>光の基礎・光源の種類・LEDの特徴・省エネ計算を学びます。</p>
         <ul class="card-topics">
@@ -98,12 +104,12 @@
           <li>LED：高効率・長寿命（40,000h）</li>
           <li>白熱60W→LED約7〜8W相当</li>
         </ul>
-        <span class="card-arrow">→</span>
+        <span class="card-arrow"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
     </div>
 
     <div class="info-box" style="margin-top:40px;">
-      <h2>💡 生活家電コースの学習ポイント</h2>
+      <h2><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg>生活家電コースの学習ポイント</h2>
       <div class="info-box-grid">
         <div class="info-box-item">
           <h3>覚えるべき数値（エアコン・冷蔵庫）</h3>

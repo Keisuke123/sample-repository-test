@@ -4,13 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>電気の基礎 | 家電製品アドバイザー学習サイト</title>
+  <meta name="theme-color" content="#0b1024">
+  <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=JetBrains+Mono:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap">
   <link rel="stylesheet" href="../style.css">
+  <script src="../app.js" defer></script>
 </head>
-<body>
+<body data-cat="basics">
 
   <header class="site-header">
     <div class="header-inner">
-      <div class="site-title">🏠 家電製品アドバイザー 学習サイト</div>
+      <div class="site-title"><a href="../index.html"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h7a3 3 0 0 1 3 3v14a2 2 0 0 0-2-2H2z"/><path d="M22 4h-7a3 3 0 0 0-3 3v14a2 2 0 0 1 2-2h8z"/></svg><span class="label">家電製品アドバイザー 学習サイト</span></a></div>
       <nav class="breadcrumb">
         <a href="../index.html">トップ</a>
         <span class="sep">›</span>
@@ -22,7 +28,7 @@
   </header>
 
   <section class="hero">
-    <span class="hero-icon">⚡</span>
+    <span class="hero-icon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg></span>
     <h1>電気の基礎</h1>
     <p class="hero-sub">電圧・電流・抵抗の関係、オームの法則、電力計算、交流と直流など、家電製品を理解するための電気の基本を学びます。</p>
     <div class="badge-row">
@@ -50,7 +56,7 @@
     <main class="content-body">
 
       <section class="content-section" id="concept">
-        <h2>1. 電気の基本概念</h2>
+        <h2><span class="h-num">01</span>電気の基本概念</h2>
 
         <h3>電圧（V）・電流（A）・抵抗（Ω）の定義</h3>
         <p><span class="key-term">電圧（Voltage）</span>は電気を押し出す力の大きさで、単位はボルト（<strong>V</strong>）です。水路に例えると「水位差（水圧）」に相当します。</p>
@@ -59,6 +65,44 @@
 
         <h3>オームの法則</h3>
         <p>電圧・電流・抵抗の関係を示す基本法則が<span class="key-term">オームの法則</span>です。</p>
+
+        <figure class="diagram" data-dg="ohm">
+          <div class="diagram-head"><span class="tag live">インタラクティブ</span>オームの法則を動かしてみる</div>
+          <div class="diagram-body">
+            <div data-widget="ohm">
+              <svg viewBox="0 0 520 230" role="img" aria-label="電源・抵抗・負荷をつないだ回路。電流の粒が流れる速さで電流の大きさを表す">
+                <defs>
+                  <radialGradient id="ohmGlow"><stop offset="0" stop-color="#fde047"/><stop offset="1" stop-color="#fde047" stop-opacity="0"/></radialGradient>
+                </defs>
+                <path class="ohm-wire d-line" d="M90 60 H430 V180 H90 Z" stroke-width="3"/>
+                <g class="ohm-dots"></g>
+                <rect x="66" y="96" width="48" height="48" rx="6" style="fill:var(--surface-2)"/>
+                <line x1="68" y1="112" x2="112" y2="112" stroke-width="4" class="d-cat-s"/>
+                <line x1="78" y1="128" x2="102" y2="128" stroke-width="4" class="d-cat-s"/>
+                <text x="116" y="108" class="d-sub">＋</text>
+                <text x="60" y="124" class="d-text" text-anchor="end">電源</text>
+                <text x="60" y="142" class="d-sub" text-anchor="end">電圧 E</text>
+                <rect x="214" y="46" width="94" height="28" style="fill:var(--surface-2)"/>
+                <path d="M214 60 l7 -11 l12 22 l12 -22 l12 22 l12 -22 l12 22 l12 -22 l5 11" class="d-line" stroke-width="3" style="stroke:var(--text)"/>
+                <text x="261" y="30" class="d-text" text-anchor="middle">抵抗 R</text>
+                <circle cx="430" cy="120" r="44" class="ohm-glow" fill="url(#ohmGlow)"/>
+                <circle cx="430" cy="120" r="18" class="d-box"/>
+                <path d="M418 108 l24 24 M442 108 l-24 24" class="d-line"/>
+                <text x="462" y="124" class="d-text">負荷</text>
+                <text x="260" y="208" class="d-sub" text-anchor="middle">← 粒の流れる速さ ＝ 電流 I の大きさ</text>
+              </svg>
+              <div class="ctrl">
+                <label class="ctrl-row"><span>電圧 E</span><input type="range" min="10" max="200" step="10" value="100" data-k="v"><output data-o="v">100 V</output></label>
+                <label class="ctrl-row"><span>抵抗 R</span><input type="range" min="5" max="100" step="5" value="20" data-k="r"><output data-o="r">20 Ω</output></label>
+              </div>
+              <div class="readout">
+                <div class="hl"><small>電流 I ＝ E ÷ R</small><b data-o="i">5.00 A</b></div>
+                <div><small>電力 P ＝ E × I</small><b data-o="p">500 W</b></div>
+              </div>
+            </div>
+          </div>
+          <figcaption>電圧を上げる・抵抗を下げると電流が増えます。電球の明るさは電力（P＝E×I）に比例します。</figcaption>
+        </figure>
         <div class="point-box">
           <strong>オームの法則の3つの式</strong>
           電圧 E（V）= 電流 I（A）× 抵抗 R（Ω）<br>
@@ -98,7 +142,7 @@
       </section>
 
       <section class="content-section" id="power">
-        <h2>2. 電力と電力量</h2>
+        <h2><span class="h-num">02</span>電力と電力量</h2>
 
         <h3>電力（W：ワット）</h3>
         <p><span class="key-term">電力</span>とは、単位時間あたりに消費されるエネルギーのことで、単位はワット（<strong>W</strong>）です。</p>
@@ -153,7 +197,7 @@
       </section>
 
       <section class="content-section" id="ac-dc">
-        <h2>3. 交流と直流</h2>
+        <h2><span class="h-num">03</span>交流と直流</h2>
 
         <h3>直流（DC）と交流（AC）の違い</h3>
         <p><span class="key-term">直流（DC：Direct Current）</span>は、電流が常に一定方向に流れる電気です。電池・USB電源など。</p>
@@ -174,6 +218,36 @@
           最大値 = 実効値 × √2 ≈ 実効値 × 1.414<br>
           日本の100V（実効値）→ 最大値 = 100 × √2 ≈ <strong>141V</strong>
         </div>
+
+        <figure class="diagram" data-dg="sine">
+          <div class="diagram-head"><span class="tag live">インタラクティブ</span>交流の波形と 50Hz / 60Hz</div>
+          <div class="diagram-body">
+            <div data-widget="sine">
+              <div class="seg"><button data-v="50" aria-pressed="true">50Hz（東日本）</button><button data-v="60">60Hz（西日本）</button></div>
+              <svg viewBox="0 0 520 250" role="img" aria-label="交流電圧の正弦波。最大値141V、実効値100V" style="margin-top:14px">
+                <line x1="50" y1="120" x2="474" y2="120" class="d-thin"/>
+                <line x1="50" y1="36" x2="474" y2="36" class="d-thin" stroke-dasharray="4 5"/>
+                <line x1="50" y1="204" x2="474" y2="204" class="d-thin" stroke-dasharray="4 5"/>
+                <line x1="50" y1="60" x2="474" y2="60" class="d-cat2" style="stroke:var(--cat-2)" stroke-width="2" stroke-dasharray="8 6"/>
+                <line x1="50" y1="20" x2="50" y2="222" class="d-thin"/>
+                <text x="44" y="40" class="d-sub d-mono" text-anchor="end">141</text>
+                <text x="44" y="64" class="d-sub d-mono" text-anchor="end">100</text>
+                <text x="44" y="124" class="d-sub d-mono" text-anchor="end">0</text>
+                <text x="44" y="208" class="d-sub d-mono" text-anchor="end">−141</text>
+                <text x="472" y="30" class="d-sub" text-anchor="end">最大値（ピーク）</text>
+                <text x="472" y="54" class="d-text" text-anchor="end" style="fill:var(--cat-ink)">実効値 100V</text>
+                <path class="sine-wave" d="" fill="none" stroke-width="3" style="stroke:var(--cat)" stroke-linecap="round"/>
+                <text x="262" y="242" class="d-sub" text-anchor="middle">時間 →（40ミリ秒分をスロー表示）</text>
+              </svg>
+              <div class="readout">
+                <div class="hl"><small>1周期の時間</small><b data-o="period">20 ms</b></div>
+                <div><small>1秒間に向きが変わる回数</small><b data-o="flip">100 回</b></div>
+                <div><small>最大値 ＝ 100 × √2</small><b>≈ 141 V</b></div>
+              </div>
+            </div>
+          </div>
+          <figcaption>コンセントの「100V」は実効値。実際の電圧は ±141V の間を行き来しています。</figcaption>
+        </figure>
         <p>家電製品の定格電圧「100V」は<span class="key-term">実効値</span>で表示されています。実効値は直流と等価なエネルギーを持つ値です。</p>
 
         <div class="exam-tip">
@@ -182,9 +256,48 @@
       </section>
 
       <section class="content-section" id="circuit">
-        <h2>4. 電気回路</h2>
+        <h2><span class="h-num">04</span>電気回路</h2>
 
         <h3>直列接続と並列接続の違い</h3>
+
+        <figure class="diagram" data-dg="circuit">
+          <div class="diagram-head"><span class="tag live">インタラクティブ</span>直列と並列：1か所が切れたらどうなる？</div>
+          <div class="diagram-body">
+            <div data-widget="state" class="circuit" data-state="on">
+              <div class="seg"><button data-v="on" aria-pressed="true">全部つながっている</button><button data-v="cut">ランプAが切れたら？</button></div>
+              <svg viewBox="0 0 540 240" role="img" aria-label="直列回路と並列回路の比較" style="margin-top:14px">
+                <g class="ser">
+                  <text x="135" y="22" class="d-text" text-anchor="middle">直列接続</text>
+                  <path d="M40 115 V50 H230 V180 H40 Z" class="d-line" stroke-width="2"/>
+                  <path d="M40 115 V50 H230 V180 H40 Z" class="d-flow" stroke-width="3" fill="none" style="stroke:var(--cat)"/>
+                  <rect x="26" y="98" width="28" height="34" style="fill:var(--surface-2)"/>
+                  <line x1="24" y1="108" x2="56" y2="108" class="d-line" stroke-width="4" style="stroke:var(--text)"/>
+                  <line x1="31" y1="122" x2="49" y2="122" class="d-line" stroke-width="4" style="stroke:var(--text)"/>
+                  <circle cx="105" cy="50" r="14" class="lamp lamp-a"/><text x="105" y="55" class="d-text lamp-t" text-anchor="middle">A</text>
+                  <path d="M95 40 l20 20 M115 40 l-20 20" class="brk" stroke-width="3" style="stroke:var(--danger)"/>
+                  <circle cx="170" cy="50" r="14" class="lamp lamp-b"/><text x="170" y="55" class="d-text lamp-t" text-anchor="middle">B</text>
+                  <text x="135" y="212" class="d-sub" text-anchor="middle">合成抵抗 R ＝ R1 ＋ R2</text>
+                </g>
+                <g class="par">
+                  <text x="405" y="22" class="d-text" text-anchor="middle">並列接続</text>
+                  <path d="M310 115 V50 H500 V180 H310 Z M405 50 V180" class="d-line" stroke-width="2"/>
+                  <path d="M310 180 V50 H405" class="d-flow" stroke-width="3" fill="none" style="stroke:var(--cat)"/>
+                  <path d="M405 50 H500 V180 H405" class="d-flow par-b" stroke-width="3" fill="none" style="stroke:var(--cat)"/>
+                  <path d="M405 50 V180" class="d-flow par-a" stroke-width="3" fill="none" style="stroke:var(--cat)"/>
+                  <path d="M405 180 H310" class="d-flow" stroke-width="3" fill="none" style="stroke:var(--cat)"/>
+                  <rect x="296" y="98" width="28" height="34" style="fill:var(--surface-2)"/>
+                  <line x1="294" y1="108" x2="326" y2="108" class="d-line" stroke-width="4" style="stroke:var(--text)"/>
+                  <line x1="301" y1="122" x2="319" y2="122" class="d-line" stroke-width="4" style="stroke:var(--text)"/>
+                  <circle cx="405" cy="115" r="14" class="lamp lamp-pa"/><text x="405" y="120" class="d-text lamp-t" text-anchor="middle">A</text>
+                  <path d="M395 105 l20 20 M415 105 l-20 20" class="brk" stroke-width="3" style="stroke:var(--danger)"/>
+                  <circle cx="500" cy="115" r="14" class="lamp lamp-pb"/><text x="500" y="120" class="d-text lamp-t" text-anchor="middle">B</text>
+                  <text x="405" y="212" class="d-sub" text-anchor="middle">1/R ＝ 1/R1 ＋ 1/R2</text>
+                </g>
+              </svg>
+            </div>
+          </div>
+          <figcaption>直列は電流の通り道が1本なので、1か所切れると全体が止まります。並列は通り道が分かれているので、残りのランプは点いたままです。</figcaption>
+        </figure>
         <div class="table-wrap">
           <table>
             <thead>
@@ -234,9 +347,31 @@
       </section>
 
       <section class="content-section" id="energy">
-        <h2>5. 電気のエネルギー変換</h2>
+        <h2><span class="h-num">05</span>電気のエネルギー変換</h2>
 
         <h3>主なエネルギー変換</h3>
+
+        <figure class="diagram" data-dg="energy">
+          <div class="diagram-head"><span class="tag">図解</span>電気エネルギーは4つの形に変わる</div>
+          <div class="diagram-body">
+            <svg viewBox="0 0 520 250" role="img" aria-label="電気エネルギーが熱・運動・光・音に変換される図">
+              <g class="d-flow">
+                <path d="M220 110 L150 64" class="d-cat-s" stroke-width="2.5"/>
+                <path d="M300 110 L370 64" class="d-cat-s" stroke-width="2.5"/>
+                <path d="M220 140 L150 186" class="d-cat-s" stroke-width="2.5"/>
+                <path d="M300 140 L370 186" class="d-cat-s" stroke-width="2.5"/>
+              </g>
+              <circle cx="260" cy="125" r="52" class="d-cat d-pulse"/>
+              <text x="260" y="122" class="d-big d-white" text-anchor="middle">電気</text>
+              <text x="260" y="144" class="d-sub d-white" text-anchor="middle" style="fill:#fff;opacity:.85">エネルギー</text>
+              <g class="d-pop" style="--d:.1s"><rect x="20" y="30" width="140" height="62" rx="14" class="d-box"/><text x="90" y="56" class="d-text" text-anchor="middle">熱（電熱変換）</text><text x="90" y="78" class="d-sub" text-anchor="middle">ヒーター・IH・ケトル</text></g>
+              <g class="d-pop" style="--d:.25s"><rect x="360" y="30" width="140" height="62" rx="14" class="d-box"/><text x="430" y="56" class="d-text" text-anchor="middle">運動（電動変換）</text><text x="430" y="78" class="d-sub" text-anchor="middle">モーター・圧縮機</text></g>
+              <g class="d-pop" style="--d:.4s"><rect x="20" y="158" width="140" height="62" rx="14" class="d-box"/><text x="90" y="184" class="d-text" text-anchor="middle">光（電光変換）</text><text x="90" y="206" class="d-sub" text-anchor="middle">LED・ディスプレイ</text></g>
+              <g class="d-pop" style="--d:.55s"><rect x="360" y="158" width="140" height="62" rx="14" class="d-box"/><text x="430" y="184" class="d-text" text-anchor="middle">音（電音変換）</text><text x="430" y="206" class="d-sub" text-anchor="middle">スピーカー・ブザー</text></g>
+            </svg>
+          </div>
+          <figcaption>逆向きの変換もあります。太陽電池は光を電気に変える「光電変換」です。</figcaption>
+        </figure>
         <div class="table-wrap">
           <table>
             <thead>
@@ -275,7 +410,7 @@
       </section>
 
       <section class="content-section" id="formulas">
-        <h2>6. 重要公式まとめ</h2>
+        <h2><span class="h-num">06</span>重要公式まとめ</h2>
 
         <div class="table-wrap">
           <table>
@@ -337,7 +472,7 @@
       <!-- ページナビ -->
       <nav class="page-nav">
         <a href="index.html" class="nav-prev">
-          <span>←</span>
+          <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></span>
           <div>
             <span class="nav-label">カテゴリへ戻る</span>
             <span class="nav-title">電気の基礎トップ</span>
@@ -348,7 +483,7 @@
             <span class="nav-label">次のページ</span>
             <span class="nav-title">安全規格</span>
           </div>
-          <span>→</span>
+          <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
       </nav>
 

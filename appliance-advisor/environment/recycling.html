@@ -4,13 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>リサイクルシステム | 家電製品アドバイザー学習サイト</title>
+  <meta name="theme-color" content="#0b1024">
+  <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=JetBrains+Mono:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap">
   <link rel="stylesheet" href="../style.css">
+  <script src="../app.js" defer></script>
 </head>
-<body>
+<body data-cat="environment">
 
   <header class="site-header">
     <div class="header-inner">
-      <div class="site-title">🏠 家電製品アドバイザー 学習サイト</div>
+      <div class="site-title"><a href="../index.html"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h7a3 3 0 0 1 3 3v14a2 2 0 0 0-2-2H2z"/><path d="M22 4h-7a3 3 0 0 0-3 3v14a2 2 0 0 1 2-2h8z"/></svg><span class="label">家電製品アドバイザー 学習サイト</span></a></div>
       <nav class="breadcrumb">
         <a href="../index.html">トップ</a>
         <span class="sep">›</span>
@@ -22,7 +28,7 @@
   </header>
 
   <section class="hero">
-    <span class="hero-icon">♻️</span>
+    <span class="hero-icon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 19H4.8a1.8 1.8 0 0 1-1.6-2.7L7 9.5"/><path d="M11 19h8.2a1.8 1.8 0 0 0 1.6-2.7l-1.2-2"/><path d="m14 16-3 3 3 3"/><path d="M8.3 13.6 7 9.5 3 10.7"/><path d="m9.3 5.5 1.1-1.8a1.8 1.8 0 0 1 3.1 0l3.6 6.2"/><path d="m13.4 9.1 3.9.8.9-4"/></svg></span>
     <h1>リサイクルシステム</h1>
     <p class="hero-sub">循環型社会に向けた法体系・家電リサイクルの詳細・小型家電リサイクル・バッテリーリサイクル・3Rの取り組みを学びます。</p>
     <div class="badge-row">
@@ -47,9 +53,28 @@
     <main class="content-body">
 
       <section class="content-section" id="legal-overview">
-        <h2>1. リサイクル関連法の全体像</h2>
+        <h2><span class="h-num">01</span>リサイクル関連法の全体像</h2>
 
         <p>日本の循環型社会の構築に向けたリサイクル関連法は、階層的な構造を持っています。</p>
+
+        <figure class="diagram" data-dg="law-pyramid">
+          <div class="diagram-head"><span class="tag">図解</span>リサイクル関連法の階層構造</div>
+          <div class="diagram-body">
+            <svg viewBox="0 0 540 230" role="img" aria-label="基本法、一般法、個別法の3層ピラミッド">
+              <path d="M190 16 L250 80 H130 Z" class="d-cat d-pop" style="--d:.0s"/>
+              <path d="M126 86 H254 L314 146 H66 Z" class="d-pop" style="--d:.15s;fill:color-mix(in srgb,var(--cat) 55%,var(--surface))"/>
+              <path d="M62 152 H318 L378 212 H2 Z" class="d-pop" style="--d:.3s;fill:color-mix(in srgb,var(--cat) 25%,var(--surface))"/>
+              <text x="190" y="70" class="d-text d-white" text-anchor="middle">基本法</text>
+              <text x="190" y="126" class="d-text" text-anchor="middle">一般法</text>
+              <text x="190" y="192" class="d-text" text-anchor="middle">個別法</text>
+              <g class="d-sub">
+                <text x="300" y="44">循環型社会形成推進基本法</text><text x="300" y="62">（2000年・上位法）</text>
+                <text x="336" y="110">廃棄物処理法</text><text x="336" y="128">資源有効利用促進法</text>
+                <text x="396" y="168">家電リサイクル法</text><text x="396" y="186">小型家電リサイクル法</text><text x="396" y="204">容器包装・食品 など</text>
+              </g>
+            </svg>
+          </div>
+        </figure>
 
         <div class="point-box">
           <strong>法律の階層構造</strong>
@@ -60,6 +85,20 @@
 
         <h3>循環型社会形成推進基本法</h3>
         <p><span class="key-term">循環型社会形成推進基本法</span>は、循環型社会の形成に関する施策の基本的な考え方・方向性を定めた上位法です。廃棄物・資源の循環について以下の優先順位を定めています：</p>
+
+        <figure class="diagram" data-dg="priority">
+          <div class="diagram-head"><span class="tag">図解</span>廃棄物処理の優先順位</div>
+          <div class="diagram-body">
+            <ol class="flow">
+              <li style="--i:0"><span class="flow-num">1</span><b>発生抑制</b><small>Reduce（最優先）</small></li>
+              <li style="--i:1"><span class="flow-num">2</span><b>再使用</b><small>Reuse</small></li>
+              <li style="--i:2"><span class="flow-num">3</span><b>再生利用</b><small>Recycle</small></li>
+              <li style="--i:3"><span class="flow-num">4</span><b>熱回収</b><small>燃料として利用</small></li>
+              <li style="--i:4"><span class="flow-num">5</span><b>適正処分</b><small>埋立など</small></li>
+            </ol>
+          </div>
+          <figcaption>左ほど優先度が高い順番です。3Rの中でも「リデュース」が最優先です。</figcaption>
+        </figure>
         <ol>
           <li><span class="key-term">発生抑制（Reduce）</span>：まず廃棄物の発生量を減らす（最優先）</li>
           <li><span class="key-term">再使用（Reuse）</span>：製品・部品を再使用する</li>
@@ -77,12 +116,25 @@
       </section>
 
       <section class="content-section" id="appliance-detail">
-        <h2>2. 家電リサイクル法のしくみ（詳細）</h2>
+        <h2><span class="h-num">02</span>家電リサイクル法のしくみ（詳細）</h2>
 
         <h3>リサイクルプラント（解体工場）</h3>
         <p>廃家電は指定引取場所から製造業者等が運営する<span class="key-term">認定再商品化等実施者</span>（解体工場）に搬入され、解体・分別されます。</p>
 
         <h3>解体・分別の流れ</h3>
+
+        <figure class="diagram" data-dg="dismantle">
+          <div class="diagram-head"><span class="tag">図解</span>リサイクルプラントでの処理</div>
+          <div class="diagram-body">
+            <ol class="flow">
+              <li style="--i:0"><span class="flow-num">1</span><b>フロン回収</b><small>冷媒・断熱材のフロン</small></li>
+              <li style="--i:1"><span class="flow-num">2</span><b>手解体</b><small>有害物質を含む部品を外す</small></li>
+              <li style="--i:2"><span class="flow-num">3</span><b>機械破砕</b><small>シュレッダーで細かく</small></li>
+              <li style="--i:3"><span class="flow-num">4</span><b>素材分別</b><small>磁力・渦電流・比重で選別</small></li>
+              <li style="--i:4"><span class="flow-num">5</span><b>再資源化</b><small>素材メーカーへ</small></li>
+            </ol>
+          </div>
+        </figure>
         <div class="table-wrap">
           <table>
             <thead>
@@ -116,7 +168,7 @@
       </section>
 
       <section class="content-section" id="small-appliance">
-        <h2>3. 小型家電リサイクル法</h2>
+        <h2><span class="h-num">03</span>小型家電リサイクル法</h2>
 
         <p><span class="key-term">小型家電リサイクル法</span>（使用済小型電子機器等の再資源化の促進に関する法律）は2013年4月に施行された法律で、家電リサイクル法の対象となる4品目以外の小型電子機器のリサイクルを推進します。</p>
 
@@ -163,7 +215,7 @@
       </section>
 
       <section class="content-section" id="battery">
-        <h2>4. バッテリー・電池のリサイクル</h2>
+        <h2><span class="h-num">04</span>バッテリー・電池のリサイクル</h2>
 
         <h3>リチウムイオン電池（Li-ion）</h3>
         <p><span class="key-term">リチウムイオン電池</span>は、スマートフォン・ノートPC・タブレット・電動工具・電動自転車等に広く使われる二次電池（充電式電池）です。</p>
@@ -194,7 +246,7 @@
       </section>
 
       <section class="content-section" id="3r">
-        <h2>5. 資源有効利用促進法と3R</h2>
+        <h2><span class="h-num">05</span>資源有効利用促進法と3R</h2>
 
         <h3>資源有効利用促進法</h3>
         <p><span class="key-term">資源有効利用促進法</span>（使用済物品等及び副産物の発生の抑制並びに再生資源及び再生部品に係る取組の促進に関する法律）は、廃棄物の発生抑制（リデュース）と資源の有効利用を促進するための法律です。</p>
@@ -245,7 +297,7 @@
 
       <nav class="page-nav">
         <a href="eco.html" class="nav-prev">
-          <span>←</span>
+          <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></span>
           <div>
             <span class="nav-label">前のページ</span>
             <span class="nav-title">省エネ・環境配慮</span>
@@ -256,7 +308,7 @@
             <span class="nav-label">トップページへ</span>
             <span class="nav-title">学習サイトトップ</span>
           </div>
-          <span>→</span>
+          <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
       </nav>
 

@@ -4,13 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>エアコン | 家電製品アドバイザー学習サイト</title>
+  <meta name="theme-color" content="#0b1024">
+  <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=JetBrains+Mono:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap">
   <link rel="stylesheet" href="../style.css">
+  <script src="../app.js" defer></script>
 </head>
-<body>
+<body data-cat="home-appliances">
 
   <header class="site-header">
     <div class="header-inner">
-      <div class="site-title">🏠 家電製品アドバイザー 学習サイト</div>
+      <div class="site-title"><a href="../index.html"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h7a3 3 0 0 1 3 3v14a2 2 0 0 0-2-2H2z"/><path d="M22 4h-7a3 3 0 0 0-3 3v14a2 2 0 0 1 2-2h8z"/></svg><span class="label">家電製品アドバイザー 学習サイト</span></a></div>
       <nav class="breadcrumb">
         <a href="../index.html">トップ</a>
         <span class="sep">›</span>
@@ -22,7 +28,7 @@
   </header>
 
   <section class="hero">
-    <span class="hero-icon">❄️</span>
+    <span class="hero-icon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M3.3 7l17.4 10M20.7 7 3.3 17"/><path d="m9 3.5 3 2 3-2M9 20.5l3-2 3 2"/></svg></span>
     <h1>エアコン</h1>
     <p class="hero-sub">冷暖房の仕組み（冷凍サイクル・ヒートポンプ）、APFによる省エネ評価、主要機能と省エネラベルの読み方を学びます。</p>
     <div class="badge-row">
@@ -48,10 +54,91 @@
     <main class="content-body">
 
       <section class="content-section" id="cycle">
-        <h2>1. エアコンの冷暖房の仕組み</h2>
+        <h2><span class="h-num">01</span>エアコンの冷暖房の仕組み</h2>
 
         <h3>冷凍サイクル</h3>
         <p>エアコンは<span class="key-term">冷凍サイクル</span>（ヒートポンプサイクル）を利用して熱を移動させています。直接電気で熱を生み出すのではなく、冷媒が循環することで熱を「運ぶ」仕組みです。</p>
+
+        <figure class="diagram" data-dg="cycle">
+          <div class="diagram-head"><span class="tag live">インタラクティブ</span>冷凍サイクル：冷媒が熱を運ぶ</div>
+          <div class="diagram-body">
+            <div data-widget="cycle" class="cycle">
+              <div class="seg"><button data-v="cool" aria-pressed="true">冷房運転</button><button data-v="heat">暖房運転</button></div>
+              <svg viewBox="0 0 560 300" role="img" aria-label="室内機と室外機の間を冷媒が循環する冷凍サイクルの図" style="margin-top:14px">
+                <rect x="20" y="30" width="180" height="246" rx="18" class="d-box"/>
+                <rect x="360" y="30" width="180" height="246" rx="18" class="d-box"/>
+                <text x="110" y="58" class="d-text" text-anchor="middle">室内機</text>
+                <text x="450" y="58" class="d-text" text-anchor="middle">室外機</text>
+                <g class="mode-cool">
+                  <path d="M110 230 V90 H410" class="pipe cold2"/>
+                  <path d="M410 90 H490 V230 H410" class="pipe hot"/>
+                  <path d="M410 230 H110" class="pipe cold"/>
+                  <path d="M110 230 V90" class="pipe cold"/>
+                </g>
+                <g class="mode-heat">
+                  <path d="M410 90 H110 V230 H410" class="pipe hot"/>
+                  <path d="M410 230 H490 V90 H410" class="pipe cold"/>
+                  <path d="M490 90 H410" class="pipe cold2"/>
+                </g>
+                <rect x="92" y="118" width="36" height="86" rx="8" class="coil coil-in"/>
+                <rect x="472" y="118" width="36" height="86" rx="8" class="coil coil-out"/>
+                <path d="M96 132 h28 M96 146 h28 M96 160 h28 M96 174 h28 M96 188 h28 M476 132 h28 M476 146 h28 M476 160 h28 M476 174 h28 M476 188 h28" class="d-thin"/>
+                <g class="mode-cool">
+                  <path d="M36 136 H84 m-8 -6 l8 6 l-8 6" class="heat-arrow"/>
+                  <path d="M36 162 H84 m-8 -6 l8 6 l-8 6" class="heat-arrow"/>
+                  <path d="M36 188 H84 m-8 -6 l8 6 l-8 6" class="heat-arrow"/>
+                  <path d="M516 136 H548 m-8 -6 l8 6 l-8 6" class="heat-arrow"/>
+                  <path d="M516 162 H548 m-8 -6 l8 6 l-8 6" class="heat-arrow"/>
+                  <path d="M516 188 H548 m-8 -6 l8 6 l-8 6" class="heat-arrow"/>
+                  <text x="138" y="166" class="d-sub coil-lbl" text-anchor="start">蒸発器</text>
+                  <text x="462" y="166" class="d-sub coil-lbl" text-anchor="end">凝縮器</text>
+                  <text x="110" y="262" class="d-text" text-anchor="middle" style="fill:var(--cold)">熱を吸収 → 冷風</text>
+                  <text x="450" y="262" class="d-text" text-anchor="middle" style="fill:var(--hot)">熱を屋外へ放出</text>
+                  <circle r="4.5" class="cy-dot"><animateMotion dur="5.0s" repeatCount="indefinite" begin="-0.00s" path="M110 230 V90 H490 V230 Z"/></circle>
+                  <circle r="4.5" class="cy-dot"><animateMotion dur="5.0s" repeatCount="indefinite" begin="-0.50s" path="M110 230 V90 H490 V230 Z"/></circle>
+                  <circle r="4.5" class="cy-dot"><animateMotion dur="5.0s" repeatCount="indefinite" begin="-1.00s" path="M110 230 V90 H490 V230 Z"/></circle>
+                  <circle r="4.5" class="cy-dot"><animateMotion dur="5.0s" repeatCount="indefinite" begin="-1.50s" path="M110 230 V90 H490 V230 Z"/></circle>
+                  <circle r="4.5" class="cy-dot"><animateMotion dur="5.0s" repeatCount="indefinite" begin="-2.00s" path="M110 230 V90 H490 V230 Z"/></circle>
+                  <circle r="4.5" class="cy-dot"><animateMotion dur="5.0s" repeatCount="indefinite" begin="-2.50s" path="M110 230 V90 H490 V230 Z"/></circle>
+                  <circle r="4.5" class="cy-dot"><animateMotion dur="5.0s" repeatCount="indefinite" begin="-3.00s" path="M110 230 V90 H490 V230 Z"/></circle>
+                  <circle r="4.5" class="cy-dot"><animateMotion dur="5.0s" repeatCount="indefinite" begin="-3.50s" path="M110 230 V90 H490 V230 Z"/></circle>
+                  <circle r="4.5" class="cy-dot"><animateMotion dur="5.0s" repeatCount="indefinite" begin="-4.00s" path="M110 230 V90 H490 V230 Z"/></circle>
+                  <circle r="4.5" class="cy-dot"><animateMotion dur="5.0s" repeatCount="indefinite" begin="-4.50s" path="M110 230 V90 H490 V230 Z"/></circle>
+                </g>
+                <g class="mode-heat">
+                  <path d="M84 136 H36 m8 -6 l-8 6 l8 6" class="heat-arrow"/>
+                  <path d="M84 162 H36 m8 -6 l-8 6 l8 6" class="heat-arrow"/>
+                  <path d="M84 188 H36 m8 -6 l-8 6 l8 6" class="heat-arrow"/>
+                  <path d="M548 136 H516 m8 -6 l-8 6 l8 6" class="heat-arrow"/>
+                  <path d="M548 162 H516 m8 -6 l-8 6 l8 6" class="heat-arrow"/>
+                  <path d="M548 188 H516 m8 -6 l-8 6 l8 6" class="heat-arrow"/>
+                  <text x="138" y="166" class="d-sub coil-lbl" text-anchor="start">凝縮器</text>
+                  <text x="462" y="166" class="d-sub coil-lbl" text-anchor="end">蒸発器</text>
+                  <text x="110" y="262" class="d-text" text-anchor="middle" style="fill:var(--hot)">熱を放出 → 温風</text>
+                  <text x="450" y="262" class="d-text" text-anchor="middle" style="fill:var(--cold)">外気の熱を吸収</text>
+                  <circle r="4.5" class="cy-dot"><animateMotion dur="5.0s" repeatCount="indefinite" begin="-0.00s" path="M490 230 V90 H110 V230 Z"/></circle>
+                  <circle r="4.5" class="cy-dot"><animateMotion dur="5.0s" repeatCount="indefinite" begin="-0.50s" path="M490 230 V90 H110 V230 Z"/></circle>
+                  <circle r="4.5" class="cy-dot"><animateMotion dur="5.0s" repeatCount="indefinite" begin="-1.00s" path="M490 230 V90 H110 V230 Z"/></circle>
+                  <circle r="4.5" class="cy-dot"><animateMotion dur="5.0s" repeatCount="indefinite" begin="-1.50s" path="M490 230 V90 H110 V230 Z"/></circle>
+                  <circle r="4.5" class="cy-dot"><animateMotion dur="5.0s" repeatCount="indefinite" begin="-2.00s" path="M490 230 V90 H110 V230 Z"/></circle>
+                  <circle r="4.5" class="cy-dot"><animateMotion dur="5.0s" repeatCount="indefinite" begin="-2.50s" path="M490 230 V90 H110 V230 Z"/></circle>
+                  <circle r="4.5" class="cy-dot"><animateMotion dur="5.0s" repeatCount="indefinite" begin="-3.00s" path="M490 230 V90 H110 V230 Z"/></circle>
+                  <circle r="4.5" class="cy-dot"><animateMotion dur="5.0s" repeatCount="indefinite" begin="-3.50s" path="M490 230 V90 H110 V230 Z"/></circle>
+                  <circle r="4.5" class="cy-dot"><animateMotion dur="5.0s" repeatCount="indefinite" begin="-4.00s" path="M490 230 V90 H110 V230 Z"/></circle>
+                  <circle r="4.5" class="cy-dot"><animateMotion dur="5.0s" repeatCount="indefinite" begin="-4.50s" path="M490 230 V90 H110 V230 Z"/></circle>
+                </g>
+                <circle cx="410" cy="90" r="20" class="d-box" style="stroke-width:2.5"/>
+                <g class="d-spin fast"><path d="M410 76 V104 M396 90 H424" class="d-line" style="stroke:var(--text)"/></g>
+                <text x="410" y="122" class="d-sub" text-anchor="middle">圧縮機</text>
+                <path d="M396 220 L424 240 V220 L396 240 Z" class="d-box" style="stroke-width:2"/>
+                <text x="410" y="210" class="d-sub" text-anchor="middle">膨張弁</text>
+                <text x="280" y="82" class="d-sub" text-anchor="middle">配管</text>
+              </svg>
+              <div class="cycle-legend"><span class="lg hot">高温</span><span class="lg cold">低温</span><span class="lg dot">冷媒</span></div>
+            </div>
+          </div>
+          <figcaption>圧縮→凝縮→膨張→蒸発の4ステップで熱を運びます。暖房では四方弁で冷媒の流れが逆になり、室内機と室外機の役割が入れ替わります。</figcaption>
+        </figure>
 
         <div class="point-box">
           <strong>冷凍サイクルの4つのステップ</strong>
@@ -100,13 +187,24 @@
         <h3>ヒートポンプの原理</h3>
         <p><span class="key-term">ヒートポンプ</span>技術により、エアコンは電力1kWhで2〜7kWh分の熱を移動できます。これを<span class="key-term">COP（成績係数）</span>といい、「移動した熱量÷消費電力量」で表されます。電気ヒーターのCOPが1であるのに対し、エアコン暖房のCOPは3〜5以上になります。</p>
 
+        <figure class="diagram" data-dg="cop">
+          <div class="diagram-head"><span class="tag">図解</span>COP：電気1で、どれだけの熱を届けられるか</div>
+          <div class="diagram-body">
+            <div class="cop">
+              <div class="cop-row" style="--u:1;--i:0"><span class="cop-name">電気ヒーター<small>COP ＝ 1</small></span><span class="cop-bar"><i class="e">電気 1</i></span><span class="cop-val">熱 1</span></div>
+              <div class="cop-row" style="--u:4;--i:1"><span class="cop-name">エアコン暖房<small>COP ＝ 4 の例</small></span><span class="cop-bar"><i class="e">電気 1</i><i class="a">空気の熱 1</i><i class="a">空気の熱 1</i><i class="a">空気の熱 1</i></span><span class="cop-val">熱 4</span></div>
+            </div>
+          </div>
+          <figcaption>ヒーターは電気をそのまま熱に変えるだけ。エアコンは外の空気から熱を「運んでくる」ため、同じ電気で数倍の熱を届けられます。</figcaption>
+        </figure>
+
         <div class="exam-tip">
           <p>冷凍サイクルは「圧縮→凝縮→膨張→蒸発」の順序を必ず覚える。冷房時は室内機が蒸発器（熱を吸収）、室外機が凝縮器（熱を放出）。暖房時は逆。R-32は現在の主流冷媒でGWP 675。</p>
         </div>
       </section>
 
       <section class="content-section" id="apf">
-        <h2>2. 省エネ性能指標（APF）</h2>
+        <h2><span class="h-num">02</span>省エネ性能指標（APF）</h2>
 
         <p><span class="key-term">APF（Annual Performance Factor：通年エネルギー消費効率）</span>は、エアコンの省エネ性能を年間を通じて評価する指標です。</p>
 
@@ -140,13 +238,37 @@
           <li>非インバーター機（定速型）と比べて大幅な省エネが可能</li>
         </ul>
 
+        <figure class="diagram" data-dg="inverter">
+          <div class="diagram-head"><span class="tag">図解</span>インバーター機と定速機の室温の変化</div>
+          <div class="diagram-body">
+            <svg viewBox="0 0 540 230" role="img" aria-label="定速機はオンオフを繰り返し室温が上下するが、インバーター機はなめらかに設定温度に近づく">
+              <line x1="60" y1="200" x2="520" y2="200" class="d-thin"/>
+              <line x1="60" y1="200" x2="60" y2="20" class="d-thin"/>
+              <text x="52" y="30" class="d-sub" text-anchor="end">室温</text>
+              <text x="520" y="220" class="d-sub" text-anchor="end">時間 →</text>
+              <line x1="60" y1="120" x2="520" y2="120" stroke-dasharray="5 6" class="d-thin" style="stroke:var(--line)"/>
+              <text x="66" y="114" class="d-sub">設定温度</text>
+              <path d="M60 36 L150 128 L185 104 L215 130 L250 104 L280 130 L315 104 L345 130 L380 104 L410 130 L445 104 L475 130 L510 104" class="d-line d-draw" stroke-width="3" style="--len:700;stroke:var(--line)"/>
+              <path d="M60 36 C120 36 150 116 220 120 S 400 120 510 120" class="d-cat-s d-draw" stroke-width="3.5" fill="none" style="--len:520;--d:.3s"/>
+              <g transform="translate(330 30)">
+                <rect width="190" height="54" rx="10" class="d-box"/>
+                <line x1="12" y1="18" x2="36" y2="18" stroke-width="3.5" style="stroke:var(--cat)"/>
+                <text x="44" y="23" class="d-sub">インバーター（回転数を調整）</text>
+                <line x1="12" y1="38" x2="36" y2="38" stroke-width="3" style="stroke:var(--line)"/>
+                <text x="44" y="43" class="d-sub">定速（ON/OFFのみ）</text>
+              </g>
+            </svg>
+          </div>
+          <figcaption>インバーター機は設定温度に近づくと回転数を落として運転を続けるため、温度が安定し、ムダな電力も減ります。</figcaption>
+        </figure>
+
         <div class="exam-tip">
           <p>APFは「高いほど省エネ」。インバーターは「周波数変化でコンプレッサー回転速度を制御→省エネ」。現在の家庭用エアコンはほぼ100%インバーター制御。</p>
         </div>
       </section>
 
       <section class="content-section" id="capacity">
-        <h2>3. 冷暖房能力</h2>
+        <h2><span class="h-num">03</span>冷暖房能力</h2>
 
         <h3>能力のkW表示</h3>
         <p>エアコンの冷暖房能力は<span class="key-term">kW（キロワット）</span>で表示されます。これは消費電力ではなく、「移動できる熱量の大きさ」です。</p>
@@ -169,7 +291,7 @@
       </section>
 
       <section class="content-section" id="functions">
-        <h2>4. 主要機能</h2>
+        <h2><span class="h-num">04</span>主要機能</h2>
 
         <h3>自動お掃除機能</h3>
         <p>フィルターに溜まったほこりを自動的に除去する機能です。フィルターの目詰まりを防ぎ、省エネ性能を維持します。自動掃除機能付きエアコンでもフィルター以外（熱交換器等）は定期清掃が必要です。</p>
@@ -212,7 +334,7 @@
       </section>
 
       <section class="content-section" id="installation">
-        <h2>5. 設置・工事</h2>
+        <h2><span class="h-num">05</span>設置・工事</h2>
 
         <h3>電源仕様</h3>
         <div class="table-wrap">
@@ -238,7 +360,7 @@
       </section>
 
       <section class="content-section" id="label">
-        <h2>6. 省エネラベルの読み方</h2>
+        <h2><span class="h-num">06</span>省エネラベルの読み方</h2>
 
         <p>エアコンの統一省エネラベルには以下の情報が表示されています：</p>
         <ul>
@@ -261,7 +383,7 @@
 
       <nav class="page-nav">
         <a href="index.html" class="nav-prev">
-          <span>←</span>
+          <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></span>
           <div>
             <span class="nav-label">カテゴリへ戻る</span>
             <span class="nav-title">生活家電トップ</span>
@@ -272,7 +394,7 @@
             <span class="nav-label">次のページ</span>
             <span class="nav-title">冷蔵庫</span>
           </div>
-          <span>→</span>
+          <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
       </nav>
 

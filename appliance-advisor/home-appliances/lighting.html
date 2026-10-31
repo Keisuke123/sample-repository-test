@@ -4,13 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>照明器具 | 家電製品アドバイザー学習サイト</title>
+  <meta name="theme-color" content="#0b1024">
+  <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=JetBrains+Mono:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap">
   <link rel="stylesheet" href="../style.css">
+  <script src="../app.js" defer></script>
 </head>
-<body>
+<body data-cat="home-appliances">
 
   <header class="site-header">
     <div class="header-inner">
-      <div class="site-title">🏠 家電製品アドバイザー 学習サイト</div>
+      <div class="site-title"><a href="../index.html"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h7a3 3 0 0 1 3 3v14a2 2 0 0 0-2-2H2z"/><path d="M22 4h-7a3 3 0 0 0-3 3v14a2 2 0 0 1 2-2h8z"/></svg><span class="label">家電製品アドバイザー 学習サイト</span></a></div>
       <nav class="breadcrumb">
         <a href="../index.html">トップ</a>
         <span class="sep">›</span>
@@ -22,7 +28,7 @@
   </header>
 
   <section class="hero">
-    <span class="hero-icon">💡</span>
+    <span class="hero-icon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg></span>
     <h1>照明器具</h1>
     <p class="hero-sub">光の基礎知識・光源の種類・LEDの特徴・照明器具の種類・省エネ計算など照明に関する技術知識を学びます。</p>
     <div class="badge-row">
@@ -47,7 +53,7 @@
     <main class="content-body">
 
       <section class="content-section" id="light-basics">
-        <h2>1. 光の基礎知識</h2>
+        <h2><span class="h-num">01</span>光の基礎知識</h2>
 
         <div class="table-wrap">
           <table>
@@ -85,6 +91,30 @@
 
         <h3>色温度（K：ケルビン）</h3>
         <p><span class="key-term">色温度</span>は光の色を数値で表したもので、単位はケルビン（K）です。数値が低いほど赤みを帯びた暖色、高いほど青みを帯びた冷色になります。</p>
+
+        <figure class="diagram" data-dg="kelvin">
+          <div class="diagram-head"><span class="tag live">インタラクティブ</span>色温度を変えて部屋の雰囲気を見る</div>
+          <div class="diagram-body">
+            <div data-widget="kelvin">
+              <div class="kelvin-room">
+                <svg viewBox="0 0 520 200" aria-hidden="true">
+                  <path d="M230 0 V30 M200 30 H290 L274 50 H216 Z" class="kr-lamp"/>
+                  <rect x="40" y="120" width="170" height="44" rx="12" class="kr-obj"/>
+                  <rect x="30" y="102" width="34" height="62" rx="10" class="kr-obj"/>
+                  <rect x="186" y="102" width="34" height="62" rx="10" class="kr-obj"/>
+                  <rect x="300" y="128" width="120" height="10" rx="4" class="kr-obj"/>
+                  <rect x="312" y="138" width="8" height="34" class="kr-obj"/><rect x="400" y="138" width="8" height="34" class="kr-obj"/>
+                  <path d="M462 172 V128 M462 140 q-18 -10 -22 -30 M462 132 q16 -8 20 -26" stroke-width="5" class="kr-obj-s" fill="none"/>
+                  <rect x="0" y="172" width="520" height="28" class="kr-floor"/>
+                </svg>
+                <div class="kr-tag"><b data-o="name">電球色</b><span data-o="use"></span></div>
+              </div>
+              <div class="ctrl"><label class="ctrl-row"><span>色温度</span><input type="range" min="2700" max="6500" step="100" value="2700"><output data-o="k">2,700 K</output></label></div>
+              <div class="kelvin-scale"><span>電球色<br>2,700K</span><span>温白色<br>3,500K</span><span>白色<br>4,000K</span><span>昼白色<br>5,000K</span><span>昼光色<br>6,500K</span></div>
+            </div>
+          </div>
+          <figcaption>数値が低いほど赤みのある暖かい光、高いほど青白い涼しげな光になります。</figcaption>
+        </figure>
         <div class="table-wrap">
           <table>
             <thead>
@@ -114,7 +144,19 @@
       </section>
 
       <section class="content-section" id="light-sources">
-        <h2>2. 光源の種類</h2>
+        <h2><span class="h-num">02</span>光源の種類</h2>
+
+        <figure class="diagram" data-dg="lmw">
+          <div class="diagram-head"><span class="tag">図解</span>同じ電力でどれだけ明るい？（発光効率 lm/W）</div>
+          <div class="diagram-body">
+            <div class="bars">
+              <div class="bar is-muted" style="--v:8;--i:0"><span class="bar-label">白熱電球</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-val">10〜15</span></div>
+              <div class="bar" style="--v:56;--i:1"><span class="bar-label">蛍光灯</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-val">50〜100</span></div>
+              <div class="bar" style="--v:100;--i:2"><span class="bar-label">LED</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-val">80〜180+</span></div>
+            </div>
+          </div>
+          <figcaption>LEDの発光効率は白熱電球の約10倍。寿命も約40,000時間と、白熱電球（約1,000時間）の約40倍です。</figcaption>
+        </figure>
 
         <div class="table-wrap">
           <table>
@@ -167,7 +209,7 @@
       </section>
 
       <section class="content-section" id="led">
-        <h2>3. LEDの特徴</h2>
+        <h2><span class="h-num">03</span>LEDの特徴</h2>
 
         <h3>LED（Light Emitting Diode）の発光原理</h3>
         <p><span class="key-term">LED（発光ダイオード）</span>は、半導体のp-n接合に電流を流すと電子と正孔が結合する際にエネルギーが光として放出される現象を利用した光源です。熱エネルギーへの変換が少なく、電力を効率よく光に変換できます。</p>
@@ -204,7 +246,7 @@
       </section>
 
       <section class="content-section" id="fixtures">
-        <h2>4. 照明器具の種類</h2>
+        <h2><span class="h-num">04</span>照明器具の種類</h2>
 
         <div class="table-wrap">
           <table>
@@ -248,7 +290,7 @@
       </section>
 
       <section class="content-section" id="energy-calc">
-        <h2>5. 省エネ計算</h2>
+        <h2><span class="h-num">05</span>省エネ計算</h2>
 
         <h3>消費電力と光束の比較</h3>
         <div class="table-wrap">
@@ -266,6 +308,21 @@
         </div>
 
         <h3>白熱電球からLEDへの交換効果</h3>
+
+        <figure class="diagram" data-dg="led">
+          <div class="diagram-head"><span class="tag live">インタラクティブ</span>白熱電球 60W → LED 8W の節約額を計算</div>
+          <div class="diagram-body">
+            <div data-widget="led">
+              <div class="ctrl"><label class="ctrl-row"><span>1日の点灯</span><input type="range" min="1" max="24" step="1" value="10"><output data-o="h">10 時間</output></label></div>
+              <div class="bars" style="margin-top:16px">
+                <div class="bar is-hot" style="--v:100"><span class="bar-label">白熱電球 60W</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-val" data-o="inc">219 kWh</span></div>
+                <div class="bar" style="--v:13;--i:1"><span class="bar-label">LED 8W</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-val" data-o="led">29 kWh</span></div>
+              </div>
+              <div class="readout"><div class="hl"><small>年間の節約額（30円/kWh）</small><b data-o="yen">5,694 円</b></div></div>
+            </div>
+          </div>
+          <figcaption>電球1個あたりの試算です。消費電力は約87%減（60W→8W）。</figcaption>
+        </figure>
         <div class="point-box">
           <strong>省エネ計算例（60W形白熱球→LED 8W）</strong>
           ・1日10時間使用の場合：<br>
@@ -285,7 +342,7 @@
 
       <nav class="page-nav">
         <a href="cooking.html" class="nav-prev">
-          <span>←</span>
+          <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></span>
           <div>
             <span class="nav-label">前のページ</span>
             <span class="nav-title">調理家電</span>
@@ -296,7 +353,7 @@
             <span class="nav-label">次のカテゴリ</span>
             <span class="nav-title">法規・制度</span>
           </div>
-          <span>→</span>
+          <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
       </nav>
 

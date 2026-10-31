@@ -4,13 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>パソコン・モバイル機器 | 家電製品アドバイザー学習サイト</title>
+  <meta name="theme-color" content="#0b1024">
+  <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=JetBrains+Mono:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap">
   <link rel="stylesheet" href="../style.css">
+  <script src="../app.js" defer></script>
 </head>
-<body>
+<body data-cat="av-info">
 
   <header class="site-header">
     <div class="header-inner">
-      <div class="site-title">🏠 家電製品アドバイザー 学習サイト</div>
+      <div class="site-title"><a href="../index.html"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h7a3 3 0 0 1 3 3v14a2 2 0 0 0-2-2H2z"/><path d="M22 4h-7a3 3 0 0 0-3 3v14a2 2 0 0 1 2-2h8z"/></svg><span class="label">家電製品アドバイザー 学習サイト</span></a></div>
       <nav class="breadcrumb">
         <a href="../index.html">トップ</a>
         <span class="sep">›</span>
@@ -22,7 +28,7 @@
   </header>
 
   <section class="hero">
-    <span class="hero-icon">💻</span>
+    <span class="hero-icon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="11" rx="1.5"/><path d="M2 19h20"/></svg></span>
     <h1>パソコン・モバイル機器</h1>
     <p class="hero-sub">PCの基本構成・インターフェース・タブレット・スマートフォン・プリンターまで、情報機器の技術知識を体系的に学びます。</p>
     <div class="badge-row">
@@ -47,7 +53,34 @@
     <main class="content-body">
 
       <section class="content-section" id="pc-basics">
-        <h2>1. パソコンの基本構成</h2>
+        <h2><span class="h-num">01</span>パソコンの基本構成</h2>
+
+        <figure class="diagram" data-dg="pc">
+          <div class="diagram-head"><span class="tag">図解</span>CPU・メモリ・ストレージの役割分担</div>
+          <div class="diagram-body">
+            <svg viewBox="0 0 540 190" role="img" aria-label="ストレージからメモリへ、メモリからCPUへデータが運ばれる図">
+              <rect x="16" y="30" width="150" height="110" rx="16" class="d-box"/>
+              <rect x="195" y="30" width="150" height="110" rx="16" class="d-box"/>
+              <rect x="374" y="30" width="150" height="110" rx="16" class="d-cat"/>
+              <text x="91" y="70" class="d-text" text-anchor="middle">ストレージ</text>
+              <text x="91" y="92" class="d-sub" text-anchor="middle">SSD / HDD</text>
+              <text x="91" y="120" class="d-sub" text-anchor="middle">＝ 本棚</text>
+              <text x="270" y="70" class="d-text" text-anchor="middle">メモリ（RAM）</text>
+              <text x="270" y="92" class="d-sub" text-anchor="middle">一時的な作業領域</text>
+              <text x="270" y="120" class="d-sub" text-anchor="middle">＝ 作業机</text>
+              <text x="449" y="70" class="d-text d-white" text-anchor="middle">CPU</text>
+              <text x="449" y="92" class="d-sub" text-anchor="middle" style="fill:#fff">演算処理</text>
+              <text x="449" y="120" class="d-sub" text-anchor="middle" style="fill:#fff">＝ 頭脳</text>
+              <path d="M166 85 H195 M345 85 H374" class="d-line" stroke-width="3"/>
+              <rect x="-6" y="-6" width="12" height="12" rx="3" class="d-cat"><animateMotion dur="1.6s" begin="0s" repeatCount="indefinite" path="M150 85 H210"/></rect>
+              <rect x="-6" y="-6" width="12" height="12" rx="3" class="d-cat"><animateMotion dur="1.6s" begin="-0.8s" repeatCount="indefinite" path="M330 85 H390"/></rect>
+              <text x="91" y="168" class="d-sub" text-anchor="middle">電源を切っても残る</text>
+              <text x="270" y="168" class="d-sub" text-anchor="middle">電源を切ると消える</text>
+              <text x="449" y="168" class="d-sub" text-anchor="middle">GHz・コア数が性能の目安</text>
+            </svg>
+          </div>
+          <figcaption>本棚（ストレージ）から必要な資料を作業机（メモリ）に広げ、頭脳（CPU）が処理するイメージです。机が広いほど多くの作業を同時にこなせます。</figcaption>
+        </figure>
 
         <h3>CPU（Central Processing Unit）</h3>
         <p><span class="key-term">CPU</span>はコンピューターの頭脳にあたる演算処理装置です。主な性能指標：</p>
@@ -84,6 +117,18 @@
         </ul>
 
         <h3>ストレージ：HDD vs SSD</h3>
+
+        <figure class="diagram" data-dg="storage">
+          <div class="diagram-head"><span class="tag">図解</span>読み込み速度を比べる（MB/s）</div>
+          <div class="diagram-body">
+            <div class="bars">
+              <div class="bar is-muted" style="--v:2;--i:0"><span class="bar-label">HDD</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-val">100〜150</span></div>
+              <div class="bar" style="--v:8;--i:1"><span class="bar-label">SSD（SATA）</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-val">500〜550</span></div>
+              <div class="bar" style="--v:100;--i:2"><span class="bar-label">SSD（NVMe）</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-val">3,000〜7,000+</span></div>
+            </div>
+          </div>
+          <figcaption>NVMe SSDはHDDの約50倍以上。衝撃に弱いHDDは可動部品があるのに対し、SSDは可動部品がありません。</figcaption>
+        </figure>
         <div class="table-wrap">
           <table>
             <thead>
@@ -107,9 +152,23 @@
       </section>
 
       <section class="content-section" id="interface">
-        <h2>2. インターフェース・接続</h2>
+        <h2><span class="h-num">02</span>インターフェース・接続</h2>
 
         <h3>USB規格</h3>
+
+        <figure class="diagram" data-dg="usb">
+          <div class="diagram-head"><span class="tag">図解</span>USBの最大転送速度</div>
+          <div class="diagram-body">
+            <div class="bars">
+              <div class="bar is-muted" style="--v:1.2;--i:0"><span class="bar-label">USB 2.0</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-val">480Mbps</span></div>
+              <div class="bar" style="--v:12.5;--i:1"><span class="bar-label">USB 3.2 Gen 1</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-val">5Gbps</span></div>
+              <div class="bar" style="--v:25;--i:2"><span class="bar-label">USB 3.2 Gen 2</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-val">10Gbps</span></div>
+              <div class="bar" style="--v:50;--i:3"><span class="bar-label">USB 3.2 Gen 2×2</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-val">20Gbps</span></div>
+              <div class="bar" style="--v:100;--i:4"><span class="bar-label">USB4</span><span class="bar-track"><span class="bar-fill"></span></span><span class="bar-val">40Gbps</span></div>
+            </div>
+          </div>
+          <figcaption>旧称との対応（USB 3.0＝3.2 Gen 1、USB 3.1＝3.2 Gen 2）がよく問われます。</figcaption>
+        </figure>
         <div class="table-wrap">
           <table>
             <thead>
@@ -162,7 +221,7 @@
       </section>
 
       <section class="content-section" id="notebook">
-        <h2>3. ノートPCの特徴</h2>
+        <h2><span class="h-num">03</span>ノートPCの特徴</h2>
 
         <h3>バッテリー</h3>
         <p>ノートPCのバッテリー容量は<span class="key-term">Wh（ワット時）</span>で表されます。容量が大きいほど長時間駆動が可能ですが、重量も増加します。</p>
@@ -186,7 +245,7 @@
       </section>
 
       <section class="content-section" id="mobile">
-        <h2>4. タブレット・スマートフォン</h2>
+        <h2><span class="h-num">04</span>タブレット・スマートフォン</h2>
 
         <h3>SoC（System on a Chip）</h3>
         <p><span class="key-term">SoC</span>は、CPU・GPU・NPU（AI処理）・通信モジュール等を1チップに統合したものです。スマートフォン・タブレットの心臓部です。</p>
@@ -232,7 +291,7 @@
       </section>
 
       <section class="content-section" id="printer">
-        <h2>5. プリンター・周辺機器</h2>
+        <h2><span class="h-num">05</span>プリンター・周辺機器</h2>
 
         <h3>インクジェット vs レーザー（トナー）</h3>
         <div class="table-wrap">
@@ -271,7 +330,7 @@
 
       <nav class="page-nav">
         <a href="camera.html" class="nav-prev">
-          <span>←</span>
+          <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></span>
           <div>
             <span class="nav-label">前のページ</span>
             <span class="nav-title">カメラ・映像機器</span>
@@ -282,7 +341,7 @@
             <span class="nav-label">次のカテゴリ</span>
             <span class="nav-title">生活家電</span>
           </div>
-          <span>→</span>
+          <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
       </nav>
 

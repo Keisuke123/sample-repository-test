@@ -4,13 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>電気の基礎 | 家電製品アドバイザー学習サイト</title>
+  <meta name="theme-color" content="#0b1024">
+  <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=JetBrains+Mono:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap">
   <link rel="stylesheet" href="../style.css">
+  <script src="../app.js" defer></script>
 </head>
-<body>
+<body data-cat="basics">
 
   <header class="site-header">
     <div class="header-inner">
-      <div class="site-title">🏠 家電製品アドバイザー 学習サイト</div>
+      <div class="site-title"><a href="../index.html"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h7a3 3 0 0 1 3 3v14a2 2 0 0 0-2-2H2z"/><path d="M22 4h-7a3 3 0 0 0-3 3v14a2 2 0 0 1 2-2h8z"/></svg><span class="label">家電製品アドバイザー 学習サイト</span></a></div>
       <nav class="breadcrumb">
         <a href="../index.html">トップ</a>
         <span class="sep">›</span>
@@ -20,7 +26,7 @@
   </header>
 
   <section class="hero">
-    <span class="hero-icon">🔌</span>
+    <span class="hero-icon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 2v6M15 2v6"/><path d="M6 8h12v3a6 6 0 0 1-12 0V8z"/><path d="M12 17v5"/></svg></span>
     <h1>電気の基礎</h1>
     <p class="hero-sub">電気の基本概念から省エネ制度まで、家電製品を理解するための基礎知識を学習します。</p>
     <div class="badge-row">
@@ -37,7 +43,7 @@
 
     <div class="card-grid">
       <a href="electricity.html" class="card">
-        <span class="card-icon">⚡</span>
+        <span class="card-icon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8z"/></svg></span>
         <h3>電気の基礎</h3>
         <p>電圧・電流・抵抗の関係、オームの法則、電力計算など電気の根本的な概念を学びます。</p>
         <ul class="card-topics">
@@ -46,11 +52,11 @@
           <li>交流と直流・日本の商用電源</li>
           <li>直列・並列回路の計算</li>
         </ul>
-        <span class="card-arrow">→</span>
+        <span class="card-arrow"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
 
       <a href="safety.html" class="card">
-        <span class="card-icon">🛡️</span>
+        <span class="card-icon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6l-8-3z"/><path d="m9 12 2 2 4-4"/></svg></span>
         <h3>安全規格</h3>
         <p>電気製品の安全基準、PSEマーク、国際安全規格、漏電・感電防止の知識を学びます。</p>
         <ul class="card-topics">
@@ -59,11 +65,11 @@
           <li>PSEマーク（菱形・丸）</li>
           <li>漏電遮断器（ELB）</li>
         </ul>
-        <span class="card-arrow">→</span>
+        <span class="card-arrow"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
 
       <a href="energy-saving.html" class="card">
-        <span class="card-icon">🌿</span>
+        <span class="card-icon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19c0-9 6-14 15-15-1 9-6 15-15 15z"/><path d="M5 19 13 11"/></svg></span>
         <h3>省エネ基礎</h3>
         <p>省エネ法の概要、トップランナー制度、統一省エネラベルの読み方を学びます。</p>
         <ul class="card-topics">
@@ -72,12 +78,12 @@
           <li>統一省エネラベル（1〜5星）</li>
           <li>APF・年間消費電力量</li>
         </ul>
-        <span class="card-arrow">→</span>
+        <span class="card-arrow"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
       </a>
     </div>
 
     <div class="info-box" style="margin-top:40px;">
-      <h2>💡 このカテゴリの学習ポイント</h2>
+      <h2><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.3h6c0-1 .4-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg>このカテゴリの学習ポイント</h2>
       <div class="info-box-grid">
         <div class="info-box-item">
           <h3>公式を確実に覚える</h3>
@@ -85,7 +91,7 @@
             <li>オームの法則：E = I × R</li>
             <li>電力：P = V × I（W）</li>
             <li>電力量：W = P × t（Wh）</li>
-            <li>APF = 期間消費電力量÷運転消費電力量</li>
+            <li>APF = 期間消費熱量 ÷ 期間消費電力量</li>
           </ul>
         </div>
         <div class="info-box-item">

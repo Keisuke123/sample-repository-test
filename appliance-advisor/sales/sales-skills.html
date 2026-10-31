@@ -4,13 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>販売技術 | 家電製品アドバイザー学習サイト</title>
+  <meta name="theme-color" content="#0b1024">
+  <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&family=JetBrains+Mono:wght@500;700;800&family=Noto+Sans+JP:wght@400;500;700;800;900&display=swap">
   <link rel="stylesheet" href="../style.css">
+  <script src="../app.js" defer></script>
 </head>
-<body>
+<body data-cat="sales">
 
   <header class="site-header">
     <div class="header-inner">
-      <div class="site-title">🏠 家電製品アドバイザー 学習サイト</div>
+      <div class="site-title"><a href="../index.html"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 4h7a3 3 0 0 1 3 3v14a2 2 0 0 0-2-2H2z"/><path d="M22 4h-7a3 3 0 0 0-3 3v14a2 2 0 0 1 2-2h8z"/></svg><span class="label">家電製品アドバイザー 学習サイト</span></a></div>
       <nav class="breadcrumb">
         <a href="../index.html">トップ</a>
         <span class="sep">›</span>
@@ -22,7 +28,7 @@
   </header>
 
   <section class="hero">
-    <span class="hero-icon">📈</span>
+    <span class="hero-icon"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="m3 17 6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></span>
     <h1>販売技術</h1>
     <p class="hero-sub">AIDMAの法則・商品知識の活用・価格交渉・アフターサービス・販売管理・デジタル時代の販売手法を学びます。</p>
     <div class="badge-row">
@@ -48,10 +54,35 @@
     <main class="content-body">
 
       <section class="content-section" id="aidma">
-        <h2>1. 販売の基本プロセス</h2>
+        <h2><span class="h-num">01</span>販売の基本プロセス</h2>
 
         <h3>AIDMAの法則</h3>
         <p><span class="key-term">AIDMA（アイドマ）の法則</span>は、消費者が商品を認知してから購入するまでの心理プロセスを表したモデルです。1920年代にアメリカで提唱されました。</p>
+
+        <figure class="diagram" data-dg="aidma">
+          <div class="diagram-head"><span class="tag">図解</span>AIDMA と AISAS：購買行動のモデル</div>
+          <div class="diagram-body">
+            <div class="chev-wrap">
+              <span class="chev-name">AIDMA<small>店頭中心</small></span>
+              <ol class="chev">
+                <li style="--i:0"><b>A</b>注意</li>
+                <li style="--i:1"><b>I</b>興味</li>
+                <li class="hl" style="--i:2"><b>D</b>欲求</li>
+                <li style="--i:3"><b>M</b>記憶</li>
+                <li style="--i:4"><b>A</b>行動</li>
+              </ol>
+              <span class="chev-name">AISAS<small>ネット時代</small></span>
+              <ol class="chev">
+                <li style="--i:0"><b>A</b>注意</li>
+                <li style="--i:1"><b>I</b>興味</li>
+                <li class="hl" style="--i:2"><b>S</b>検索</li>
+                <li style="--i:3"><b>A</b>行動</li>
+                <li class="hl" style="--i:4"><b>S</b>共有</li>
+              </ol>
+            </div>
+          </div>
+          <figcaption>AIDMAでは「D：欲求」の段階で価格を提示するのが効果的。AISASでは来店前の「検索」と購入後の「共有（口コミ）」が加わります。</figcaption>
+        </figure>
         <div class="table-wrap">
           <table>
             <thead>
@@ -103,7 +134,7 @@
       </section>
 
       <section class="content-section" id="knowledge">
-        <h2>2. 商品知識の活用</h2>
+        <h2><span class="h-num">02</span>商品知識の活用</h2>
 
         <h3>自社製品・競合製品の比較</h3>
         <p>お客様から「他社製品と比べてどうですか？」と聞かれることは多くあります。競合製品の特徴も正確に把握し、自社製品の優位点を客観的に説明することが信頼につながります。</p>
@@ -131,7 +162,7 @@
       </section>
 
       <section class="content-section" id="price">
-        <h2>3. 価格・交渉</h2>
+        <h2><span class="h-num">03</span>価格・交渉</h2>
 
         <h3>価格提示のタイミング</h3>
         <p>価格はお客様の購買意欲が高まった段階（D：欲求の段階）で提示するのが効果的です。価格を最初に提示すると、製品の価値を理解する前に「高い」という印象だけが残る可能性があります。</p>
@@ -156,7 +187,7 @@
       </section>
 
       <section class="content-section" id="after-service">
-        <h2>4. アフターサービス・保証</h2>
+        <h2><span class="h-num">04</span>アフターサービス・保証</h2>
 
         <h3>メーカー保証と延長保証</h3>
         <div class="table-wrap">
@@ -192,10 +223,33 @@
       </section>
 
       <section class="content-section" id="management">
-        <h2>5. 販売管理</h2>
+        <h2><span class="h-num">05</span>販売管理</h2>
 
         <h3>在庫管理・発注点の考え方</h3>
         <p>販売員は商品の在庫状況を把握し、適切なタイミングで発注（補充）することが重要です。</p>
+
+        <figure class="diagram" data-dg="reorder">
+          <div class="diagram-head"><span class="tag">図解</span>発注点・リードタイム・安全在庫の関係</div>
+          <div class="diagram-body">
+            <svg viewBox="0 0 540 230" role="img" aria-label="在庫が発注点まで減ったら発注し、リードタイム後に納品される在庫推移の図">
+              <rect x="60" y="160" width="470" height="30" style="fill:color-mix(in srgb,var(--success) 14%,transparent)"/>
+              <text x="524" y="180" class="d-sub" text-anchor="end">安全在庫</text>
+              <line x1="60" y1="120" x2="530" y2="120" stroke-width="2" stroke-dasharray="7 6" style="stroke:var(--cat)"/>
+              <text x="524" y="112" class="d-text" text-anchor="end" style="fill:var(--cat-ink)">発注点</text>
+              <line x1="60" y1="190" x2="530" y2="190" class="d-thin"/>
+              <line x1="60" y1="190" x2="60" y2="20" class="d-thin"/>
+              <text x="52" y="30" class="d-sub" text-anchor="end">在庫</text>
+              <text x="530" y="210" class="d-sub" text-anchor="end">時間 →</text>
+              <path d="M60 40 L200 120 L260 155 V40 L400 120 L460 155 V40 L520 74" class="d-line d-draw" stroke-width="3" style="--len:900;stroke:var(--text)"/>
+              <g class="d-pop" style="--d:.6s"><circle cx="200" cy="120" r="7" class="d-cat"/><text x="200" y="104" class="d-sub" text-anchor="middle">発注</text></g>
+              <g class="d-pop" style="--d:.9s"><circle cx="260" cy="40" r="7" class="d-ok"/><text x="276" y="36" class="d-sub">納品</text></g>
+              <g class="d-pop" style="--d:1.2s"><circle cx="400" cy="120" r="7" class="d-cat"/><circle cx="460" cy="40" r="7" class="d-ok"/></g>
+              <path d="M200 206 H260 M200 200 V212 M260 200 V212" class="d-thin" style="stroke:var(--text)"/>
+              <text x="230" y="224" class="d-sub" text-anchor="middle">リードタイム</text>
+            </svg>
+          </div>
+          <figcaption>発注点 ＝ リードタイム中に売れる量 ＋ 安全在庫。発注してから届くまでの間に在庫切れしないように設定します。</figcaption>
+        </figure>
         <div class="table-wrap">
           <table>
             <thead>
@@ -231,13 +285,31 @@
           粗利率 = 粗利 ÷ 売上高 × 100（%）
         </div>
 
+        <figure class="diagram" data-dg="margin">
+          <div class="diagram-head"><span class="tag live">インタラクティブ</span>粗利と粗利率を計算する</div>
+          <div class="diagram-body">
+            <div data-widget="margin">
+              <div class="ctrl">
+                <label class="ctrl-row"><span>仕入単価</span><input type="range" min="10000" max="200000" step="5000" value="50000" data-k="cost"><output data-o="cost">50,000 円</output></label>
+                <label class="ctrl-row"><span>販売単価</span><input type="range" min="10000" max="300000" step="5000" value="80000" data-k="price"><output data-o="price">80,000 円</output></label>
+              </div>
+              <div class="margin-split" style="--v:62.5"><span class="ms-cost">原価</span><span class="ms-gross">粗利</span></div>
+              <div class="readout">
+                <div><small>粗利 ＝ 売上 − 原価</small><b data-o="gross">30,000 円</b></div>
+                <div class="hl"><small>粗利率 ＝ 粗利 ÷ 売上 × 100</small><b data-o="rate">37.5 %</b></div>
+              </div>
+            </div>
+          </div>
+          <figcaption>初期値は試験によく出る例（仕入れ5万円 → 8万円で販売 → 粗利3万円・粗利率37.5%）です。</figcaption>
+        </figure>
+
         <div class="exam-tip">
           <p>粗利率の計算は「粗利÷売上高×100」。例：仕入れ5万円の商品を8万円で売った場合、粗利3万円、粗利率37.5%。在庫回転率が低い（商品が売れていない）場合は品揃えや陳列方法の見直しを検討。</p>
         </div>
       </section>
 
       <section class="content-section" id="digital">
-        <h2>6. デジタル時代の販売</h2>
+        <h2><span class="h-num">06</span>デジタル時代の販売</h2>
 
         <h3>オムニチャネル（実店舗＋EC）</h3>
         <p><span class="key-term">オムニチャネル</span>は、実店舗・ECサイト・スマートフォンアプリ・カタログ等、複数の販売チャネルを統合してシームレスな購買体験を提供する戦略です。</p>
@@ -286,7 +358,7 @@
 
       <nav class="page-nav">
         <a href="customer-service.html" class="nav-prev">
-          <span>←</span>
+          <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></span>
           <div>
             <span class="nav-label">前のページ</span>
             <span class="nav-title">接客・顧客対応</span>
@@ -297,7 +369,7 @@
             <span class="nav-label">次のカテゴリ</span>
             <span class="nav-title">環境・エコ</span>
           </div>
-          <span>→</span>
+          <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
       </nav>
 
