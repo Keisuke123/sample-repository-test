@@ -1,0 +1,38 @@
+{
+  "$comment": "AIニュースの1日分（data/YYYY-MM-DD.json）の定義。データ構造はここだけで定義する。変更時は schemaVersion を上げ、scripts/migrate.py に移行処理を追加する。",
+  "schemaVersion": 1,
+  "categories": {
+    "A": "モデル・製品",
+    "B": "ハーネス・エージェント",
+    "C": "OSS"
+  },
+  "maxItemsPerCategory": 3,
+  "type": "object",
+  "required": ["schemaVersion", "date", "period", "topHeadline", "items"],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {"type": "integer", "const": 1},
+    "date": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$"},
+    "period": {"type": "string", "minLength": 1},
+    "topHeadline": {"type": "string", "minLength": 1},
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["cat", "headline", "summary", "why", "url"],
+        "additionalProperties": false,
+        "properties": {
+          "cat": {"type": "string", "enum": ["A", "B", "C"]},
+          "headline": {"type": "string", "minLength": 1},
+          "summary": {"type": "string", "minLength": 1},
+          "why": {"type": "string", "minLength": 1},
+          "url": {"type": "string", "pattern": "^https?://"},
+          "refs": {
+            "type": "array",
+            "items": {"type": "string", "pattern": "^https?://"}
+          }
+        }
+      }
+    }
+  }
+}

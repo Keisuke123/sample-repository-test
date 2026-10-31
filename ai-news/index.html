@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AIニュース</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1>AIニュース</h1>
+      <p>モデル・製品／ハーネス・エージェント／OSS の重要ニュースを毎朝まとめています（直近30日分）。</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <nav class="date-nav" id="date-nav" aria-label="日付"></nav>
+    <div id="issue"><p class="message">読み込み中...</p></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container" id="generated-at"></div>
+  </footer>
+
+  <script>
+    // 表示用のカテゴリ名。schema.json の categories と揃える
+    const CATEGORIES = { A: "モデル・製品", B: "ハーネス・エージェント", C: "OSS" };
+    const WEEKDAYS = ["日", "月", "火", "水", "木", "金", "土"];
+
+    function el(tag, attrs = {}, text) {
+      const node = document.createElement(tag);
+      for (const [k, v] of Object.entries(attrs)) node.setAttribute(k, v);
+      if (text !== undefined) node.textContent = text;
+      return node;
+    }
+
+    function safeUrl(url) {
+      return typeof url === "string" && /^https?:\/\//.test(url) ? url : null;
+    }
+
+    function formatDate(date) {
+      const [y, m, d] = date.split("-").map(Number);
+      const w = WEEKDAYS[new Date(y, m - 1, d).getDay()];
+      return `${y}/${String(m).padStart(2, "0")}/${String(d).padStart(2, "0")}（${w}）`;
+    }
+
+    function renderNav(issues, current) {
+      const nav = document.getElementById("date-nav");
+      nav.replaceChildren(...issues.map(({ date }) => {
+        const a = el("a", { href: `#${date}` }, formatDate(date).slice(5));
+        if (date === current) a.setAttribute("aria-current", "true");
+        return a;
+      }));
+    }
+
+    function renderItem(item) {
+      const box = el("article", { class: "item" });
+      box.append(el("h3", {}, item.headline || ""));
+      if (item.summary) box.append(el("p", {}, item.summary));
+      if (item.why) box.append(el("p", { class: "why" }, `なぜ重要か：${item.why}`));
+      const links = el("ul", { class: "links" });
+      const urls = [item.url, ...(Array.isArray(item.refs) ? item.refs : [])];
+      urls.forEach((url, i) => {
+        if (!safeUrl(url)) return;
+        const li = el("li", {}, i === 0 ? "ソース：" : "参考：");
+        li.append(el("a", { href: url, target: "_blank", rel: "noopener noreferrer" }, url));
+        links.append(li);
+      });
+      if (links.children.length) box.append(links);
+      return box;
+    }
+
+    function renderIssue(issue) {
+      const root = document.getElementById("issue");
+      const items = Array.isArray(issue.items) ? issue.items : [];
+      const parts = [
+        el("p", { class: "issue-meta" }, `${formatDate(issue.date)}　対象期間：${issue.period || "-"}`),
+        el("p", { class: "top-headline" }, issue.topHeadline || "大きな動きなし"),
+      ];
+      for (const [cat, name] of Object.entries(CATEGORIES)) {
+        const section = el("section", { class: "category", "data-cat": cat });
+        section.append(el("h2", {}, `${cat}. ${name}`));
+        const catItems = items.filter((item) => item.cat === cat);
+        if (catItems.length) section.append(...catItems.map(renderItem));
+        else section.append(el("p", { class: "none" }, "大きな動きなし"));
+        parts.push(section);
+      }
+      root.replaceChildren(...parts);
+    }
+
+    function showMessage(text) {
+      document.getElementById("issue").replaceChildren(el("p", { class: "message" }, text));
+    }
+
+    async function fetchJson(path) {
+      const res = await fetch(path, { cache: "no-cache" });
+      if (!res.ok) throw new Error(`${path}: ${res.status}`);
+      return res.json();
+    }
+
+    async function main() {
+      let index;
+      try {
+        index = await fetchJson("data/index.json");
+      } catch (e) {
+        showMessage("データを読み込めませんでした。");
+        return;
+      }
+      const issues = index.issues || [];
+      if (index.generatedAt) {
+        document.getElementById("generated-at").textContent = `最終更新：${index.generatedAt.replace("T", " ").slice(0, 16)}`;
+      }
+      if (!issues.length) {
+        showMessage("まだニュースがありません。");
+        return;
+      }
+
+      async function show() {
+        const hash = location.hash.slice(1);
+        const date = issues.some((x) => x.date === hash) ? hash : issues[0].date;
+        renderNav(issues, date);
+        try {
+          renderIssue(await fetchJson(`data/${date}.json`));
+        } catch (e) {
+          showMessage(`${date} のデータを読み込めませんでした。`);
+        }
+      }
+      window.addEventListener("hashchange", show);
+      show();
+    }
+
+    main();
+  </script>
+</body>
+</html>

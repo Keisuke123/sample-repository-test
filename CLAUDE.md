@@ -12,6 +12,7 @@
 /
 ├── CLAUDE.md
 ├── index.html          # appliance-advisor/ への即時リダイレクト
+├── ai-news/            # AIニュース（スケジュールタスクが毎日 data/ を更新）
 ├── appliance-advisor/  # 家電製品アドバイザー 学習サイト
 └── travel/
     ├── index.html      # 旅行一覧ページ
@@ -27,6 +28,12 @@
 - 各ディレクトリにも `index.html` を置き、そのカテゴリ内のページ一覧を示す
 - ファイル名はわかりやすい英語小文字＋ハイフン区切り（例: `singapore-2026.html`）
 - 外部依存は最小限に抑える（CDN利用は可、npmビルドは不要）
+
+## ai-news の運用
+
+- 毎日の手順は `ai-news/ROUTINE.md`、データの定義は `ai-news/schema.json` が唯一の定義
+- データ構造を変えるときは schemaVersion を上げ、`scripts/migrate.py` に移行処理を追加し、schema・ページ・ROUTINE.md・既存データを同じコミットで更新する
+- `python3 ai-news/scripts/update_index.py --check` で検証できる
 
 ## コーディングスタイル
 
